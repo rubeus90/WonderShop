@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  * @author JM
  */
 @WebServlet(name = "MainControleur", urlPatterns = {"/MainControleur"})
-public class MainControleur extends HttpServlet {
+public class MainControleur extends AbstractControleur {
 
     private String direction;
     
@@ -33,8 +33,8 @@ public class MainControleur extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    @Override
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession();
@@ -46,8 +46,6 @@ public class MainControleur extends HttpServlet {
         else {
             response.sendRedirect("/"+direction);
         }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
