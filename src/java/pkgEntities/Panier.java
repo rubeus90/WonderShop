@@ -6,82 +6,30 @@
 
 package pkgEntities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author rubeus
  */
 public class Panier extends Entities{
-
-    private String nom;
-    private String description;
-    private String prix;
-    private String quantite;
-    private String url_image;
-    private String date_creation;
-    private Categorie categorie;
     
-    public String getNom() {
-        return nom;
+    List<Article> articleList;
+
+    public Panier() {
+        articleList = new ArrayList<Article>();
     }
 
-    public String getDescription() {
-        return description;
+    public List<Article> getArticleList() {
+        return articleList;
     }
 
-    public String getPrix() {
-        return prix;
-    }
-
-    public String getQuantite() {
-        return quantite;
-    }
-
-    public String getUrl_image() {
-        return url_image;
-    }
-
-    public String getDate_creation() {
-        return date_creation;
-    }
-
-    public Categorie getCategorie() {
-        return categorie;
-    }
-
-    public void setNom(String nom) {
-        if(stringValid(nom)){
-            this.nom = nom;
-        }
-    }
-
-    public void setDescription(String description) {
-        if(stringValid(description)){
-            this.description = description;
-        }
-    }
-
-    public void setPrix(String prix) {
-        if(intValid(prix)){
-            this.prix = prix;
-        }        
-    }
-
-    public void setQuantite(String quantite) {
-        if(intValid(quantite)){
-            this.quantite = quantite;
-        }        
-    }
-
-    public void setUrl_image(String url_image) {
-        this.url_image = url_image;
-    }
-
-    public void setDate_creation(String date_creation) {
-        this.date_creation = date_creation;
-    }
-
-    public void setCategorie(Categorie categorie) {
-        this.categorie = categorie;
+    public void setArticleList(List<Article> articleList) {
+        this.articleList = articleList;
     }
     
+    public void addArticle(Article pArticle) {
+        articleList.add(pArticle);
+    }
 }
