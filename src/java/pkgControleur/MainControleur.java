@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgEntities.Client;
 
 /**
  *
@@ -38,13 +39,21 @@ public class MainControleur extends AbstractControleur {
         response.setContentType("text/html;charset=UTF-8");
         
         session = request.getSession();
+        
+        /* Page à afficher */
         direction = (String) session.getAttribute("direction");
         
-        if(direction == null) {
-            response.sendRedirect("/IndexControleur");
-        }
-        else {
-            response.sendRedirect("/"+direction);
+        client = (Client) session.getAttribute("client");
+        
+        /* Si un client est connecté */
+        if(client!=null) {
+            /* Première page */
+            if(direction == null) {
+                response.sendRedirect("/IndexControleur");
+            }
+            else {
+                response.sendRedirect("/"+direction);
+            }
         }
     }
 

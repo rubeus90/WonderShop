@@ -14,6 +14,7 @@ public class Client extends Entities{
     private int id;
     private String nom;
     private String prenom;
+    private String password;
     private String telephone;
     private String email;
     private String adresse;
@@ -49,6 +50,14 @@ public class Client extends Entities{
         }        
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+    
     public String getTelephone() {
         return telephone;
     }

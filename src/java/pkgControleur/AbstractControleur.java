@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgEntities.Client;
 import pkgEntities.Panier;
 
 /**
@@ -20,6 +21,7 @@ import pkgEntities.Panier;
  */
 public abstract class AbstractControleur extends HttpServlet  {
     
+    Client client;
     Panier panier;
     HttpSession session;
     
