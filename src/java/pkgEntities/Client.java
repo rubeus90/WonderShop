@@ -14,6 +14,7 @@ public class Client extends Entities{
     private String nom;
     private String prenom;
     private String telephone;
+    private String email;
     private String adresse;
     private String codePostal;
     private String ville;
@@ -28,7 +29,7 @@ public class Client extends Entities{
             this.nom = nom;
         }        
     }
-
+    
     public String getPrenom() {
         return prenom;
     }
@@ -47,6 +48,15 @@ public class Client extends Entities{
         if(intValid(telephone)){
             this.telephone = telephone;
         }        
+    }
+    
+    public void setEmail(String email) {
+        if(emailValid(email))
+            this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getAdresse() {
