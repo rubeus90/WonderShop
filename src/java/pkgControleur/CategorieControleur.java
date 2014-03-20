@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class CategorieControleur extends HttpServlet {
+public class CategorieControleur extends AbstractControleur {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

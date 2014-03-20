@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author rubeus
  */
-public class ConnexionControleur extends HttpServlet {
+public class ConnexionControleur extends AbstractControleur {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
