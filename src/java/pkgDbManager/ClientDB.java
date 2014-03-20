@@ -7,6 +7,7 @@
 package pkgDbManager;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -68,9 +69,17 @@ public class ClientDB extends ManagerDB{
             String ville = client.getVille();
             String dateCreation = client.getDateCreation();
             
-            String string = "INSERT INTO CLIENT(NOM,PRENOM,TELEPHONE,EMAIL,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION) VALUES ('"+nom+"','"+prenom+"','"+tel+"','"+email+"','"+adresse+"','"+codePostal+"','"+ville+"','"+dateCreation+"')";
-            Statement statement = connexion.createStatement();
-            statement.executeUpdate(string);
+            String query = "INSERT INTO CLIENT(NOM,PRENOM,TELEPHONE,EMAIL,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION) VALUES (?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = connexion.prepareStatement(query);
+            statement.setString(1, nom);
+            statement.setString(2, prenom);
+            statement.setString(3, tel);
+            statement.setString(4, email);
+            statement.setString(5, adresse);
+            statement.setString(6, codePostal);
+            statement.setString(7, ville);
+            statement.setString(8, dateCreation);
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
         }

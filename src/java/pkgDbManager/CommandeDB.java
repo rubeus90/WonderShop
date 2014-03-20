@@ -7,6 +7,7 @@
 package pkgDbManager;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -58,11 +59,13 @@ public class CommandeDB extends ManagerDB{
         int idClient = client.getId();
         int idArticle = article.getId();
         
-        String string = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES ("+idClient+","+idArticle+"')";
-        Statement statement;
+        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES ("+idClient+","+idArticle+"')";
+        PreparedStatement statement;
         try {
-            statement = connexion.createStatement();
-            statement.executeUpdate(string);
+            statement = connexion.prepareStatement(query);
+            statement.setInt(1, idClient);
+            statement.setInt(2, idArticle);
+            statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
         }        
