@@ -9,7 +9,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" media="screen" href="./css/index.css" type="text/css" />
         <link rel="stylesheet" media="screen" href="./css/header.css" type="text/css" />
         <title>WonderShop</title>
