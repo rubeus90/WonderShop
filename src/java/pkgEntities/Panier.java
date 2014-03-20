@@ -43,7 +43,20 @@ public class Panier extends Entities {
         }
     }
     
+    public boolean coucou(Article article) {
+        
+        return map.containsKey(article);
+    }
+    
     public void addArticle(Article pArticle) {
+        /*
+        if(coucou(pArticle)) {
+            map.put(pArticle,8);
+        } else {
+            map.put(pArticle,map.size());
+        }
+        */
+        
         if(map.size()!=0) {
             if(map.containsKey(pArticle)) {
                 int effectif = map.get(pArticle) + 1;
@@ -51,8 +64,10 @@ public class Panier extends Entities {
             }
             else
                 map.put(pArticle,1);
-        }
-        map.put(pArticle,1);
+        } 
+        else
+            map.put(pArticle,1);
+        
     }
     
     public String getPrix() {

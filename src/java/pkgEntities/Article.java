@@ -6,6 +6,8 @@
 
 package pkgEntities;
 
+import java.util.Objects;
+
 /**
  *
  * @author rubeus
@@ -30,6 +32,13 @@ public class Article extends Entities{
             }
         }
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.nom);
+        return hash;
     }
     
     public String getNom() {
@@ -65,9 +74,9 @@ public class Article extends Entities{
     }
 
     public void setNom(String nom) {
-        if(stringValid(nom)){
+        //if(stringValid(nom)){
             this.nom = nom;
-        }
+        //}
     }
 
     public void setDescription(String description) {

@@ -38,47 +38,19 @@
         </header>
 
         <section>
-            <ul>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <form acion="" method="post">
-                        <p>Magic Man (1)</p>
-                        <input type="submit" name="delete" value="Supprimer"/>
-                        <input type="submit" name="add" value="Ajouter"/>
-                    </form>
-                    <div>
-                        <p>150€</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <form acion="" method="post">
-                        <p>Magic Man (1)</p>
-                        <input type="submit" name="delete" value="Supprimer"/>
-                        <input type="submit" name="add" value="Ajouter"/>
-                    </form>
-                    <div>
-                        <p>150€</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <form acion="" method="post">
-                        <p>Magic Man (2)</p>
-                        <input type="submit" name="delete" value="Supprimer"/>
-                        <input type="submit" name="add" value="Ajouter"/>
-                    </form>
-                    <div>
-                        <p>300€</p>
-                    </div>
-                </li>
-                
+            <ul>         
                 <%
                 Panier panier = (Panier) session.getAttribute("panier");
+                /* TEST : remplir le panier */
                 Article test = new Article();
-                test.setNom("Article");
-                test.setPrix("1000");
+                test.setNom("Magic Man");
+                test.setPrix("150");
                 panier.addArticle(test);
+                Article test1 = new Article();
+                test1.setNom("Passe moi le savon");
+                test1.setPrix("199");
+                panier.addArticle(test1);
+                /******************************/
                 String html = "";
                 for(Article article : panier.getMap().keySet()) {
                     html+="<li>";
