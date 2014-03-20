@@ -55,6 +55,9 @@ public class MainControleur extends AbstractControleur {
                 response.sendRedirect("/"+direction);
             }
         }
+        else {
+            response.sendRedirect("/IndexControleur");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
