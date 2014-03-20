@@ -23,12 +23,12 @@
                     <li><a href="">Punk-Rock</a></li>
                     <li><a href="">Alternatif</a></li>
                 </ul>
-                <div id="logo"><a href="index.html">
+                <div id="logo"><a href="">
                     <img src="icon/logo.png" alt="logo">
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
-            <div id="cart"><a href="panier.html">
+            <div id="cart"><a href="panier">
                 <div id="shop">
                     <img src="icon/cart.png" alt="cart"><span>(0)</span>
                 </div>
@@ -38,7 +38,7 @@
 
         <section>
             <h2>Indie-Pop</h2>
-            <article><a href="article.html">
+            <article><a href="/article">
                 <img src="img/magicman.jpg" alt="article"/>
                 <p>150€</p>
             </a></article>
