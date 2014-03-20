@@ -32,6 +32,10 @@ public class Article extends Entities{
     public String getPrix() {
         return prix;
     }
+    
+    public double getPrix_double() {
+        return Double.parseDouble(prix);
+    }
 
     public String getQuantite() {
         return quantite;

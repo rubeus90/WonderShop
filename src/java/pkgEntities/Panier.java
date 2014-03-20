@@ -57,9 +57,8 @@ public class Panier extends Entities{
     public String getPrix() {
         int prix = 0;
         for(Article article : map.keySet()) {
-            //prix += map.get(article)*article.get;
+            prix += map.get(article)*article.getPrix_double();
         }
-        
         return ""+prix;
     }
 }
