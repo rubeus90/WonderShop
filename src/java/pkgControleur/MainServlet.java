@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.ecommerce;
+package pkgControleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;
