@@ -26,7 +26,7 @@ public class ArticleDB extends ManagerDB{
         connexion = super.connection();
     }
     
-    public Article hydrate(int id){
+    public Article get(int id){
         Article article = new Article();
         CategorieDB categorieDB = new CategorieDB();
         
@@ -43,13 +43,14 @@ public class ArticleDB extends ManagerDB{
             String dateCreation = resultat.getString("DATE_CREATION");
             int idCategorie = resultat.getInt("ID_CATEGORIE");
             
+            article.setId(id);
             article.setNom(nom);
             article.setDescription(description);
             article.setPrix(prix);
             article.setQuantite(quantite);
             article.setUrl_image(urlImage);
             article.setDate_creation(dateCreation);
-            article.setCategorie(categorieDB.hydrate(idCategorie));
+            article.setCategorie(categorieDB.get(idCategorie));
         } 
         catch (SQLException ex) {
             Logger.getLogger(ArticleDB.class.getName()).log(Level.SEVERE, null, ex);

@@ -25,7 +25,7 @@ public class ClientDB extends ManagerDB{
         connexion = super.connection();
     }
     
-    public Client hydrate(int id){
+    public Client get(int id){
         Client client = new Client();
         try {
             /* Création de l'objet gérant les requêtes */
@@ -40,7 +40,8 @@ public class ClientDB extends ManagerDB{
             String codePostal = resultat.getString("CODE_POSTAL");
             String ville = resultat.getString("VILLE");
             String dateCreation = resultat.getString("DATE_CREATION");
-
+            
+            client.setId(id);
             client.setNom(nom);
             client.setPrenom(prenom);
             client.setEmail(email);

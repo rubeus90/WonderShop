@@ -12,6 +12,7 @@ package pkgEntities;
  */
 public class Article extends Entities{
 
+    private int id;
     private String nom;
     private String description;
     private String prix;
@@ -83,5 +84,12 @@ public class Article extends Entities{
     public void setCategorie(Categorie categorie) {
         this.categorie = categorie;
     }
-    
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

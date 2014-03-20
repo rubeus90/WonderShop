@@ -25,7 +25,7 @@ public class CategorieDB extends ManagerDB{
         connexion = super.connection();
     }
     
-    public Categorie hydrate(int id){
+    public Categorie get(int id){
         Categorie categorie = new Categorie();
         
         Statement statement;
@@ -38,6 +38,7 @@ public class CategorieDB extends ManagerDB{
             String nom = resultat.getString("NOM");
 
             categorie.setNom(nom);
+            categorie.setId(id);
         } catch (SQLException ex) {
             Logger.getLogger(CategorieDB.class.getName()).log(Level.SEVERE, null, ex);
         }        

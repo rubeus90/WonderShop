@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pkgEntities.Article;
+import pkgEntities.Client;
 import pkgEntities.Commande;
 
 /**
@@ -25,7 +27,7 @@ public class CommandeDB extends ManagerDB{
         connexion = super.connection();
     }
     
-    public Commande hydrate(int id){
+    public Commande get(int id){
         Commande commande = new Commande();
         ClientDB clientDB = new ClientDB();
         ArticleDB articleDB = new ArticleDB();
@@ -39,13 +41,30 @@ public class CommandeDB extends ManagerDB{
             int idClient = resultat.getInt("ID_CLIENT");
             int idArticle = resultat.getInt("ID_ARTICLE");
             
-            commande.setArticle(articleDB.hydrate(idArticle));
-            commande.setClient(clientDB.hydrate(idClient));
+            commande.setArticle(articleDB.get(idArticle));
+            commande.setClient(clientDB.get(idClient));
         } 
         catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return commande;
+    }
+    
+    public void add(Commande commande){
+        Client client = commande.getClient();
+        Article article = commande.getArticle();
+        
+        int idClient = client.getId();
+        int idArticle = article.getId();
+        
+        String string = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES ("+idClient+","+idArticle+"')";
+        Statement statement;
+        try {
+            statement = connexion.createStatement();
+            statement.executeUpdate(string);
+        } catch (SQLException ex) {
+            Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
+        }        
     }
 }

@@ -11,6 +11,7 @@ package pkgEntities;
  * @author rubeus
  */
 public class Client extends Entities{
+    private int id;
     private String nom;
     private String prenom;
     private String telephone;
@@ -20,6 +21,14 @@ public class Client extends Entities{
     private String ville;
     private String dateCreation;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getNom() {
         return nom;
     }
