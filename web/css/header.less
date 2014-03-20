@@ -1,0 +1,94 @@
+/**************** COULEUR **************/
+@bg :#fafaf6;
+@grey: #2b2b2b;
+@red : #d63737;
+@article : #e6e5e1;
+
+@width: 1200px;
+@margin : 4px;
+
+header{
+	display:table;
+	width: @width;
+	margin: 0 auto 50px;
+	div{
+		display:table-cell;
+		vertical-align: middle;
+	}
+	#header{	
+		width:80%;
+		#logo{
+			overflow: auto;
+			a{
+				display:block;
+				width:100%;
+				height:100%;
+				h1{
+					display:inline-block;
+					margin-left:20px;
+					font-size:3rem;
+					color: @red;
+				}
+				img{
+					display:inline-block;
+					width:40px;
+				}
+			}
+		}
+		ul{
+			display:table;
+			padding: 5px 0 20px;
+			li{
+				display:block;
+				float:left;
+				margin-right:30px;
+				a{
+					display:block;
+					font-size:1.2rem;
+					color:@red;
+					transition:all 0.3s ease;
+					border-bottom:2px solid transparent;
+					&:hover{
+						border-bottom : 2px solid @grey;
+						color:@grey
+					}
+				}
+			}
+		}
+	}
+	#cart{
+		width: 200px;
+		background:@red;	
+		transition: all 0.3s ease;
+		&:hover{
+			background: @grey;
+		}
+		a{
+			display:block;
+			width:100%;
+			height:100%;
+			div{
+				display:table;
+				margin: 0 auto;
+				padding:40px 0;
+				//border:1px solid green;
+				img{
+					display:block;
+					float:left;
+					width:60px;
+				}
+				span{
+					padding-left:10px;
+					font-size:3rem;
+				}
+			}
+			p,span{
+				color:white;
+			}
+			p{
+				font-size:2rem;
+				text-align: center;
+			}
+		}
+	}	
+}
