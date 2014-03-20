@@ -84,4 +84,19 @@ public class ClientDB extends ManagerDB{
             Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public boolean check_login(String email, String password){
+        String query = "SELECT PASSWORD FROM CLIENT WHERE EMAIL='"+email+"'";
+        Statement statement;
+        try {
+            statement = connexion.createStatement();
+            ResultSet resultat = statement.executeQuery(query);
+            resultat.next();
+            String passwordDB = resultat.getString("PASSWORD");
+            return passwordDB.equals(password);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
 }
