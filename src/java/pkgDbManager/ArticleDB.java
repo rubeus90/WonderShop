@@ -6,10 +6,16 @@
 
 package pkgDbManager;
 
+import java.sql.Connection;
+
 /**
  *
  * @author rubeus
  */
-public class ArticleDB {
+public class ArticleDB extends ManagerDB{
+    Connection connexion;
     
+    public ArticleDB(){
+        connexion = super.connection();
+    }
 }

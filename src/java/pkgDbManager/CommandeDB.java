@@ -6,10 +6,16 @@
 
 package pkgDbManager;
 
+import java.sql.Connection;
+
 /**
  *
  * @author rubeus
  */
-public class CommandeDB {
+public class CommandeDB extends ManagerDB{
+    Connection connexion;
     
+    public CommandeDB(){
+        connexion = super.connection();
+    }
 }
