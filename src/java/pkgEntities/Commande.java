@@ -11,5 +11,23 @@ package pkgEntities;
  * @author rubeus
  */
 public class Commande {
+    Client client;
+    Article article;
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
     
 }
