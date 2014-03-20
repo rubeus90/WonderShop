@@ -4,6 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/JM/Documents/NetBeansProjects/e-commerce/src/java/pkgEntities/Panier.java</file>
+            <file>file:/C:/Users/JM/Documents/NetBeansProjects/e-commerce/src/java/pkgFormManager/Enregistrer.java</file>
+            <file>file:/C:/Users/JM/Documents/NetBeansProjects/e-commerce/src/java/pkgDbManager/CommandeDB.java</file>
+            <file>file:/C:/Users/JM/Documents/NetBeansProjects/e-commerce/src/java/pkgFormManager/Connexion.java</file>
+            <file>file:/C:/Users/JM/Documents/NetBeansProjects/e-commerce/src/java/pkgDbManager/ArticleDB.java</file>
+            <file>file:/C:/Users/JM/Documents/NetBeansProjects/e-commerce/web/PanierControleur.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -43,19 +43,7 @@ public class Panier extends Entities {
         }
     }
     
-    public boolean coucou(Article article) {
-        
-        return map.containsKey(article);
-    }
-    
     public void addArticle(Article pArticle) {
-        /*
-        if(coucou(pArticle)) {
-            map.put(pArticle,8);
-        } else {
-            map.put(pArticle,map.size());
-        }
-        */
         
         if(map.size()!=0) {
             if(map.containsKey(pArticle)) {
@@ -76,5 +64,13 @@ public class Panier extends Entities {
             prix += map.get(article)*article.getPrix_double();
         }
         return ""+prix;
+    }
+    
+    public int getEffectif() {
+        int eff = 0;
+        for(Article article:map.keySet()) {
+            eff += map.get(article);
+        }
+        return eff;
     }
 }

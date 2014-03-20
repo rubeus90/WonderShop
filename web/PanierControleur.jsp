@@ -31,7 +31,15 @@
             </div>
             <div id="cart"><a href="panier.html">
                 <div id="shop">
-                    <img src="icon/cart.png" alt="cart"><span>(0)</span>
+                    <img src="icon/cart.png" alt="cart">
+                    <span>
+                        (
+                        <%
+                        Panier panier = (Panier) session.getAttribute("panier");
+                        out.println( ((Panier) session.getAttribute("panier")).getEffectif() );
+                        %>
+                        )
+                    </span>
                 </div>
             </a></div>
             
@@ -40,7 +48,6 @@
         <section>
             <ul>         
                 <%
-                Panier panier = (Panier) session.getAttribute("panier");
                 /* TEST : remplir le panier */
                 Article test = new Article();
                 test.setNom("Magic Man");
@@ -68,8 +75,6 @@
                 out.println(html);
                 %>
         
-                
-                
             </ul>
             <p id="total"><%= panier.getPrix() %>€</p>
             <div id="buy"><a href="">
