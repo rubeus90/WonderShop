@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgEntities.Panier;
 
 public class CategorieControleur extends AbstractControleur {
 
@@ -19,7 +20,12 @@ public class CategorieControleur extends AbstractControleur {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
         session = request.getSession();
+        panier = (Panier) session.getAttribute("panier");
+        if(panier == null) {
+            session.setAttribute("panier", new Panier());
+        }
         
         try {
             this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);

@@ -27,7 +27,7 @@
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
-            <div id="cart"><a href="panier">
+            <div id="cart"><a href="PanierControleur">
                 <div id="shop">
                     <img src="icon/cart.png" alt="cart"><span>(0)</span>
                 </div>
