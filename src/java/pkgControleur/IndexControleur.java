@@ -20,7 +20,13 @@ public class IndexControleur extends AbstractControleur {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession session = request.getSession();
+        session = request.getSession();
+        
+        try {
+            this.getServletContext().getRequestDispatcher("/IndexControleur.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

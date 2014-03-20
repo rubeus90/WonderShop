@@ -37,7 +37,7 @@ public class MainControleur extends AbstractControleur {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        HttpSession session = request.getSession();
+        session = request.getSession();
         direction = (String) session.getAttribute("direction");
         
         if(direction == null) {
