@@ -37,66 +37,7 @@
 
         <section>
             <h2>Indie-Pop</h2>
-            <article><a href="/article">
-                <img src="img/magicman.jpg" alt="article"/>
-                <p>150€</p>
-            </a></article>
-            <article>
-                <img src="img/hunterhunted.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/hunterhunted.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/hunterhunted.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/hunterhunted.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/hunterhunted.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/hunterhunted.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/mowglis.jpg" alt="article"/>
-                <p>200€</p>
-            </article>
-        </section>
-
-        <section>
-            <h2>Alternatif</h2>
-            <article>
-                <img src="img/lido.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/lido.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/lido.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/lido.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/lido.png" alt="article"/>
-                <p>200€</p>
-            </article>
-            <article>
-                <img src="img/lido.png" alt="article"/>
-                <p>200€</p>
-            </article>
+            
         </section>
     </body>
 </html>
