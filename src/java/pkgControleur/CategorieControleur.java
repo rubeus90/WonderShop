@@ -28,13 +28,14 @@ public class CategorieControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
-        Categorie categorie = new Categorie();
         
-        try {
-            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
+//        Categorie categorie = n
+//        
+//        try {
+//            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

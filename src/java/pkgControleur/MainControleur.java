@@ -7,15 +7,12 @@
 package pkgControleur;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import pkgEntities.Client;
 
 /**
@@ -24,8 +21,6 @@ import pkgEntities.Client;
  */
 @WebServlet(name = "MainControleur", urlPatterns = {"/MainControleur"})
 public class MainControleur extends AbstractControleur {
-
-    private String direction;
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,25 +36,43 @@ public class MainControleur extends AbstractControleur {
         response.setContentType("text/html;charset=UTF-8");
         
         session = request.getSession();
-        
-        /* Page à afficher */
-        direction = (String) session.getAttribute("direction");
-        
         client = (Client) session.getAttribute("client");
         
-        /* Si un client est connecté */
-        if(client!=null) {
-            /* Première page */
-            if(direction == null) {
-                callServlet(request, response, "/IndexControleur");
-            }
-            else {
-                callServlet(request, response, "/"+direction);
-            }
+        String path = request.getServletPath();
+        
+        
+        switch(path){
+            case "/IndiePop":
+                session.setAttribute("categorie", "IndiePop");
+                callServlet(request, response, "/CategorieControleur"); break;
+            case "/PopRock":
+                session.setAttribute("categorie", "PopRock");
+                callServlet(request, response, "/CategorieControleur"); break;
+            case "/PunkRock":
+                session.setAttribute("categorie", "PunkRock");
+                callServlet(request, response, "/CategorieControleur"); break;
+            case "/Alternatif":
+                session.setAttribute("categorie", "Alternatif");
+                callServlet(request, response, "/CategorieControleur"); break;
+            case "/Panier":
+                callServlet(request, response, "/PanierControleur"); break;
+            default: callServlet(request, response, "/IndexControleur");
         }
-        else {
-            callServlet(request, response, "/IndexControleur");
-        }
+        
+        
+//        /* Si un client est connecté */
+//        if(client!=null) {
+//            /* Première page */
+//            if(direction == null) {
+//                callServlet(request, response, "/IndexControleur");
+//            }
+//            else {
+//                callServlet(request, response, "/"+direction);
+//            }
+//        }
+//        else {
+//            callServlet(request, response, "/IndexControleur");
+//        }
     }
 
     public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {

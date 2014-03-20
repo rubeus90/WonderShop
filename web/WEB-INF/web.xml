@@ -23,7 +23,23 @@
         <servlet-name>MainControleur</servlet-name>
         <url-pattern>/MainControleur</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/IndiePop</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/PopRock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/PunkRock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/Alternatif</url-pattern>
+    </servlet-mapping>
+        
     
     
     <!-- Panier controleur -->
@@ -59,6 +75,7 @@
         <servlet-name>CategorieControleur</servlet-name>
         <url-pattern>/CategorieControleur</url-pattern>
     </servlet-mapping>
+    
     
     
     
