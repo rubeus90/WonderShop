@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgEntities.Categorie;
 import pkgEntities.Panier;
 
 public class CategorieControleur extends AbstractControleur {
@@ -26,6 +27,8 @@ public class CategorieControleur extends AbstractControleur {
         if(panier == null) {
             session.setAttribute("panier", new Panier());
         }
+        
+        Categorie categorie = new Categorie();
         
         try {
             this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);

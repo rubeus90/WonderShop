@@ -1,61 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     
-    <servlet>
-        <servlet-name>MainControleur</servlet-name>
-        <servlet-class>pkgControleur.MainControleur</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PanierControleur</servlet-name>
-        <servlet-class>pkgControleur.PanierControleur</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>IndexControleur</servlet-name>
-        <servlet-class>pkgControleur.IndexControleur</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>CategorieControleur</servlet-name>
-        <servlet-class>pkgControleur.CategorieControleur</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ConnexionControleur</servlet-name>
-        <servlet-class>pkgControleur.ConnexionControleur</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>EnregistrerControleur</servlet-name>
-        <servlet-class>pkgControleur.EnregistrerControleur</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>MainControleur</servlet-name>
-        <url-pattern>/MainControleur</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PanierControleur</servlet-name>
-        <url-pattern>/PanierControleur</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>IndexControleur</servlet-name>
-        <url-pattern>/IndexControleur</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CategorieControleur</servlet-name>
-        <url-pattern>/CategorieControleur</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ConnexionControleur</servlet-name>
-        <url-pattern>/ConnexionControleur</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>EnregistrerControleur</servlet-name>
-        <url-pattern>/EnregistrerControleur</url-pattern>
-    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>MainControleur</welcome-file>
+    </welcome-file-list>
+    
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     
-    <welcome-file-list>
-        <welcome-file>MainControleur</welcome-file>
-    </welcome-file-list>
+    
+    
+    <!-- Main controleur -->
+    <servlet>
+        <servlet-name>MainControleur</servlet-name>
+        <servlet-class>pkgControleur.MainControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/MainControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- Panier controleur -->
+    <servlet>
+        <servlet-name>PanierControleur</servlet-name>
+        <servlet-class>pkgControleur.PanierControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>PanierControleur</servlet-name>
+        <url-pattern>/PanierControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- Index controleur -->
+    <servlet>
+        <servlet-name>IndexControleur</servlet-name>
+        <servlet-class>pkgControleur.IndexControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexControleur</servlet-name>
+        <url-pattern>/IndexControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- Categorie controleur -->
+    <servlet>
+        <servlet-name>CategorieControleur</servlet-name>
+        <servlet-class>pkgControleur.CategorieControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategorieControleur</servlet-name>
+        <url-pattern>/CategorieControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- Connexion controleur -->
+    <servlet>
+        <servlet-name>ConnexionControleur</servlet-name>
+        <servlet-class>pkgControleur.ConnexionControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConnexionControleur</servlet-name>
+        <url-pattern>/ConnexionControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- Enregistrer controleur -->
+    <servlet>
+        <servlet-name>EnregistrerControleur</servlet-name>
+        <servlet-class>pkgControleur.EnregistrerControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EnregistrerControleur</servlet-name>
+        <url-pattern>/EnregistrerControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    
 </web-app>
