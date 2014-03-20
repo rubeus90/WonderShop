@@ -7,15 +7,41 @@
 package pkgDbManager;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import pkgEntities.Categorie;
 
 /**
  *
  * @author rubeus
  */
 public class CategorieDB extends ManagerDB{
-    Connection connexion;
+    private Connection connexion;
     
     public CategorieDB(){
         connexion = super.connection();
+    }
+    
+    public Categorie hydrate(int id){
+        Categorie categorie = new Categorie();
+        
+        Statement statement;
+        try {
+            statement = connexion.createStatement();
+            String string = "SELECT NOM FROM CATEGORIE WHERE ID='"+id+"'";
+            ResultSet resultat = statement.executeQuery(string);
+            resultat.next();
+
+            String nom = resultat.getString("NOM");
+
+            categorie.setNom(nom);
+        } catch (SQLException ex) {
+            Logger.getLogger(CategorieDB.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+        
+        return categorie;
     }
 }
