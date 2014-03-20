@@ -27,9 +27,6 @@ public class PanierControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
-        
-        
-        
         try {
             this.getServletContext().getRequestDispatcher("/PanierControleur.jsp").forward(request, response);
         } catch (ServletException e) {

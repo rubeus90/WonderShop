@@ -6,15 +6,13 @@
 
 package pkgEntities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 /**
  *
  * @author rubeus
  */
-public class Panier extends Entities{
+public class Panier extends Entities {
     
     private HashMap<Article,Integer> map;
 
