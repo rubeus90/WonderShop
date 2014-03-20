@@ -17,7 +17,8 @@ public class Panier extends Entities {
     private HashMap<Article,Integer> map;
 
     public Panier() {
-        map = new HashMap<Article,Integer>();
+        if(map==null)
+            map = new HashMap<Article,Integer>();
     }
 
     public HashMap<Article,Integer> getMap() {
@@ -43,13 +44,15 @@ public class Panier extends Entities {
     }
     
     public void addArticle(Article pArticle) {
-        if(map.containsKey(pArticle)) {
-            int effectif = map.get(pArticle) + 1;
-            map.remove(pArticle);
-            map.put(pArticle,effectif);
+        if(map.size()!=0) {
+            if(map.containsKey(pArticle)) {
+                int effectif = map.get(pArticle) + 1;
+                map.put(pArticle,effectif);
+            }
+            else
+                map.put(pArticle,1);
         }
-        else
-            map.put(pArticle,1);
+        map.put(pArticle,1);
     }
     
     public String getPrix() {

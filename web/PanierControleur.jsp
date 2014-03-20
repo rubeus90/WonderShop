@@ -4,6 +4,8 @@
     Author     : Alexandre
 --%>
 
+<%@page import="pkgEntities.Panier"%>
+<%@page import="pkgEntities.Article"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -70,8 +72,34 @@
                         <p>300€</p>
                     </div>
                 </li>
+                
+                <%
+                Panier panier = (Panier) session.getAttribute("panier");
+                Article test = new Article();
+                test.setNom("Article");
+                test.setPrix("1000");
+                panier.addArticle(test);
+                String html = "";
+                for(Article article : panier.getMap().keySet()) {
+                    html+="<li>";
+                    html+="     <img src=\"img/magicman.jpg\" alt=\"article\"/>";
+                    html+="     <form acion=\"\" method=\"post\">";
+                    html+="         <p>"+article.getNom()+" ("+panier.getMap().get(article)+") </p>";
+                    html+="         <input type=\"submit\" name=\"delete\" value=\"Supprimer\"/>";
+                    html+="         <input type=\"submit\" name=\"add\" value=\"Ajouter\"/>";
+                    html+="     </form>";
+                    html+="     <div>";
+                    html+="     <p>"+article.getPrix()+"€</p>";
+                    html+="     </div>";
+                    html+="</li>";
+                }
+                out.println(html);
+                %>
+        
+                
+                
             </ul>
-            <p id="total">600€</p>
+            <p id="total"><%= panier.getPrix() %>€</p>
             <div id="buy"><a href="">
                 <img src="icon/buy.png" alt="buy"/>
                 <p>Valider mon panier</p>

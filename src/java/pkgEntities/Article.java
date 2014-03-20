@@ -21,6 +21,17 @@ public class Article extends Entities{
     private String date_creation;
     private Categorie categorie;
     
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Article) {
+            Article article = (Article)obj;
+            if(article.getNom().equals(nom)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public String getNom() {
         return nom;
     }
@@ -96,4 +107,6 @@ public class Article extends Entities{
     public void setId(int id) {
         this.id = id;
     }
+    
+    
 }
