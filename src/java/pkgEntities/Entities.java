@@ -20,4 +20,9 @@ public class Entities {
         String regex = "[0-9]+";
         return string.matches(regex);
     }
+    
+    public boolean adresseValid(String string){
+        String regex = "[a-zA-Z0-9]+";
+        return string.matches(regex);
+    }
 }

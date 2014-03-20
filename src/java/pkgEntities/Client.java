@@ -10,7 +10,7 @@ package pkgEntities;
  *
  * @author rubeus
  */
-public class Client {
+public class Client extends Entities{
     private String nom;
     private String prenom;
     private String telephone;
@@ -24,7 +24,9 @@ public class Client {
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        if(stringValid(nom)){
+            this.nom = nom;
+        }        
     }
 
     public String getPrenom() {
@@ -32,7 +34,9 @@ public class Client {
     }
 
     public void setPrenom(String prenom) {
-        this.prenom = prenom;
+        if(stringValid(prenom)){
+            this.prenom = prenom;
+        }        
     }
 
     public String getTelephone() {
@@ -40,7 +44,9 @@ public class Client {
     }
 
     public void setTelephone(String telephone) {
-        this.telephone = telephone;
+        if(intValid(telephone)){
+            this.telephone = telephone;
+        }        
     }
 
     public String getAdresse() {
@@ -48,7 +54,9 @@ public class Client {
     }
 
     public void setAdresse(String adresse) {
-        this.adresse = adresse;
+        if(adresseValid(adresse)){
+            this.adresse = adresse;
+        }        
     }
 
     public String getCodePostal() {
@@ -56,7 +64,9 @@ public class Client {
     }
 
     public void setCodePostal(String codePostal) {
-        this.codePostal = codePostal;
+        if(intValid(codePostal)){
+            this.codePostal = codePostal;
+        }        
     }
 
     public String getVille() {
@@ -64,7 +74,9 @@ public class Client {
     }
 
     public void setVille(String ville) {
-        this.ville = ville;
+        if(stringValid(ville)){
+            this.ville = ville;
+        }        
     }
 
     public String getDateCreation() {
@@ -73,6 +85,5 @@ public class Client {
 
     public void setDateCreation(String dateCreation) {
         this.dateCreation = dateCreation;
-    }
-    
+    }    
 }

@@ -10,25 +10,17 @@ package pkgEntities;
  *
  * @author rubeus
  */
-public class Categorie {
+public class Categorie extends Entities{
    
     private String nom;
-
-    public Categorie() {
-        this.nom = "null";
-    }
-    
-    public Categorie(String nom) {
-        this.nom = nom;
-    }
 
     public String getNom() {
         return nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
-    }
-    
-    
+        if(stringValid(nom)){
+            this.nom = nom;
+        }        
+    }    
 }
