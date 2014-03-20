@@ -7,6 +7,7 @@
 package pkgEntities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -15,21 +16,50 @@ import java.util.List;
  */
 public class Panier extends Entities{
     
-    List<Article> articleList;
+    private HashMap<Article,Integer> map;
 
     public Panier() {
-        articleList = new ArrayList<Article>();
+        map = new HashMap<Article,Integer>();
     }
 
-    public List<Article> getArticleList() {
-        return articleList;
+    public HashMap<Article,Integer> getMap() {
+        return map;
     }
-
-    public void setArticleList(List<Article> articleList) {
-        this.articleList = articleList;
+    
+    public void removeAllArticle(Article pArticle) {
+        if(map.containsKey(pArticle)) {
+            map.remove(pArticle);
+        }
+    }
+    
+    public void removeArticle(Article pArticle) {
+        if(map.containsKey(pArticle)) {
+            int effectif = map.get(pArticle);
+            if(effectif==1)
+                map.remove(pArticle);
+            else {
+                map.remove(pArticle);
+                map.put(pArticle,effectif+1);
+            }
+        }
     }
     
     public void addArticle(Article pArticle) {
-        articleList.add(pArticle);
+        if(map.containsKey(pArticle)) {
+            int effectif = map.get(pArticle) + 1;
+            map.remove(pArticle);
+            map.put(pArticle,effectif);
+        }
+        else
+            map.put(pArticle,1);
+    }
+    
+    public String getPrix() {
+        int prix = 0;
+        for(Article article : map.keySet()) {
+            //prix += map.get(article)*article.get;
+        }
+        
+        return ""+prix;
     }
 }
