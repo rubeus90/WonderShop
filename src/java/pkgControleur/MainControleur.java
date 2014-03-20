@@ -8,6 +8,8 @@ package pkgControleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -49,17 +51,23 @@ public class MainControleur extends AbstractControleur {
         if(client!=null) {
             /* Première page */
             if(direction == null) {
-                response.sendRedirect("/IndexControleur");
+                callServlet(request, response, "/IndexControleur");
             }
             else {
-                response.sendRedirect("/"+direction);
+                callServlet(request, response, "/"+direction);
             }
         }
         else {
-            response.sendRedirect("/IndexControleur");
+            callServlet(request, response, "/IndexControleur");
         }
     }
 
+    public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
+        ServletContext context= getServletContext();
+        RequestDispatcher rd= context.getRequestDispatcher(servlet);
+        rd.forward(request, response);
+    }
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
