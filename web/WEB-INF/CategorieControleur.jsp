@@ -49,13 +49,15 @@
             <%
                 List<Article> listArticle = (List<Article>) session.getAttribute("listArticle");
                 for(Article article: listArticle){
-                    out.println("<article>");
+                    out.println("<article> <form acion=\"article.html\" method=\"post\">");
                     out.println("<a href=\"article.html\"><img src=\"/ECommerce/icon/add.png\"></a>");
-                    out.println("<img src=\"/ECommerce/"+ article.getUrl_image() + "\" alt=\"article\"/>");
+                    out.println("<button type=\"submit\" name=\"action\" value=\"Ajouter\" >");
+                    out.println("<img src=\"icon/add.png\" alt=\"article\">);
+                    out.println("</button>");    
                     out.println("<h3>"+ article.getNom() +"</h3>");
                     out.println("<p>"+ article.getDescription() +"</p>");
                     out.println("<p>"+ article.getPrix() +"</p>");
-                    out.println("</article>");
+                    out.println("</form></article>");
                 }                
             %>
         </section>
