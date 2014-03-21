@@ -67,7 +67,8 @@ public class Panier extends Entities {
     public String getPrix() {
         int prix = 0;
         for(Article article : map.keySet()) {
-            prix += map.get(article)*article.getPrix_double();
+            if(article.getPrix()!=null)
+                prix += map.get(article)*article.getPrix_double();
         }
         return ""+prix;
     }
@@ -89,13 +90,12 @@ public class Panier extends Entities {
         return null;
     }
     
-    public List<Commande> getCommande(Client client, int offset) {
+    public List<Commande> getCommande(Client client) {
         List<Commande> listCommande = new ArrayList<Commande>();
         int j = 1;
         for(Article article : map.keySet()) {
             for(int i=0; i < map.get(article);i++) {
                 Commande com = new Commande();
-                com.setId(offset+j);
                 com.setClient(client);
                 com.setArticle(article);
                 listCommande.add(com);
