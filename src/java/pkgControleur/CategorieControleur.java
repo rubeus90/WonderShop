@@ -28,7 +28,24 @@ public class CategorieControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
+        String path = (String) session.getAttribute("categorie");
         
+        switch(path){
+                case "IndiePop":
+                    session.setAttribute("categorie", "IndiePop");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "PopRock":
+                    session.setAttribute("categorie", "PopRock");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "PunkRock":
+                    session.setAttribute("categorie", "PunkRock");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "Alternatif":
+                    session.setAttribute("categorie", "Alternatif");
+                    callServlet(request, response, "/CategorieControleur"); break;
+            
+                default: callServlet(request, response, "/IndexControleur");
+            }
 //        Categorie categorie = n
 //        
 //        try {

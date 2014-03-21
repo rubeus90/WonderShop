@@ -46,31 +46,18 @@ public class MainControleur extends AbstractControleur {
             session.setAttribute("action", "Ajouter");
             callServlet(request, response, "/IndexControleur");
         }
+        else if(path.contains("/Categorie")) {
+            path.replaceAll("/Categorie/", "");
+            session.setAttribute("categorie", path);
+            callServlet(request, response, "/CategorieControleur");
+        }
         else if(path.equals("/EnregistrerClient")) {
             callServlet(request, response, "/EnregistrerControleur");
         }
         else if(path.equals("/Confirmation")) {
             callServlet(request, response, "/AchatControleur");
         }
-        else {
-            switch(path){
-                case "/IndiePop":
-                    session.setAttribute("categorie", "IndiePop");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "/PopRock":
-                    session.setAttribute("categorie", "PopRock");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "/PunkRock":
-                    session.setAttribute("categorie", "PunkRock");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "/Alternatif":
-                    session.setAttribute("categorie", "Alternatif");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "/Panier":
-                    callServlet(request, response, "/PanierControleur"); break;
-                default: callServlet(request, response, "/IndexControleur");
-            }
-        }
+        
         
 //        /* Si un client est connecté */
 //        if(client!=null) {
