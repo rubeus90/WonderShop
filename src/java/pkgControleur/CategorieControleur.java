@@ -1,11 +1,14 @@
 package pkgControleur;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.CategorieDB;
+import pkgEntities.Article;
 import pkgEntities.Categorie;
 import pkgFormManager.Panier;
 
@@ -30,29 +33,16 @@ public class CategorieControleur extends AbstractControleur {
         
         String path = (String) session.getAttribute("categorie");
         
-        switch(path){
-                case "IndiePop":
-                    session.setAttribute("categorie", "IndiePop");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "PopRock":
-                    session.setAttribute("categorie", "PopRock");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "PunkRock":
-                    session.setAttribute("categorie", "PunkRock");
-                    callServlet(request, response, "/CategorieControleur"); break;
-                case "Alternatif":
-                    session.setAttribute("categorie", "Alternatif");
-                    callServlet(request, response, "/CategorieControleur"); break;
-            
-                default: callServlet(request, response, "/IndexControleur");
-            }
-//        Categorie categorie = n
-//        
-//        try {
-//            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
-//        } catch (ServletException e) {
-//            e.printStackTrace();
-//        }
+        CategorieDB categorieDB = new CategorieDB();
+        Categorie categorie = categorieDB.get(path);
+        List<Article> list = categorieDB.getListArticle(categorie);
+        session.setAttribute("listArticle", list);
+        
+        try {
+            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
