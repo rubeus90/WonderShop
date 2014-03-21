@@ -115,18 +115,6 @@
                     <input type="hidden" name="article_nom" value="Magic Man"/>
                     <input type="hidden" name="article_prix" value="5"/>
                     <button type="submit" name="action" value="Ajouter" >
-                    <a href="IndexControleur" ><img src="icon/add.png"></a>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <h3>Magic Man</h3>
-                    <p>Blablabla</p>
-                    <p>5€</p></button>
-                </form>
-            </article>
-            <article>
-                <form acion="IndexControleur" method="post">
-                    <input type="hidden" name="article_nom" value="Magic Man"/>
-                    <input type="hidden" name="article_prix" value="5"/>
-                    <button type="submit" name="action" value="Ajouter" >
                         <img src="icon/add.png" alt="article">
                     </button>
                     <img src="img/magicman.jpg" alt="article"/>
