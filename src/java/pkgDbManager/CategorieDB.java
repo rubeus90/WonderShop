@@ -34,7 +34,7 @@ public class CategorieDB extends ManagerDB{
         Statement statement;
         try {
             statement = connexion.createStatement();
-            String string = "SELECT NOM FROM CATEGORIE WHERE ID='"+id+"'";
+            String string = "SELECT NOM FROM CATEGORIE WHERE ID="+id;
             ResultSet resultat = statement.executeQuery(string);
             resultat.next();
 
@@ -75,7 +75,7 @@ public class CategorieDB extends ManagerDB{
         List<Article> listArticle = new ArrayList<Article>();
         
         int idCategorie = categorie.getId();
-        String query = "SELECT ARTICLE(ID,NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION) WHERE ID_CATEGORIE='"+idCategorie+"'";
+        String query = "SELECT ID,NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION FROM ARTICLE WHERE ID_CATEGORIE="+idCategorie;
         
         try {
             Statement statement = connexion.createStatement();

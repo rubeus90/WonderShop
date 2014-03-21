@@ -35,18 +35,16 @@ public class CategorieControleur extends AbstractControleur {
         
         String path = (String) session.getAttribute("categorie");
         
-        System.out.println("heeeeeeeeeeeeeeeeeeeeey " + path);
-        
         CategorieDB categorieDB = new CategorieDB();
         Categorie categorie = categorieDB.get(path);
-//        List<Article> list = categorieDB.getListArticle(categorie);
-//        session.setAttribute("listArticle", list);
-//        
-//        try {
-//            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
-//        } catch (ServletException e) {
-//            e.printStackTrace();
-//        }
+        List<Article> list = categorieDB.getListArticle(categorie);
+        session.setAttribute("listArticle", list);
+        
+        try {
+            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        }
     }
     
     public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
