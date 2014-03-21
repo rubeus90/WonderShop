@@ -35,7 +35,7 @@
                     <span>
                         <%
                         Panier panier = (Panier) session.getAttribute("panier");
-                        out.println( "("+((Panier) session.getAttribute("panier")).getEffectif() +")" );
+                        out.println( "("+ panier.getEffectif() +")" );
                         %>
                     </span>
                 </div>
@@ -45,35 +45,27 @@
 
         <section>
             <ul>         
-                <%    
-                 // TEST
-                Article article1 = new Article();
-                article1.setNom("Coucou");
-                article1.setPrix("100");
-                panier.addArticle(article1);
+                <%
+                if(panier!=null) {
+                    String html = "";
+                    for(Article article : panier.getMap().keySet()) {
+                        html+="<li>";
+                        html+="     <img src=\"img/magicman.jpg\" alt=\"article\"/>";
+                        html+="     <form acion=\"PanierControleur\" method=\"post\">";
+                        html+="         <p>"+article.getNom()+" ("+panier.getMap().get(article)+") </p>";
+                        html+="         <input type=\"hidden\" name=\"article\" value=\""+article.getNom()+"\"/>";
+                        html+="         <input type=\"submit\" name=\"action\" value=\"Supprimer\" />";
+                        html+="         <input type=\"submit\" name=\"action\" value=\"Ajouter\" />";
+                        html+="     </form>";
+                        html+="     <div>";
+                        html+="     <p>"+article.getPrix()+"€</p>";
+                        html+="     </div>";
+                        html+="</li>";
+                    }
 
-                Article article2 = new Article();
-                article2.setNom("Coco");
-                article2.setPrix("199");
-                panier.addArticle(article2);   
-                
-                
-                String html = "";
-                for(Article article : panier.getMap().keySet()) {
-                    html+="<li>";
-                    html+="     <img src=\"img/magicman.jpg\" alt=\"article\"/>";
-                    html+="     <form acion=\"PanierControleur\" method=\"post\">";
-                    html+="         <p>"+article.getNom()+" ("+panier.getMap().get(article)+") </p>";
-                    html+="         <input type=\"hidden\" name=\"article\" value=\""+article.getNom()+"\"/>";
-                    html+="         <input type=\"submit\" name=\"action\" value=\"Supprimer\" />";
-                    html+="         <input type=\"submit\" name=\"action\" value=\"Ajouter\" />";
-                    html+="     </form>";
-                    html+="     <div>";
-                    html+="     <p>"+article.getPrix()+"€</p>";
-                    html+="     </div>";
-                    html+="</li>";
+                    out.println(html);
                 }
-                out.println(html);
+                else out.println("Panier NULL");
                 %>
             </ul>
             <p id="total"><%= panier.getPrix() %>€</p>

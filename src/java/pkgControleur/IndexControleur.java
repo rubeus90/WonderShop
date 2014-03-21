@@ -26,20 +26,23 @@ public class IndexControleur extends AbstractControleur {
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
         if(panier == null) {
-            session.setAttribute("panier", new Panier());
+            panier = new Panier();
         }
         
         String action = request.getParameter("action");
-        String article_nom = request.getParameter("article");
+        String article_nom = request.getParameter("article_nom");
+        String article_prix = request.getParameter("article_prix");
         
         Article article;
         if(action!=null && article_nom!=null) {
             if(action.equals("Ajouter")) {
-                article = panier.getArticle(article_nom);
+                article = new Article();
+                article.setNom(article_nom);
+                article.setPrix(article_prix);
                 panier.addArticle(article);
             }
         }
-        
+        session.setAttribute("panier",panier);
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/IndexControleur.jsp").forward(request, response);
         } catch (ServletException e) {

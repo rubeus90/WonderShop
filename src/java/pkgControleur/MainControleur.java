@@ -42,13 +42,7 @@ public class MainControleur extends AbstractControleur {
         String lienSpecifique = request.getRequestURI();
         lienSpecifique = lienSpecifique.substring( lienSpecifique.lastIndexOf('/')+1, lienSpecifique.length() );
         
-        
-        if(lien.equals("/Article")) {
-            session.setAttribute("article", lienSpecifique);
-            session.setAttribute("action", "Ajouter");
-            callServlet(request, response, "/IndexControleur");
-        }
-        else if(lien.equals("/Categorie")) {
+        if(lien.equals("/Categorie")) {
             session.setAttribute("categorie", lienSpecifique);
             callServlet(request, response, "/CategorieControleur");
         }
