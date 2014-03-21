@@ -4,6 +4,7 @@
     Author     : Alexandre
 --%>
 
+<%@page import="pkgFormManager.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -41,25 +42,26 @@
         </header>
 
         <section>
-            <form action="A MODIFIER" method="post">
+            <form action="ClientEnregistre" method="post">
                 <fieldset>
                         <legend><span class="form-step">1</span>Votre identité</legend>
                         <input type="text" name="nom" placeholder="Nom">
                         <input type="text" name="prenom" placeholder="Prenom">
-                        <input type="password" name="mdp" placeholder="Mot de passe">
-                        <input type="password" name="mdpv" placeholder="Vérification de mot de passe">
+                        <input type="text" name="telephone" placeholder="Telephone">
+                        <input type="password" name="password" placeholder="Mot de passe">
+                        <input type="password" name=passwordv placeholder="Vérification de mot de passe">
                 </fieldset>	
 
                 <fieldset>
                         <legend><span class="form-step">2</span>Votre E-mail</legend>
-                        <input type="email" name="mail" placeholder="Mail">
+                        <input type="email" name="email" placeholder="Mail">
                 </fieldset>	
 
                 <fieldset>
                         <legend><span class="form-step">3</span>Votre adresse</legend>
                         <input type="text" name="adresse" placeholder="Adresse">
-                        <input type="numeric" name="postal" placeholder="Code Postal">
-                        <input type="text" name="postal" placeholder="Ville">
+                        <input type="numeric" name="code_postal" placeholder="Code Postal">
+                        <input type="text" name="Ville" placeholder="Ville">
                 </fieldset>	
 		<button>
                     <img src="/ECommerce/icon/check.png">
