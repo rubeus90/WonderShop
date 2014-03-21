@@ -26,7 +26,7 @@ public class ConnexionControleur extends AbstractControleur {
         session = request.getSession();
         
         try {
-            this.getServletContext().getRequestDispatcher("/ConnexionControleur.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }

@@ -43,7 +43,7 @@ public class PanierControleur extends AbstractControleur {
             }
         }
         try {
-            this.getServletContext().getRequestDispatcher("/PanierControleur.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/PanierControleur.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }

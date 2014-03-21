@@ -29,7 +29,7 @@ public class IndexControleur extends AbstractControleur {
         }
         
         try {
-            this.getServletContext().getRequestDispatcher("/IndexControleur.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/IndexControleur.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }

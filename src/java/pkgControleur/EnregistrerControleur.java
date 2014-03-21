@@ -22,7 +22,7 @@ public class EnregistrerControleur extends AbstractControleur{
         session = request.getSession();
         
         try {
-            this.getServletContext().getRequestDispatcher("/EnregistrerControleur.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }
