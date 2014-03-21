@@ -4,6 +4,7 @@
     Author     : Alexandre
 --%>
 
+<%@page import="pkgFormManager.Panier"%>
 <%@page import="java.util.List"%>
 <%@page import="pkgEntities.Article"%>
 <%@page import="pkgEntities.Article"%>
@@ -26,14 +27,20 @@
                     <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
                     <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
                 </ul>
-                <div id="logo"><a href="">
+                <div id="logo"><a href="/ECommerce/IndexControleur">
                     <img src="/ECommerce/icon/logo.png" alt="logo">
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
             <div id="cart"><a href="/ECommerce/PanierControleur">
                 <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart"><span>(0)</span>
+                    <img src="/ECommerce/icon/cart.png" alt="cart">
+                    <span>
+                        <%
+                        Panier panier = (Panier) session.getAttribute("panier");
+                        out.println( "("+ panier.getEffectif() +")" );
+                        %>
+                    </span>
                 </div>
             </a></div>
         </header>
