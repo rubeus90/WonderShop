@@ -42,7 +42,12 @@ public class AchatControleur extends AbstractControleur {
         if(client!=null) {
             CommandeDB commandeDB = new CommandeDB();
             List<Commande> listCommande = panier.getCommande(client, commandeDB.getLastId());
+            for(Commande commande:listCommande) {
+                CommandeDB db = new CommandeDB();
+                db.add(commande);
+            }
         }
+        
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/AchatControleur.jsp").forward(request, response);
         } catch (ServletException e) {
