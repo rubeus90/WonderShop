@@ -29,16 +29,14 @@
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
-            <div id="cart"><a href="IndexControleur">
+            <div id="cart"><a href="PanierControleur">
                 <div id="shop">
                     <img src="/ECommerce/icon/cart.png" alt="cart">
                     <span>
-                        (
-                        <%
+                        (<%
                         Panier panier = (Panier) session.getAttribute("panier");
                         out.println( ((Panier) session.getAttribute("panier")).getEffectif() );
-                        %>
-                        )
+                        %>)
                     </span>
                 </div>
             </a></div>
