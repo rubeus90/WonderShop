@@ -4,6 +4,9 @@
     Author     : Alexandre
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="pkgEntities.Article"%>
+<%@page import="pkgEntities.Article"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
@@ -36,42 +39,18 @@
         </header>
 
         <section>
-            <!-- SYNTHAXE -->
-            <article>
-                <a href="article.html"><img src="/ECommerce/icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
-            <article>
-                <a href="article.html"><img src="/ECommerce/icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
-            <article>
-                <a href="article.html"><img src="/ECommerce/icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
-            <article>
-                <a href="article.html"><img src="/ECommerce/icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
-            <article>
-                <a href="article.html"><img src="/ECommerce/icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
+            <%
+                List<Article> listArticle = (List<Article>) session.getAttribute("listArticle");
+                for(Article article: listArticle){
+                    out.println("<article>");
+                    out.println("<a href=\"article.html\"><img src=\"/ECommerce/icon/add.png\"></a>");
+                    out.println("<img src=\"/ECommerce/"+ article.getUrl_image() + "\" alt=\"article\"/>");
+                    out.println("<h3>"+ article.getNom() +"</h3>");
+                    out.println("<p>"+ article.getDescription() +"</p>");
+                    out.println("<p>"+ article.getPrix() +"</p>");
+                    out.println("</article>");
+                }                
+            %>
         </section>
     </body>
 </html>
