@@ -34,7 +34,7 @@ public class ArticleDB extends ManagerDB{
         
         try {  
             Statement statement = connexion.createStatement();
-            String string = "SELECT NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE WHERE ID='"+id+"'";
+            String string = "SELECT NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE ID='"+id+"'";
             ResultSet resultat = statement.executeQuery(string);
             resultat.next();
             String nom = resultat.getString("NOM");
@@ -64,12 +64,12 @@ public class ArticleDB extends ManagerDB{
         CategorieDB categorieDB = new CategorieDB();
         List<Article> listArticle = new ArrayList<Article>();
         
-        try {  
-            Article article = new Article();
+        try { 
             Statement statement = connexion.createStatement();
-            String string = "SELECT ID,NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE";
+            String string = "SELECT ID,NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE";
             ResultSet resultat = statement.executeQuery(string);
             while(resultat.next()){
+                Article article = new Article();
                 int id = resultat.getInt("ID");
                 String nom = resultat.getString("NOM");
                 String description = resultat.getString("DESCRIPTION");
