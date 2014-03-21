@@ -50,7 +50,7 @@
                     String html = "";
                     for(Article article : panier.getMap().keySet()) {
                         html+="<li>";
-                        html+="     <img src=\"img/magicman.jpg\" alt=\"article\"/>";
+                        html+="     <img src=\""+article.getUrl_image()+"\" alt=\"article\"/>";
                         html+="     <form acion=\"PanierControleur\" method=\"post\">";
                         html+="         <p>"+article.getNom()+" ("+panier.getMap().get(article)+") </p>";
                         html+="         <input type=\"hidden\" name=\"article\" value=\""+article.getNom()+"\"/>";

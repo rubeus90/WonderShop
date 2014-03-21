@@ -34,16 +34,14 @@ public class IndexControleur extends AbstractControleur {
         /* Récupération des paramètres pour ajouter un article */
         String action = request.getParameter("action");
         String article_nom = request.getParameter("article_nom");
-        String article_prix = request.getParameter("article_prix");
+        //String article_prix = request.getParameter("article_prix");
         
+        ArticleDB articleDB = new ArticleDB();
         Article article;
         /* Si un article est à ajouter */
         if(action!=null && article_nom!=null) {
             if(action.equals("Ajouter")) {
-                article = new Article();
-                article.setNom(article_nom);
-                article.setPrix(article_prix);
-                panier.addArticle(article);
+                panier.addArticle(articleDB.get(article_nom));
             }
         }
         
@@ -51,7 +49,6 @@ public class IndexControleur extends AbstractControleur {
         session.setAttribute("panier",panier);
         
         /* Récupération de la liste d'articles  */
-        ArticleDB articleDB = new ArticleDB();
         List<Article> affichageListArticle = articleDB.getAll();
         
         /* Sauvegarde de la listes d'articles dans la session  */

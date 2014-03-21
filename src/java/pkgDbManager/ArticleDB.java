@@ -28,6 +28,38 @@ public class ArticleDB extends ManagerDB{
         connexion = super.connection();
     }
     
+    public Article get(String nom){
+        Article article = new Article();
+        CategorieDB categorieDB = new CategorieDB();
+        
+        try {  
+            Statement statement = connexion.createStatement();
+            String string = "SELECT ID,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE NOM='"+nom+"'";
+            ResultSet resultat = statement.executeQuery(string);
+            resultat.next();
+            int id = resultat.getInt("ID");
+            String description = resultat.getString("DESCRIPTION");
+            String prix = resultat.getString("PRIX");
+            String quantite = resultat.getString("QUANTITE");
+            String urlImage = resultat.getString("URL_IMAGE");
+            String dateCreation = resultat.getString("DATE_CREATION");
+            int idCategorie = resultat.getInt("ID_CATEGORIE");
+            
+            article.setId(id);
+            article.setNom(nom);
+            article.setDescription(description);
+            article.setPrix(prix);
+            article.setQuantite(quantite);
+            article.setUrl_image(urlImage);
+            article.setDate_creation(dateCreation);
+            article.setCategorie(categorieDB.get(idCategorie));
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(ArticleDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return article;
+    }
+    
     public Article get(int id){
         Article article = new Article();
         CategorieDB categorieDB = new CategorieDB();

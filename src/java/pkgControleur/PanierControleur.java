@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.ArticleDB;
 import pkgEntities.Article;
 import pkgFormManager.Panier;
 
@@ -33,15 +34,15 @@ public class PanierControleur extends AbstractControleur {
         String action = request.getParameter("action");
         String article_nom = request.getParameter("article");
         
+        ArticleDB articleDB = new ArticleDB();
         Article article;
         if(action!=null && article_nom!=null) {
+            article = articleDB.get(article_nom);
             switch (action) {
                 case "Ajouter":
-                    article = panier.getArticle(article_nom);
                     panier.addArticle(article);
                     break;
                 case "Supprimer":
-                    article = panier.getArticle(article_nom);
                     panier.removeArticle(article);
                     break;
             }
