@@ -4,6 +4,8 @@
     Author     : Alexandre
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="pkgEntities.Article"%>
 <%@page import="pkgFormManager.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -110,31 +112,29 @@
 
         <section>
             <h2>Indie-Pop</h2>
-            <article>
-                <form acion="IndexControleur" method="post">
-                    <input type="hidden" name="article_nom" value="Magic Man"/>
-                    <input type="hidden" name="article_prix" value="5"/>
-                    <button type="submit" name="action" value="Ajouter" >
-                    <a href="IndexControleur" ><img src="icon/add.png"></a>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <h3>Magic Man</h3>
-                    <p>Blablabla</p>
-                    <p>5€</p></button>
-                </form>
-            </article>
-            <article>
-                <form acion="IndexControleur" method="post">
-                    <input type="hidden" name="article_nom" value="Magic Man"/>
-                    <input type="hidden" name="article_prix" value="5"/>
-                    <button type="submit" name="action" value="Ajouter" >
-                        <img src="icon/add.png" alt="article">
-                    </button>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <h3>Magic Man</h3>
-                    <p>Blablabla</p>
-                    <p>5€</p>
-                </form>
-            </article>
+            <% /* Affichage de la liste d'articles */
+            List<Article> affichageListArticle = (List<Article>) session.getAttribute("affichageListArticle");
+            if(affichageListArticle!=null) {
+                String html = "";
+                for(Article article : affichageListArticle) {
+                    html += "<article>";
+                    html += "    <form acion=\"IndexControleur\" method=\"post\">";
+                    html += "        <input type=\"hidden\" name=\"article_nom\" value=\""+article.getNom()+"\"/>";
+                    html += "        <input type=\"hidden\" name=\"article_prix\" value=\""+article.getPrix()+"\"/>";
+                    html += "        <button type=\"submit\" name=\"action\" value=\"Ajouter\" >";
+                    html += "            <img src=\"icon/add.png\" alt=\"article\">";
+                    html += "        </button>";
+                    html += "        <img src=\""+article.getUrl_image()+"\" alt=\"article\"/>";
+                    html += "        <h3>"+article.getNom()+"</h3>";
+                    html += "        <p>"+article.getDescription()+"</p>";
+                    html += "        <p>"+article.getPrix()+"€</p>";
+                    html += "    </form>";
+                    html += "</article>";
+                }
+                out.println(html);
+            }
+            else out.println("Panier NULL");
+            %>
         </section>
 
         <script type="text/javascript" src="/ECommerce/js/jquery.js"></script>

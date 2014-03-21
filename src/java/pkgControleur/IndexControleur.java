@@ -1,11 +1,13 @@
 package pkgControleur;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.ArticleDB;
 import pkgEntities.Article;
 import pkgEntities.Client;
 import pkgFormManager.Panier;
@@ -29,11 +31,13 @@ public class IndexControleur extends AbstractControleur {
             panier = new Panier();
         }
         
+        /* Récupération des paramètres pour ajouter un article */
         String action = request.getParameter("action");
         String article_nom = request.getParameter("article_nom");
         String article_prix = request.getParameter("article_prix");
         
         Article article;
+        /* Si un article est à ajouter */
         if(action!=null && article_nom!=null) {
             if(action.equals("Ajouter")) {
                 article = new Article();
@@ -42,7 +46,17 @@ public class IndexControleur extends AbstractControleur {
                 panier.addArticle(article);
             }
         }
+        
+        /* Mise à jour du panier */
         session.setAttribute("panier",panier);
+        
+        /* Récupération de la liste d'articles  */
+        ArticleDB articleDB = new ArticleDB();
+        List<Article> affichageListArticle = articleDB.getAll();
+        
+        /* Sauvegarde de la listes d'articles dans la session  */
+        session.setAttribute("affichageListArticle", affichageListArticle);        
+        
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/IndexControleur.jsp").forward(request, response);
         } catch (ServletException e) {
