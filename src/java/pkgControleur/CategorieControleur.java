@@ -33,14 +33,12 @@ public class CategorieControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
-        
-        
         String path = (String) session.getAttribute("categorie");
         
         System.out.println("heeeeeeeeeeeeeeeeeeeeey " + path);
         
-//        CategorieDB categorieDB = new CategorieDB();
-//        Categorie categorie = categorieDB.get(path);
+        CategorieDB categorieDB = new CategorieDB();
+        Categorie categorie = categorieDB.get(path);
 //        List<Article> list = categorieDB.getListArticle(categorie);
 //        session.setAttribute("listArticle", list);
 //        
@@ -49,6 +47,12 @@ public class CategorieControleur extends AbstractControleur {
 //        } catch (ServletException e) {
 //            e.printStackTrace();
 //        }
+    }
+    
+    public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
+        ServletContext context= getServletContext();
+        RequestDispatcher rd= context.getRequestDispatcher(servlet);
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -88,11 +92,5 @@ public class CategorieControleur extends AbstractControleur {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
-    public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
-        ServletContext context= getServletContext();
-        RequestDispatcher rd= context.getRequestDispatcher(servlet);
-        rd.forward(request, response);
-    }
+    }// </editor-fold> 
 }
