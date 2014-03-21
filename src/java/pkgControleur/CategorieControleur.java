@@ -41,7 +41,7 @@ public class CategorieControleur extends AbstractControleur {
         session.setAttribute("listArticle", list);
         
         try {
-            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/CategorieControleur.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }
