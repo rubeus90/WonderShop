@@ -11,6 +11,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" media="screen" href="/ECommerce/css/index.css" type="text/css" />
         <link rel="stylesheet" media="screen" href="/ECommerce/css/header.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="/ECommerce/css/slider.css" type="text/css" />
         <title>WonderShop</title>
     </head>
     <body>
@@ -32,12 +33,69 @@
                     <img src="/ECommerce/icon/cart.png" alt="cart"><span>(0)</span>
                 </div>
             </a></div>
-            
         </header>
+
+         <!-- SLIDER -->
+        <div class="main">
+            <div class="page_container">
+                <div id="immersive_slider">
+                    <div class="slide" data-blurred="/ECommerce/img/slide1_blurred.jpg">
+                        <div class="image">
+                            <img src="/ECommerce/img/slide1.jpg" alt="Slider 1">
+                        </div>
+                        <div class="content">
+                            <h2>Magic Man</h2>
+                            <p>Blablabla</p>
+                            <p>10€</p>
+                            <button>
+                                <img src="/ECommerce/icon/add.png">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slide" data-blurred="/ECommerce/img/slide2_blurred.jpg">
+                           <div class="image">
+                                <img src="/ECommerce/img/slide2.png" alt="Slider 1">
+                            </div>
+                        <div class="content">
+                            <h2>Hunter Hunted</h2>
+                            <p>Blablabla</p>
+                            <p>10€</p>
+                            <button>
+                                <img src="/ECommerce/icon/add.png">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+                    <div class="slide" data-blurred="/ECommerce/img/slide3_blurred.jpg">
+                        <div class="image">
+                            <a href=""><img src="/ECommerce/img/slide3.png" alt="Slider 1">
+                        </div>
+                        <div class="content">
+                            <h2>The Colourist</h2>
+                            <p>Blablabla</p>
+                            <p>10€</p>
+                            <button>
+                                <img src="/ECommerce/icon/add.png">
+                                Ajouter au panier
+                            </button>
+                        </div>
+                    </div>
+
+                    <a href="#" class="is-prev">&laquo;</a>
+                    <a href="#" class="is-next">&raquo;</a>
+                </div>
+            </div>
+        </div>
+        <!-- FIN SLIDER -->
 
         <section>
             <h2>Indie-Pop</h2>
             
         </section>
+
+        <script type="text/javascript" src="/ECommerce/js/jquery.js"></script>
+        <script type="text/javascript" src="/ECommerce/js/jquery.immersive-slider.js"></script>
+        <script type="text/javascript">$(document).ready( function() {$("#immersive_slider").immersive_slider({container: ".main"});});</script>
     </body>
 </html>
