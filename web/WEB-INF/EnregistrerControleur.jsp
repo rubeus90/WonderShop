@@ -46,6 +46,8 @@
                         <legend><span class="form-step">1</span>Votre identité</legend>
                         <input type="text" name="nom" placeholder="Nom">
                         <input type="text" name="prenom" placeholder="Prenom">
+                        <input type="password" name="mdp" placeholder="Mot de passe">
+                        <input type="password" name="mdpv" placeholder="Vérification de mot de passe">
                 </fieldset>	
 
                 <fieldset>
