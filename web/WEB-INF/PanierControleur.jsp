@@ -29,16 +29,14 @@
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
-            <div id="cart"><a href="IndexControleur">
+            <div id="cart"><a href="PanierControleur">
                 <div id="shop">
                     <img src="/ECommerce/icon/cart.png" alt="cart">
                     <span>
-                        (
                         <%
                         Panier panier = (Panier) session.getAttribute("panier");
-                        out.println( ((Panier) session.getAttribute("panier")).getEffectif() );
+                        out.println( "("+((Panier) session.getAttribute("panier")).getEffectif() +")" );
                         %>
-                        )
                     </span>
                 </div>
             </a></div>
@@ -48,7 +46,7 @@
         <section>
             <ul>         
                 <%    
-                /* // TEST
+                 // TEST
                 Article article1 = new Article();
                 article1.setNom("Coucou");
                 article1.setPrix("100");
@@ -58,7 +56,7 @@
                 article2.setNom("Coco");
                 article2.setPrix("199");
                 panier.addArticle(article2);   
-                */
+                
                 
                 String html = "";
                 for(Article article : panier.getMap().keySet()) {

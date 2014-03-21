@@ -40,6 +40,7 @@ public class MainControleur extends AbstractControleur {
         
         String path = request.getServletPath();
         
+        
         if(path.contains("/Article")) {
             path.replaceAll("/Article/", "");
             session.setAttribute("article", path);
@@ -57,7 +58,9 @@ public class MainControleur extends AbstractControleur {
         else if(path.equals("/Confirmation")) {
             callServlet(request, response, "/AchatControleur");
         }
-        
+        else {
+            callServlet(request, response, "/IndexControleur");
+        }
         
 //        /* Si un client est connecté */
 //        if(client!=null) {
@@ -119,4 +122,5 @@ public class MainControleur extends AbstractControleur {
         return "Short description";
     }// </editor-fold>
 
+    
 }

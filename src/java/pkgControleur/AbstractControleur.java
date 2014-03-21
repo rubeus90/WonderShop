@@ -76,10 +76,10 @@ public abstract class AbstractControleur extends HttpServlet  {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+    /*
     public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
         ServletContext context= getServletContext();
         RequestDispatcher rd= context.getRequestDispatcher(servlet);
         rd.forward(request, response);
-    }
+    }*/
 }

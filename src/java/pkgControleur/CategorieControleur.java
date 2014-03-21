@@ -2,6 +2,8 @@ package pkgControleur;
 
 import java.io.IOException;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -84,4 +86,9 @@ public class CategorieControleur extends AbstractControleur {
         return "Short description";
     }// </editor-fold>
 
+    public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
+        ServletContext context= getServletContext();
+        RequestDispatcher rd= context.getRequestDispatcher(servlet);
+        rd.forward(request, response);
+    }
 }
