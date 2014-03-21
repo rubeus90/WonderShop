@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.ClientDB;
 
 /**
  *
@@ -38,17 +39,17 @@ public class ConnexionControleur extends AbstractControleur {
             }
         }
         else if(lien.equals("/Login")){
+            ClientDB clientDB = new ClientDB();
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            
+            if(clientDB.isClient(email, password)){
+                callServlet(request, response, "/ConfirmationControleur");
+            }
+            else{
+                callServlet(request, response, "/EnregistrerControleur");
+            }
         }
-//        if(session.getAttribute("client")==null) {
-//            callServlet(request, response, "/ConnexionControleur");
-//            
-//        }
-//        else {
-//            //
-//            callServlet(request, response, "/Confirmation");
-//        }
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

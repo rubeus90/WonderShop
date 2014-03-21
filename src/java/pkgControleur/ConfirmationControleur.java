@@ -18,7 +18,7 @@ import pkgFormManager.Panier;
  *
  * @author rubeus
  */
-public class AchatControleur extends AbstractControleur {
+public class ConfirmationControleur extends AbstractControleur {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

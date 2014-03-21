@@ -43,7 +43,7 @@
 
                 <form class="add" method="post" action="/ECommerce/Login">
                     <fieldset>
-                            <input type="text" name="nom" placeholder="Email">
+                            <input type="text" name="email" placeholder="Email">
                             <input type="password" name="password" placeholder="Mot de passe">
                     </fieldset>	
                     <input type="submit" name="connexion">

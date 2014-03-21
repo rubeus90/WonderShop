@@ -87,7 +87,7 @@ public class ClientDB extends ManagerDB{
         }
     }
     
-    public boolean check_login(String email, String password){
+    public boolean isClient(String email, String password){
         String query = "SELECT PASSWORD FROM CLIENT WHERE EMAIL='"+email+"'";
         Statement statement;
         try {
