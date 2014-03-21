@@ -1,0 +1,90 @@
+/**************** COULEUR **************/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  text-decoration: none;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: #fafaf6;
+  font-size: 62.5%;
+}
+section .info {
+  background: #fafaf6;
+  padding: 20px 1%;
+}
+section .info div {
+  width: 800px;
+  margin: auto;
+}
+section .info div h2 {
+  font-size: 2rem;
+  color: black;
+  text-transform: capitalize;
+}
+section .info div p {
+  font-size: 1.5rem;
+  color: #c9c2c0;
+}
+section .add {
+  max-width: 800px;
+  margin: auto;
+}
+section .add fieldset {
+  border-style: none;
+  padding: 15px 0;
+  margin: 50px 0;
+  border-bottom: 1px solid #c6c6c6;
+}
+section .add fieldset legend {
+  color: black;
+  font-size: 1.8rem;
+}
+section .add fieldset select,
+section .add fieldset input[type="text"],
+section .add fieldset input[type="file"],
+section .add fieldset input[type="number"],
+section .add fieldset input[type="password"],
+section .add fieldset input[type="email"] {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 10px 0;
+  background: #d2d2d2;
+  border: none;
+  padding: 15px;
+  border-radius: 3px;
+  color: #545454;
+  transition: all 0.3s ease;
+}
+section .add fieldset select:focus,
+section .add fieldset input[type="text"]:focus,
+section .add fieldset input[type="file"]:focus,
+section .add fieldset input[type="number"]:focus,
+section .add fieldset input[type="password"]:focus,
+section .add fieldset input[type="email"]:focus {
+  background: #c6c6c6;
+}
+section .add fieldset input[type="radio"] {
+  margin: 2px 5px;
+}
+section .add fieldset label {
+  color: black;
+  font-size: 1.3rem;
+  padding-right: 20px;
+}
+section .add input[type="submit"] {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-bottom: 30px;
+  border-radius: 3px;
+  color: white;
+  background: #d63737;
+  border-width: 1px 1px 2px;
+  border-style: none;
+}
