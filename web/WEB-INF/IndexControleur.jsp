@@ -124,15 +124,15 @@
             </article>
             <article>
                 <form acion="IndexControleur" method="post">
-                    <input type="hidden" name="article_nom" value="Magicman"/>
-                    <input type="hidden" name="article_prix" value="150"/>
+                    <input type="hidden" name="article_nom" value="Magic Man"/>
+                    <input type="hidden" name="article_prix" value="5"/>
                     <button type="submit" name="action" value="Ajouter" >
                         <img src="icon/add.png" alt="article">
                     </button>
                     <img src="img/magicman.jpg" alt="article"/>
                     <h3>Magic Man</h3>
                     <p>Blablabla</p>
-                    <p>150€</p>
+                    <p>5€</p>
                 </form>
             </article>
         </section>
