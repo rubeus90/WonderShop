@@ -124,36 +124,16 @@
             </article>
             <article>
                 <form acion="IndexControleur" method="post">
-                    <input type="hidden" name="article_nom" value="Passe Moi le Savon"/>
-                    <input type="hidden" name="article_prix" value="2"/>
-                    <button type="submit" name="action" value="Ajouter" />
-                    <a href="IndexControleur" ><img src="icon/add.png"></a>
+                    <input type="hidden" name="article_nom" value="Magicman"/>
+                    <input type="hidden" name="article_prix" value="150"/>
+                    <button type="submit" name="action" value="Ajouter" >
+                        <img src="icon/add.png" alt="article">
+                    </button>
                     <img src="img/magicman.jpg" alt="article"/>
-                    <h3>Passe Moi le Savon</h3>
+                    <h3>Magic Man</h3>
                     <p>Blablabla</p>
-                    <p>2€</p></button>
+                    <p>150€</p>
                 </form>
-            </article>
-            <article>
-                <a href="IndexControleur"><img src="icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
-            <article>
-                <a href="IndexControleur"><img src="icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
-            </article>
-            <article>
-                <a href="IndexControleur"><img src="icon/add.png"></a>
-                <img src="img/magicman.jpg" alt="article"/>
-                <h3>Magic Man</h3>
-                <p>Blablabla</p>
-                <p>150€</p>
             </article>
         </section>
 
