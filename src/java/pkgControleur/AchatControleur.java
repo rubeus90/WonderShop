@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.CommandeDB;
+import pkgEntities.Client;
 import pkgEntities.Commande;
 import pkgFormManager.Panier;
 
@@ -36,8 +38,11 @@ public class AchatControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
-        List<Commande> listCommande = panier.getCommande(null, 0);
-        
+        client = (Client) session.getAttribute("client");
+        if(client!=null) {
+            CommandeDB commandeDB = new CommandeDB();
+            List<Commande> listCommande = panier.getCommande(client, commandeDB.getLastId());
+        }
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/AchatControleur.jsp").forward(request, response);
         } catch (ServletException e) {
