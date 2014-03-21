@@ -31,7 +31,6 @@ public class ConfirmationControleur extends AbstractControleur {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        System.out.println("Je passe pas la");
         // Récuperation des attributs de la session
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
