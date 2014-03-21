@@ -24,7 +24,7 @@
                     <li><a href="/ECommerce/Categorie/PunkRock">Punk-Rock</a></li>
                     <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
                 </ul>
-                <div id="logo"><a href="IndexControleur">
+                <div id="logo"><a href="/ECommerce/IndexControleur">
                     <img src="/ECommerce/icon/logo.png" alt="logo">
                     <h1>WonderSHOP</h1>
                 </a></div>
