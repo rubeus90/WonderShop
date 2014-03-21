@@ -21,6 +21,10 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/Article/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
         <url-pattern>/MainControleur</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
