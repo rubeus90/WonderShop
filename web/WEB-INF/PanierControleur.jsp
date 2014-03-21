@@ -12,8 +12,8 @@
     <head>
         <title>Panier</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" media="screen" href="/ECommerce/css/cart.css" type="text/css" />
         <link rel="stylesheet" media="screen" href="/ECommerce/css/header.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="/ECommerce/css/cart.css" type="text/css" />
     </head>
     <body>
         <header>

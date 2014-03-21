@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" media="screen" href="/ECommerce/css/index.css" type="text/css" />
         <link rel="stylesheet" media="screen" href="/ECommerce/css/header.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="/ECommerce/css/index.css" type="text/css" />
         <link rel="stylesheet" media="screen" href="/ECommerce/css/slider.css" type="text/css" />
         <title>WonderShop</title>
     </head>
