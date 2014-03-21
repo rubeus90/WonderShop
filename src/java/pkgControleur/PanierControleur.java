@@ -28,10 +28,10 @@ public class PanierControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
-        /*
+        
         // Recupère les actions sur le panier
-        String action = (String) session.getAttribute("action");
-        String article_nom = (String) session.getAttribute("article");
+        String action = request.getParameter("action");
+        String article_nom = request.getParameter("article");
         
         Article article;
         if(action!=null && article_nom!=null) {
@@ -46,7 +46,7 @@ public class PanierControleur extends AbstractControleur {
                     break;
             }
         }
-        */
+        
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/PanierControleur.jsp").forward(request, response);
         } catch (ServletException e) {
