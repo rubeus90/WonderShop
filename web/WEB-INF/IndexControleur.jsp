@@ -24,7 +24,7 @@
                     <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
                 </ul>
                 <div id="logo"><a href="">
-                    <img src="icon/logo.png" alt="logo">
+                    <img src="/ECommerce/icon/logo.png" alt="logo">
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
