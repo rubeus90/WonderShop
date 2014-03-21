@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import pkgDbManager.ClientDB;
+import pkgEntities.Client;
 
 /**
  *
@@ -43,6 +44,8 @@ public class ConnexionControleur extends AbstractControleur {
             String password = request.getParameter("password");
             
             if(clientDB.isClient(email, password)){
+                Client client = clientDB.get(email);
+                session.setAttribute("client", client);
                 callServlet(request, response, "/Confirmation");
             }
             else{

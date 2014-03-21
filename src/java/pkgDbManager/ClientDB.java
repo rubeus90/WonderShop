@@ -58,6 +58,38 @@ public class ClientDB extends ManagerDB{
         return client;
     }
     
+    public Client get(String email){
+        Client client = new Client();
+        try {
+            /* Création de l'objet gérant les requêtes */
+            Statement statement = connexion.createStatement();
+            ResultSet resultat = statement.executeQuery( "SELECT ID,NOM,PRENOM,TELEPHONE,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION FROM CLIENT WHERE EMAIL='"+email+"'");
+            resultat.next();
+            int id = resultat.getInt("ID");
+            String nom = resultat.getString("NOM");
+            String prenom = resultat.getString("PRENOM");
+            String tel = resultat.getString("TELEPHONE");  
+            String adresse = resultat.getString("ADRESSE");
+            String codePostal = resultat.getString("CODE_POSTAL");
+            String ville = resultat.getString("VILLE");
+            String dateCreation = resultat.getString("DATE_CREATION");
+            
+            client.setId(id);
+            client.setNom(nom);
+            client.setPrenom(prenom);
+            client.setEmail(email);
+            client.setTelephone(tel);
+            client.setAdresse(adresse);
+            client.setCodePostal(codePostal);
+            client.setVille(ville);
+            client.setDateCreation(dateCreation);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return client;
+    }
+    
     public void add(Client client){
         try {
             String nom = client.getNom();
