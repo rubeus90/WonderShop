@@ -38,7 +38,7 @@ public class Panier extends Entities {
                 map.remove(pArticle);
             else {
                 map.remove(pArticle);
-                map.put(pArticle,effectif+1);
+                map.put(pArticle,effectif-1);
             }
         }
     }
@@ -72,5 +72,14 @@ public class Panier extends Entities {
             eff += map.get(article);
         }
         return eff;
+    }
+    
+    public Article getArticle(String pnom) {
+        for(Article article : map.keySet()) {
+            if(pnom.equals(article.getNom())) {
+                return article;
+            }
+        }
+        return null;
     }
 }
