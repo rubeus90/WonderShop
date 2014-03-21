@@ -59,7 +59,7 @@ public class CommandeDB extends ManagerDB{
         int idClient = client.getId();
         int idArticle = article.getId();
         
-        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES ("+idClient+","+idArticle+"')";
+        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES (?,?)";
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement(query);
@@ -69,21 +69,5 @@ public class CommandeDB extends ManagerDB{
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
         }        
-    }
-    
-    public int getLastId(){
-        int lastId = 0;
-        try {
-            String query = "SELECT MAX(ID) FROM COMMANDE";
-            Statement statement = connexion.createStatement();
-            ResultSet resultat = statement.executeQuery(query);
-            if(resultat!=null){
-                lastId = resultat.getInt("ID");
-            }
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return lastId;
     }
 }

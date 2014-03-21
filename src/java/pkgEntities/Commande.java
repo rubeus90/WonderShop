@@ -11,17 +11,8 @@ package pkgEntities;
  * @author rubeus
  */
 public class Commande {
-    private int id;
     private Client client;
     private Article article;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
     
     public Client getClient() {
         return client;
