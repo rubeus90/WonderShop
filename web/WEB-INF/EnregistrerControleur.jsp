@@ -42,7 +42,7 @@
         </header>
 
         <section>
-            <form action="ClientEnregistre" method="post">
+            <form action="/ECommerce/ClientEnregistre" method="post">
                 <fieldset>
                         <legend><span class="form-step">1</span>Votre identité</legend>
                         <input type="text" name="nom" placeholder="Nom">

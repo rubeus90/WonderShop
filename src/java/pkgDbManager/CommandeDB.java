@@ -77,7 +77,10 @@ public class CommandeDB extends ManagerDB{
             String query = "SELECT MAX(ID) FROM COMMANDE";
             Statement statement = connexion.createStatement();
             ResultSet resultat = statement.executeQuery(query);
-            lastId = resultat.getInt("ID");
+            if(resultat!=null){
+                lastId = resultat.getInt("ID");
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
         }

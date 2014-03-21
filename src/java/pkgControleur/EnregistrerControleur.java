@@ -1,6 +1,8 @@
 package pkgControleur;
 
 import java.io.IOException;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,12 +42,14 @@ public class EnregistrerControleur extends AbstractControleur{
             ClientDB clientDB = new ClientDB();
             clientDB.add(client);
 
-            try {
-                this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
+            callServlet(request, response, "/Confirmation");
         }        
+    }
+    
+    public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
+        ServletContext context= getServletContext();
+        RequestDispatcher rd= context.getRequestDispatcher(servlet);
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

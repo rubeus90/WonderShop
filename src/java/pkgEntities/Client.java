@@ -35,9 +35,9 @@ public class Client extends Entities{
     }
 
     public void setNom(String nom) {
-        if(stringValid(nom)){
+//        if(stringValid(nom)){
             this.nom = nom;
-        }        
+//        }        
     }
     
     public String getPrenom() {
@@ -45,9 +45,9 @@ public class Client extends Entities{
     }
 
     public void setPrenom(String prenom) {
-        if(stringValid(prenom)){
+//        if(stringValid(prenom)){
             this.prenom = prenom;
-        }        
+//        }        
     }
 
     public void setPassword(String password) {
@@ -63,13 +63,13 @@ public class Client extends Entities{
     }
 
     public void setTelephone(String telephone) {
-        if(intValid(telephone)){
+//        if(intValid(telephone)){
             this.telephone = telephone;
-        }        
+//        }        
     }
     
     public void setEmail(String email) {
-        if(emailValid(email))
+//        if(emailValid(email))
             this.email = email;
     }
 
@@ -82,9 +82,9 @@ public class Client extends Entities{
     }
 
     public void setAdresse(String adresse) {
-        if(adresseValid(adresse)){
+//        if(adresseValid(adresse)){
             this.adresse = adresse;
-        }        
+//        }        
     }
 
     public String getCodePostal() {
@@ -92,9 +92,9 @@ public class Client extends Entities{
     }
 
     public void setCodePostal(String codePostal) {
-        if(intValid(codePostal)){
+//        if(intValid(codePostal)){
             this.codePostal = codePostal;
-        }        
+//        }        
     }
 
     public String getVille() {
@@ -102,9 +102,9 @@ public class Client extends Entities{
     }
 
     public void setVille(String ville) {
-        if(stringValid(ville)){
+//        if(stringValid(ville)){
             this.ville = ville;
-        }        
+//        }        
     }
 
     public String getDateCreation() {
