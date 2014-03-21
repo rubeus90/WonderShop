@@ -28,22 +28,25 @@ public class PanierControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
+        /*
         // Recupère les actions sur le panier
-        String action = request.getParameter("action");
-        String article_nom = request.getParameter("article");
+        String action = (String) session.getAttribute("action");
+        String article_nom = (String) session.getAttribute("article");
         
         Article article;
         if(action!=null && article_nom!=null) {
-            if(action.equals("Ajouter")) {
-                article = panier.getArticle(article_nom);
-                panier.addArticle(article);
-            }
-            else if(action.equals("Supprimer")) {
-                article = panier.getArticle(article_nom);
-                panier.removeArticle(article);
+            switch (action) {
+                case "Ajouter":
+                    article = panier.getArticle(article_nom);
+                    panier.addArticle(article);
+                    break;
+                case "Supprimer":
+                    article = panier.getArticle(article_nom);
+                    panier.removeArticle(article);
+                    break;
             }
         }
-        
+        */
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/PanierControleur.jsp").forward(request, response);
         } catch (ServletException e) {
