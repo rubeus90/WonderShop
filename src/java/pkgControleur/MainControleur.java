@@ -40,25 +40,31 @@ public class MainControleur extends AbstractControleur {
         
         String path = request.getServletPath();
         
-        
-        switch(path){
-            case "/IndiePop":
-                session.setAttribute("categorie", "IndiePop");
-                callServlet(request, response, "/CategorieControleur"); break;
-            case "/PopRock":
-                session.setAttribute("categorie", "PopRock");
-                callServlet(request, response, "/CategorieControleur"); break;
-            case "/PunkRock":
-                session.setAttribute("categorie", "PunkRock");
-                callServlet(request, response, "/CategorieControleur"); break;
-            case "/Alternatif":
-                session.setAttribute("categorie", "Alternatif");
-                callServlet(request, response, "/CategorieControleur"); break;
-            case "/Panier":
-                callServlet(request, response, "/PanierControleur"); break;
-            default: callServlet(request, response, "/IndexControleur");
+        if(path.contains("/Article")) {
+            path.replaceAll("/Article/", "");
+            session.setAttribute("article", path);
+            session.setAttribute("action", "Ajouter");
+            callServlet(request, response, "/IndexControleur");
         }
-        
+        else {
+            switch(path){
+                case "/IndiePop":
+                    session.setAttribute("categorie", "IndiePop");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "/PopRock":
+                    session.setAttribute("categorie", "PopRock");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "/PunkRock":
+                    session.setAttribute("categorie", "PunkRock");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "/Alternatif":
+                    session.setAttribute("categorie", "Alternatif");
+                    callServlet(request, response, "/CategorieControleur"); break;
+                case "/Panier":
+                    callServlet(request, response, "/PanierControleur"); break;
+                default: callServlet(request, response, "/IndexControleur");
+            }
+        }
         
 //        /* Si un client est connecté */
 //        if(client!=null) {
