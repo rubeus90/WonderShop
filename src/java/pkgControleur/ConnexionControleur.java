@@ -29,7 +29,6 @@ public class ConnexionControleur extends AbstractControleur {
         session = request.getSession();
         
         String lien = request.getServletPath();
-        System.out.println("hoooooooooooooooo "+ lien);
         
         if(lien.equals("/ConnexionControleur")){
             try {
@@ -44,10 +43,10 @@ public class ConnexionControleur extends AbstractControleur {
             String password = request.getParameter("password");
             
             if(clientDB.isClient(email, password)){
-                callServlet(request, response, "/ConfirmationControleur");
+                callServlet(request, response, "/Confirmation");
             }
             else{
-                callServlet(request, response, "/EnregistrerControleur");
+                callServlet(request, response, "/Enregistrer");
             }
         }
     }

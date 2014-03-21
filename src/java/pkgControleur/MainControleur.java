@@ -49,11 +49,11 @@ public class MainControleur extends AbstractControleur {
         else if(lien.equals("/Connecter")) {
             callServlet(request, response, "/ConnexionControleur");
         }
-        else if(lien.equals("/EnregistrerClient")) {
+        else if(lien.equals("/Enregistrer")) {
             callServlet(request, response, "/EnregistrerControleur");
         }
         else if(lien.equals("/Confirmation")) {
-            callServlet(request, response, "/AchatControleur");
+            callServlet(request, response, "/ConfirmationControleur");
         }
         else {
             callServlet(request, response, "/IndexControleur");

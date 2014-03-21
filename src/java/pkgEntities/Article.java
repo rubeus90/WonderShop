@@ -80,9 +80,9 @@ public class Article extends Entities{
     }
 
     public void setDescription(String description) {
-        if(stringValid(description)){
+//        if(stringValid(description)){
             this.description = description;
-        }
+//        }
     }
 
     public void setPrix(String prix) {

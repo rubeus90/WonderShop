@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
+    
     <welcome-file-list>
         <welcome-file>MainControleur</welcome-file>
     </welcome-file-list>
+    
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    
+    
+    
+    
     <!-- Main controleur -->
     <servlet>
         <servlet-name>MainControleur</servlet-name>
@@ -23,16 +31,20 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainControleur</servlet-name>
-        <url-pattern>/EnregistrerClient</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MainControleur</servlet-name>
         <url-pattern>/Confirmation</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainControleur</servlet-name>
         <url-pattern>/Connecter</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/Enregistrer</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    
     <!-- Panier controleur -->
     <servlet>
         <servlet-name>PanierControleur</servlet-name>
@@ -51,6 +63,10 @@
         <servlet-name>IndexControleur</servlet-name>
         <url-pattern>/IndexControleur</url-pattern>
     </servlet-mapping>
+    
+    
+    
+    
     <!-- Categorie controleur -->
     <servlet>
         <servlet-name>CategorieControleur</servlet-name>
@@ -60,6 +76,10 @@
         <servlet-name>CategorieControleur</servlet-name>
         <url-pattern>/CategorieControleur</url-pattern>
     </servlet-mapping>
+    
+    
+    
+    
     <!-- Connexion controleur -->
     <servlet>
         <servlet-name>ConnexionControleur</servlet-name>
@@ -73,6 +93,10 @@
         <servlet-name>ConnexionControleur</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+    
+    
+    
+    
     <!-- Enregistrer controleur -->
     <servlet>
         <servlet-name>EnregistrerControleur</servlet-name>
@@ -82,6 +106,13 @@
         <servlet-name>EnregistrerControleur</servlet-name>
         <url-pattern>/EnregistrerControleur</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EnregistrerControleur</servlet-name>
+        <url-pattern>/ClientEnregistre</url-pattern>
+    </servlet-mapping>
+    
+    
+    
     <!-- Achat controleur -->
     <servlet>
         <servlet-name>AchatControleur</servlet-name>
