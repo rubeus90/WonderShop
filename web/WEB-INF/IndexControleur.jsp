@@ -91,7 +91,20 @@
 
         <section>
             <h2>Indie-Pop</h2>
-            
+            <article>
+                <a href="article.html"><img src="icon/add.png"></a>
+                <img src="img/magicman.jpg" alt="article"/>
+                <h3>Magic Man</h3>
+                <p>Blablabla</p>
+                <p>150€</p>
+            </article>
+            <article>
+                <a href="article.html"><img src="icon/add.png"></a>
+                <img src="img/magicman.jpg" alt="article"/>
+                <h3>Magic Man</h3>
+                <p>Blablabla</p>
+                <p>150€</p>
+            </article>
         </section>
 
         <script type="text/javascript" src="/ECommerce/js/jquery.js"></script>
