@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgEntities.Article;
 import pkgEntities.Client;
 import pkgFormManager.Panier;
 
@@ -26,6 +27,17 @@ public class IndexControleur extends AbstractControleur {
         panier = (Panier) session.getAttribute("panier");
         if(panier == null) {
             session.setAttribute("panier", new Panier());
+        }
+        
+        String action = request.getParameter("action");
+        String article_nom = request.getParameter("article");
+        
+        Article article;
+        if(action!=null && article_nom!=null) {
+            if(action.equals("Ajouter")) {
+                article = panier.getArticle(article_nom);
+                panier.addArticle(article);
+            }
         }
         
         try {

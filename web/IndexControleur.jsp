@@ -9,8 +9,8 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" media="screen" href="/ECommerce/css/index.css" type="text/css" />
-        <link rel="stylesheet" media="screen" href="/ECommerce/css/header.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="../css/index.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="../css/header.css" type="text/css" />
         <title>WonderShop</title>
     </head>
     <body>
@@ -29,7 +29,7 @@
             </div>
             <div id="cart"><a href="PanierControleur">
                 <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart"><span>(0)</span>
+                    <img src="icon/cart.png" alt="cart"><span>(0)</span>
                 </div>
             </a></div>
             

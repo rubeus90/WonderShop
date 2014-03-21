@@ -12,8 +12,8 @@
     <head>
         <title>Panier</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" media="screen" href="/ECommerce/css/cart.css" type="text/css" />
-        <link rel="stylesheet" media="screen" href="/ECommerce/css/header.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="./css/cart.css" type="text/css" />
+        <link rel="stylesheet" media="screen" href="./css/header.css" type="text/css" />
     </head>
     <body>
         <header>
@@ -25,13 +25,13 @@
                     <li><a href="Alternatif">Alternatif</a></li>
                 </ul>
                 <div id="logo"><a href="IndexControleur">
-                    <img src="/ECommerce/icon/logo.png" alt="logo">
+                    <img src="icon/logo.png" alt="logo">
                     <h1>WonderSHOP</h1>
                 </a></div>
             </div>
-            <div id="cart"><a href="IndexControleur">
+            <div id="cart"><a href="PanierControleur">
                 <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart">
+                    <img src="icon/cart.png" alt="cart">
                     <span>
                         (
                         <%
@@ -47,8 +47,9 @@
 
         <section>
             <ul>         
-                <%    
-                /* // TEST
+                <%
+                        
+                /** **/
                 Article article1 = new Article();
                 article1.setNom("Coucou");
                 article1.setPrix("100");
@@ -57,8 +58,9 @@
                 Article article2 = new Article();
                 article2.setNom("Coco");
                 article2.setPrix("199");
-                panier.addArticle(article2);   
-                */
+                panier.addArticle(article2);
+                       
+                /** **/
                 
                 String html = "";
                 for(Article article : panier.getMap().keySet()) {
@@ -80,7 +82,7 @@
             </ul>
             <p id="total"><%= panier.getPrix() %>€</p>
             <div id="buy"><a href="ConnexionControleur">
-                <img src="/ECommerce/icon/buy.png" alt="buy"/>
+                <img src="icon/buy.png" alt="buy"/>
                 <p>Valider mon panier</p>
             </a></div>
         </section>    
