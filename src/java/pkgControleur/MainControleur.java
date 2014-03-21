@@ -52,6 +52,9 @@ public class MainControleur extends AbstractControleur {
             session.setAttribute("categorie", lienSpecifique);
             callServlet(request, response, "/CategorieControleur");
         }
+        else if(lien.equals("/Connecter")) {
+            callServlet(request, response, "/ConnexionControleur");
+        }
         else if(lien.equals("/EnregistrerClient")) {
             callServlet(request, response, "/EnregistrerControleur");
         }
