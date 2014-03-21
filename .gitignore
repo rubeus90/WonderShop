@@ -2,3 +2,4 @@
 /nbproject/*
 *.properties
 nbproject/private/private.properties
+/dist/

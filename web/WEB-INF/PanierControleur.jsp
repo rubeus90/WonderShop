@@ -4,7 +4,7 @@
     Author     : 
 --%>
 
-<%@page import="pkgEntities.Panier"%>
+<%@page import="pkgFormManager.Panier"%>
 <%@page import="pkgEntities.Article"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,6 +48,20 @@
         <section>
             <ul>         
                 <%
+                        
+                /** **/
+                Article article1 = new Article();
+                article1.setNom("Coucou");
+                article1.setPrix("100");
+                panier.addArticle(article1);
+
+                Article article2 = new Article();
+                article2.setNom("Coco");
+                article2.setPrix("199");
+                panier.addArticle(article2);
+                       
+                /** **/
+                
                 String html = "";
                 for(Article article : panier.getMap().keySet()) {
                     html+="<li>";
