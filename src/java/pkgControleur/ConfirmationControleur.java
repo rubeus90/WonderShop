@@ -31,6 +31,7 @@ public class ConfirmationControleur extends AbstractControleur {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        System.out.println("Je passe pas la");
         // Récuperation des attributs de la session
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
@@ -44,15 +45,18 @@ public class ConfirmationControleur extends AbstractControleur {
             // Sauvegarde du panier dans la BDD grâce à CommandeDB
             CommandeDB commandeDB = new CommandeDB();
             List<Commande> listCommande = panier.getCommande(client, commandeDB.getLastId());
-            // Attention : une commade par article
+            
+            //On met la liste des commandes dans les attributs de session
+            session.setAttribute("listCommande", listCommande);
+            
+            // On ajoute les commandes dans la BDD: une commade par article
             for(Commande commande:listCommande) {
-                CommandeDB db = new CommandeDB();
-                db.add(commande);
+                commandeDB.add(commande);
             }
         }
         
         try {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/AchatControleur.jsp").forward(request, response);
+            this.getServletContext().getRequestDispatcher("/WEB-INF/ConfirmationControleur.jsp").forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         }
