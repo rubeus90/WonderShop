@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.ClientDB;
+import pkgFormManager.Enregistrer;
 
 public class EnregistrerControleur extends AbstractControleur{
 
@@ -20,6 +22,15 @@ public class EnregistrerControleur extends AbstractControleur{
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
+        
+        //Hydrater l'objet Client et mettre le client dans la session
+        Enregistrer enregistrer = new Enregistrer();
+        client = enregistrer.hydrate(request);
+        session.setAttribute("client", client);
+        
+        //Mettre le client dans le BDD
+        ClientDB clientDB = new ClientDB();
+        clientDB.add(client);
         
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);

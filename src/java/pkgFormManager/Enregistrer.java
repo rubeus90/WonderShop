@@ -20,6 +20,7 @@ public class Enregistrer {
         String adresse = request.getParameter("adresse");
         String codePostal = request.getParameter("code_postal");
         String ville = request.getParameter("ville");
+        String password = request.getParameter("password");
         
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
@@ -34,6 +35,7 @@ public class Enregistrer {
         client.setCodePostal(codePostal);
         client.setVille(ville);
         client.setDateCreation(dateCreation);
+        client.setPassword(password);
         
         return client;
     }

@@ -68,8 +68,9 @@ public class ClientDB extends ManagerDB{
             String codePostal = client.getCodePostal();
             String ville = client.getVille();
             String dateCreation = client.getDateCreation();
+            String password = client.getPassword();
             
-            String query = "INSERT INTO CLIENT(NOM,PRENOM,TELEPHONE,EMAIL,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION) VALUES (?,?,?,?,?,?,?,?)";
+            String query = "INSERT INTO CLIENT(NOM,PRENOM,TELEPHONE,EMAIL,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION,PASSWORD) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement statement = connexion.prepareStatement(query);
             statement.setString(1, nom);
             statement.setString(2, prenom);
@@ -79,6 +80,7 @@ public class ClientDB extends ManagerDB{
             statement.setString(6, codePostal);
             statement.setString(7, ville);
             statement.setString(8, dateCreation);
+            statement.setString(9, password);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
