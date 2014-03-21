@@ -27,14 +27,29 @@ public class ConnexionControleur extends AbstractControleur {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
         
-        if(session.getAttribute("client")==null) {
-            callServlet(request, response, "/EnregistrerClient");
+        String lien = request.getServletPath();
+        System.out.println("hoooooooooooooooo "+ lien);
+        
+        if(lien.equals("/ConnexionControleur")){
+            try {
+                this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            }
+        }
+        else if(lien.equals("/ConnecterClient")){
             
         }
-        else {
-            //
-            callServlet(request, response, "/Confirmation");
-        }
+//        if(session.getAttribute("client")==null) {
+//            callServlet(request, response, "/ConnexionControleur");
+//            
+//        }
+//        else {
+//            //
+//            callServlet(request, response, "/Confirmation");
+//        }
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
