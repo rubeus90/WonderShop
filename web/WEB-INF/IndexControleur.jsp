@@ -4,6 +4,7 @@
     Author     : Alexandre
 --%>
 
+<%@page import="pkgFormManager.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,13 @@
             </div>
             <div id="cart"><a href="/ECommerce/PanierControleur">
                 <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart"><span>(0)</span>
+                    <img src="/ECommerce/icon/cart.png" alt="cart">
+                    <span>
+                        <%
+                        Panier panier = (Panier) session.getAttribute("panier");
+                        out.println( "("+ panier.getEffectif() +")" );
+                        %>
+                    </span>
                 </div>
             </a></div>
         </header>
@@ -47,10 +54,14 @@
                             <h2>Magic Man</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
-                            <button>
-                                <img src="/ECommerce/icon/add.png">
-                                Ajouter au panier
-                            </button>
+                            <form acion="IndexControleur" method="post">
+                                <input type="hidden" name="article_nom" value="Hunter Hunted"/>
+                                <input type="hidden" name="article_prix" value="10"/>
+                                <button type="submit" name="action" value="Ajouter" >
+                                    <img src="/ECommerce/icon/add.png">
+                                    Ajouter au panier
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <div class="slide" data-blurred="/ECommerce/img/slide2_blurred.jpg">
@@ -61,10 +72,14 @@
                             <h2>Hunter Hunted</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
-                            <button>
-                                <img src="/ECommerce/icon/add.png">
-                                Ajouter au panier
-                            </button>
+                            <form acion="IndexControleur" method="post">
+                                <input type="hidden" name="article_nom" value="Hunter Hunted"/>
+                                <input type="hidden" name="article_prix" value="10"/>
+                                <button type="submit" name="action" value="Ajouter" >
+                                    <img src="/ECommerce/icon/add.png">
+                                    Ajouter au panier
+                                </button>
+                            </form>
                         </div>
                     </div>
                     <div class="slide" data-blurred="/ECommerce/img/slide3_blurred.jpg">
@@ -75,10 +90,14 @@
                             <h2>The Colourist</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
-                            <button>
-                                <img src="/ECommerce/icon/add.png">
-                                Ajouter au panier
-                            </button>
+                            <form acion="IndexControleur" method="post">
+                                <input type="hidden" name="article_nom" value="Hunter Hunted"/>
+                                <input type="hidden" name="article_prix" value="10"/>
+                                <button type="submit" name="action" value="Ajouter" >
+                                    <img src="/ECommerce/icon/add.png">
+                                    Ajouter au panier
+                                </button>
+                            </form>
                         </div>
                     </div>
 
@@ -92,14 +111,45 @@
         <section>
             <h2>Indie-Pop</h2>
             <article>
-                <a href="article.html"><img src="icon/add.png"></a>
+                <form acion="IndexControleur" method="post">
+                    <input type="hidden" name="article_nom" value="Magicman"/>
+                    <input type="hidden" name="article_prix" value="150"/>
+                    <button type="submit" name="action" value="Ajouter" >
+                    <a href="IndexControleur" ><img src="icon/add.png"></a>
+                    <img src="img/magicman.jpg" alt="article"/>
+                    <h3>Magic Man</h3>
+                    <p>Blablabla</p>
+                    <p>150€</p></button>
+                </form>
+            </article>
+            <article>
+                <form acion="IndexControleur" method="post">
+                    <input type="hidden" name="article_nom" value="Passe Moi le savon"/>
+                    <input type="hidden" name="article_prix" value="999"/>
+                    <button type="submit" name="action" value="Ajouter" />
+                    <a href="IndexControleur" ><img src="icon/add.png"></a>
+                    <img src="img/magicman.jpg" alt="article"/>
+                    <h3>Passe Moi le Savon</h3>
+                    <p>Blablabla</p>
+                    <p>999€</p></button>
+                </form>
+            </article>
+            <article>
+                <a href="IndexControleur"><img src="icon/add.png"></a>
                 <img src="img/magicman.jpg" alt="article"/>
                 <h3>Magic Man</h3>
                 <p>Blablabla</p>
                 <p>150€</p>
             </article>
             <article>
-                <a href="article.html"><img src="icon/add.png"></a>
+                <a href="IndexControleur"><img src="icon/add.png"></a>
+                <img src="img/magicman.jpg" alt="article"/>
+                <h3>Magic Man</h3>
+                <p>Blablabla</p>
+                <p>150€</p>
+            </article>
+            <article>
+                <a href="IndexControleur"><img src="icon/add.png"></a>
                 <img src="img/magicman.jpg" alt="article"/>
                 <h3>Magic Man</h3>
                 <p>Blablabla</p>
