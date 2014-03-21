@@ -30,18 +30,21 @@ public class AchatControleur extends AbstractControleur {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        session = request.getSession();
         
+        // Récuperation des attributs de la session
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
         if(panier == null) {
             session.setAttribute("panier", new Panier());
         }
-        
         client = (Client) session.getAttribute("client");
+        
+        // Si un client est identifie
         if(client!=null) {
+            // Sauvegarde du panier dans la BDD grâce à CommandeDB
             CommandeDB commandeDB = new CommandeDB();
             List<Commande> listCommande = panier.getCommande(client, commandeDB.getLastId());
+            // Attention : une commade par article
             for(Commande commande:listCommande) {
                 CommandeDB db = new CommandeDB();
                 db.add(commande);
@@ -94,10 +97,4 @@ public class AchatControleur extends AbstractControleur {
         return "Short description";
     }// </editor-fold>
 
-    
-    public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {
-        ServletContext context= getServletContext();
-        RequestDispatcher rd= context.getRequestDispatcher(servlet);
-        rd.forward(request, response);
-    }
 }

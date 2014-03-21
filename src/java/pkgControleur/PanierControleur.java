@@ -28,6 +28,7 @@ public class PanierControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
+        // Recupère les actions sur le panier
         String action = request.getParameter("action");
         String article_nom = request.getParameter("article");
         
