@@ -1,0 +1,27 @@
+/**************** COULEUR **************/
+section {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+section div {
+  margin-bottom: 40px;
+}
+section div h3 {
+  color: #d63737;
+  font-size: 3rem;
+  padding: 10px 0;
+}
+section div p {
+  font-size: 1.8rem;
+}
+section a {
+  font-size: 1.2rem;
+  color: #d63737;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+section a:hover {
+  border-bottom: 4px solid #2b2b2b;
+  color: #2b2b2b;
+}
