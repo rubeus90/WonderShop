@@ -4,6 +4,7 @@
     Author     : Alexandre
 --%>
 
+<%@page import="pkgFormManager.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +30,13 @@
             </div>
             <div id="cart"><a href="/ECommerce/PanierControleur">
                 <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart"><span>(0)</span>
+                    <img src="/ECommerce/icon/cart.png" alt="cart">
+                    <span>
+                        <%
+                        Panier panier = (Panier) session.getAttribute("panier");
+                        out.println( "("+ panier.getEffectif() +")" );
+                        %>
+                    </span>
                 </div>
             </a></div>
         </header>

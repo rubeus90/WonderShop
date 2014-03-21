@@ -19,10 +19,10 @@
         <header>
             <div id="header">
                 <ul>
-                    <li><a href="IndiePop">Indie-Pop</a></li>
-                    <li><a href="PopRock">Pop-Rock</a></li>
-                    <li><a href="PunkRock">Punk-Rock</a></li>
-                    <li><a href="Alternatif">Alternatif</a></li>
+                    <li><a href="/ECommerce/Categorie/IndiePop">Indie-Pop</a></li>
+                    <li><a href="/ECommerce/Categorie/PopRock">Pop-Rock</a></li>
+                    <li><a href="/ECommerce/Categorie/PunkRock">Punk-Rock</a></li>
+                    <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
                 </ul>
                 <div id="logo"><a href="IndexControleur">
                     <img src="/ECommerce/icon/logo.png" alt="logo">
