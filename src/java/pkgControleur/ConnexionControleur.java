@@ -37,8 +37,7 @@ public class ConnexionControleur extends AbstractControleur {
                 e.printStackTrace();
             }
         }
-        else if(lien.equals("/ConnecterClient")){
-            
+        else if(lien.equals("/Login")){
         }
 //        if(session.getAttribute("client")==null) {
 //            callServlet(request, response, "/ConnexionControleur");

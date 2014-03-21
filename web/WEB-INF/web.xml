@@ -39,6 +39,10 @@
         <servlet-name>MainControleur</servlet-name>
         <url-pattern>/Confirmation</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/Connecter</url-pattern>
+    </servlet-mapping>
         
     
     
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>ConnexionControleur</servlet-name>
         <url-pattern>/ConnexionControleur</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ConnexionControleur</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     
     
