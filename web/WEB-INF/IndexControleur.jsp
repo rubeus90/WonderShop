@@ -138,7 +138,7 @@
         </section>
 
         <script type="text/javascript" src="/ECommerce/js/jquery.js"></script>
-        <script type="text/javascript" src="/ECommerce/js/jquery.immersive-slider.js"></script>
+        <script type="text/javascript" src="/ECommerce/js/jquery.immersive-slider.min.js"></script>
         <script type="text/javascript">$(document).ready( function() {$("#immersive_slider").immersive_slider({container: ".main"});});</script>
     </body>
 </html>
