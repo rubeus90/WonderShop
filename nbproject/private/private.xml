@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/web/WEB-INF/web.xml</file>
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgFormManager/Enregistrer.java</file>
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgDbManager/ClientDB.java</file>
@@ -10,6 +11,9 @@
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/ConnexionControleur.java</file>
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/EnregistrerControleur.java</file>
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/MainControleur.java</file>
+=======
+            <file>file:/C:/wamp/www/WonderShop/web/WEB-INF/IndexControleur.jsp</file>
+>>>>>>> dfefecc5da9f39910b0e39811fe065110f4e7d55
         </group>
     </open-files>
 </project-private>
