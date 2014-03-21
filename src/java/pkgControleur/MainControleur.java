@@ -46,6 +46,12 @@ public class MainControleur extends AbstractControleur {
             session.setAttribute("action", "Ajouter");
             callServlet(request, response, "/IndexControleur");
         }
+        else if(path.equals("/EnregistrerClient")) {
+            callServlet(request, response, "/EnregistrerControleur");
+        }
+        else if(path.equals("/Confirmation")) {
+            callServlet(request, response, "/AchatControleur");
+        }
         else {
             switch(path){
                 case "/IndiePop":

@@ -1,6 +1,7 @@
 package pkgControleur;
 
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -8,12 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgEntities.Commande;
+import pkgFormManager.Panier;
 
 /**
  *
  * @author rubeus
  */
-public class ConnexionControleur extends AbstractControleur {
+public class AchatControleur extends AbstractControleur {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,13 +30,18 @@ public class ConnexionControleur extends AbstractControleur {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
         
-        if(session.getAttribute("client")==null) {
-            callServlet(request, response, "/EnregistrerClient");
-            
+        session = request.getSession();
+        panier = (Panier) session.getAttribute("panier");
+        if(panier == null) {
+            session.setAttribute("panier", new Panier());
         }
-        else {
-            //
-            callServlet(request, response, "/Confirmation");
+        
+        List<Commande> listCommande = panier.getCommande(null, 0);
+        
+        try {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/AchatControleur.jsp").forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         }
     }
 

@@ -104,4 +104,10 @@ public class Panier extends Entities {
         }
         return listCommande;
     }
+    
+    public void savePanier() {
+        
+        
+        
+    }
 }

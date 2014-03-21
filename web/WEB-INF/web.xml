@@ -39,6 +39,14 @@
         <servlet-name>MainControleur</servlet-name>
         <url-pattern>/Alternatif</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/EnregistrerClient</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/Confirmation</url-pattern>
+    </servlet-mapping>
         
     
     
@@ -99,6 +107,17 @@
     <servlet-mapping>
         <servlet-name>EnregistrerControleur</servlet-name>
         <url-pattern>/EnregistrerControleur</url-pattern>
+    </servlet-mapping>
+    
+    
+    <!-- Achat controleur -->
+    <servlet>
+        <servlet-name>AchatControleur</servlet-name>
+        <servlet-class>pkgControleur.AchatControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AchatControleur</servlet-name>
+        <url-pattern>/AchatControleur</url-pattern>
     </servlet-mapping>
     
     
