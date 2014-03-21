@@ -25,19 +25,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainControleur</servlet-name>
-        <url-pattern>/IndiePop</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MainControleur</servlet-name>
-        <url-pattern>/PopRock</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MainControleur</servlet-name>
-        <url-pattern>/PunkRock</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>MainControleur</servlet-name>
-        <url-pattern>/Alternatif</url-pattern>
+        <url-pattern>/Categorie/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainControleur</servlet-name>

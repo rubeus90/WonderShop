@@ -18,10 +18,10 @@
         <header>
             <div id="header">
                 <ul>
-                    <li><a href="IndiePop">Indie-Pop</a></li>
-                    <li><a href="PopRock">Pop-Rock</a></li>
-                    <li><a href="PunkRock">Punk-Rock</a></li>
-                    <li><a href="Alternatif">Alternatif</a></li>
+                    <li><a href="Categorie/Indie-Pop">Indie-Pop</a></li>
+                    <li><a href="Categorie/Pop-Rock">Pop-Rock</a></li>
+                    <li><a href="Categorie/Punk-Rock">Punk-Rock</a></li>
+                    <li><a href="Categorie/Alternatif">Alternatif</a></li>
                 </ul>
                 <div id="logo"><a href="">
                     <img src="icon/logo.png" alt="logo">

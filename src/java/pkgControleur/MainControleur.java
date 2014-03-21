@@ -38,43 +38,29 @@ public class MainControleur extends AbstractControleur {
         session = request.getSession();
         client = (Client) session.getAttribute("client");
         
-        String path = request.getServletPath();
+        String lien = request.getServletPath();
+        String lienSpecifique = request.getRequestURI();
+        lienSpecifique = lienSpecifique.substring( lienSpecifique.lastIndexOf('/')+1, lienSpecifique.length() );
         
         
-        if(path.contains("/Article")) {
-            path.replaceAll("/Article/", "");
-            session.setAttribute("article", path);
+        if(lien.equals("/Article")) {
+            session.setAttribute("article", lienSpecifique);
             session.setAttribute("action", "Ajouter");
             callServlet(request, response, "/IndexControleur");
         }
-        else if(path.contains("/Categorie")) {
-            path.replaceAll("/Categorie/", "");
-            session.setAttribute("categorie", path);
+        else if(lien.equals("/Categorie")) {
+            session.setAttribute("categorie", lienSpecifique);
             callServlet(request, response, "/CategorieControleur");
         }
-        else if(path.equals("/EnregistrerClient")) {
+        else if(lien.equals("/EnregistrerClient")) {
             callServlet(request, response, "/EnregistrerControleur");
         }
-        else if(path.equals("/Confirmation")) {
+        else if(lien.equals("/Confirmation")) {
             callServlet(request, response, "/AchatControleur");
         }
         else {
             callServlet(request, response, "/IndexControleur");
         }
-        
-//        /* Si un client est connecté */
-//        if(client!=null) {
-//            /* Première page */
-//            if(direction == null) {
-//                callServlet(request, response, "/IndexControleur");
-//            }
-//            else {
-//                callServlet(request, response, "/"+direction);
-//            }
-//        }
-//        else {
-//            callServlet(request, response, "/IndexControleur");
-//        }
     }
 
     public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {

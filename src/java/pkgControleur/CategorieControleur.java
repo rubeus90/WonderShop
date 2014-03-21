@@ -33,18 +33,22 @@ public class CategorieControleur extends AbstractControleur {
             session.setAttribute("panier", new Panier());
         }
         
+        
+        
         String path = (String) session.getAttribute("categorie");
         
-        CategorieDB categorieDB = new CategorieDB();
-        Categorie categorie = categorieDB.get(path);
-        List<Article> list = categorieDB.getListArticle(categorie);
-        session.setAttribute("listArticle", list);
+        System.out.println("heeeeeeeeeeeeeeeeeeeeey " + path);
         
-        try {
-            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        }
+//        CategorieDB categorieDB = new CategorieDB();
+//        Categorie categorie = categorieDB.get(path);
+//        List<Article> list = categorieDB.getListArticle(categorie);
+//        session.setAttribute("listArticle", list);
+//        
+//        try {
+//            this.getServletContext().getRequestDispatcher("/CategorieControleur.jsp").forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
