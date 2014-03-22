@@ -48,6 +48,8 @@
         <div class="main">
             <div class="page_container">
                 <div id="immersive_slider">
+                    
+                    <!-- PREMIER SLIDE -->
                     <div class="slide" data-blurred="/ECommerce/img/slide1_blurred.jpg">
                         <div class="image">
                             <img src="/ECommerce/img/slide1.jpg" alt="Slider 1">
@@ -57,46 +59,50 @@
                             <p>Blablabla</p>
                             <p>5€</p>
                             <form acion="IndexControleur" method="post">
-                                <input type="hidden" name="article_nom" value="Magic Man"/>
+                                <input type="hidden" name="article_id" value="1"/>
                                 <input type="hidden" name="article_prix" value="5"/>
                                 <button type="submit" name="action" value="Ajouter" >
-                                    <img src="/ECommerce/icon/add.png">
+                                    <img src="/ECommerce/icon/add.png" alt="Slider 1">
                                     Ajouter au panier
                                 </button>
                             </form>
                         </div>
                     </div>
+                    
+                    <!-- DEUXIEME SLIDE -->
                     <div class="slide" data-blurred="/ECommerce/img/slide2_blurred.jpg">
                            <div class="image">
-                                <img src="/ECommerce/img/slide2.png" alt="Slider 1">
+                                <img src="/ECommerce/img/slide2.png" alt="Slider 2">
                             </div>
                         <div class="content">
                             <h2>Hunter Hunted</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
                             <form acion="IndexControleur" method="post">
-                                <input type="hidden" name="article_nom" value="Hunter Hunted"/>
+                                <input type="hidden" name="article_id" value="3"/>
                                 <input type="hidden" name="article_prix" value="10"/>
                                 <button type="submit" name="action" value="Ajouter" >
-                                    <img src="/ECommerce/icon/add.png">
+                                    <img src="/ECommerce/icon/add.png" alt="Slider 2">
                                     Ajouter au panier
                                 </button>
                             </form>
                         </div>
                     </div>
+                    
+                    <!-- TROISIEME SLIDE -->
                     <div class="slide" data-blurred="/ECommerce/img/slide3_blurred.jpg">
                         <div class="image">
-                            <img src="/ECommerce/img/slide3.png" alt="Slider 1">
+                            <img src="/ECommerce/img/slide3.png" alt="Slider 3">
                         </div>
                         <div class="content">
                             <h2>The Colourist</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
                             <form acion="IndexControleur" method="post">
-                                <input type="hidden" name="article_nom" value="The Colourist"/>
+                                <input type="hidden" name="article_id" value="2"/>
                                 <input type="hidden" name="article_prix" value="10"/>
                                 <button type="submit" name="action" value="Ajouter" >
-                                    <img src="/ECommerce/icon/add.png">
+                                    <img src="/ECommerce/icon/add.png" alt="Slider 3">
                                     Ajouter au panier
                                 </button>
                             </form>
