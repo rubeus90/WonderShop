@@ -45,17 +45,6 @@
                     </div>
                 </li>
                 </c:forEach>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <form acion="" method="post">
-                        <h2>Magic Man (1)</h2>
-                        <input type="submit" name="delete" value="Supprimer"/>
-                        <input type="submit" name="add" value="Ajouter"/>
-                    </form>
-                    <div>
-                        <p>150€</p>
-                    </div>
-                </li>
             </ul>
            <a href="/ECommerce/">Retour à l'acceuil</a>
         </section> 
