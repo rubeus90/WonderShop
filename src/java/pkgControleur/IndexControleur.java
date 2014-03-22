@@ -25,28 +25,45 @@ public class IndexControleur extends AbstractControleur {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        ArticleDB articleDB = new ArticleDB(); // Récupération du Manager des articles
+        
+        
+        /*************************************************************************************
+        *                               FORMULAIRE
+        *************************************************************************************/
+        
+        if(request.getParameter("action") != null){ //On ne fait l'action que SI un formulaire a été soumis !
+            
+            /* Récupération des paramètres pour ajouter un article */
+            String action = request.getParameter("action");
+            int article_id = Integer.parseInt(request.getParameter("article_id"));
+
+            /* Si un article est à ajouter */
+            if(action.equals("Ajouter")) {
+                Article article3 = articleDB.get(article_id);
+                //System.out.println(article3.getNom());
+                //System.out.println(article3.getId());
+
+                panier.addArticle(article3);
+            }   
+        }
+        
+        /*************************************************************************************
+        *                               PANIER             
+        /*************************************************************************************/
+        
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
         if(panier == null) {
             panier = new Panier();
         }
         
-        /* Récupération des paramètres pour ajouter un article */
-        String action = request.getParameter("action");
-        String article_nom = request.getParameter("article_nom");
-        //String article_prix = request.getParameter("article_prix");
-        
-        ArticleDB articleDB = new ArticleDB();
-        Article article;
-        /* Si un article est à ajouter */
-        if(action!=null && article_nom!=null) {
-            if(action.equals("Ajouter")) {
-                panier.addArticle(articleDB.get(article_nom));
-            }
-        }
-        
-        /* Mise à jour du panier */
         session.setAttribute("panier",panier);
+        
+        
+        /*************************************************************************************
+        *                                ARTICLE
+        *************************************************************************************/
         
         /* Récupération de la liste d'articles  */
         List<Article> affichageListArticle = articleDB.getAll();

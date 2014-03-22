@@ -66,7 +66,7 @@ public class ArticleDB extends ManagerDB{
         
         try {  
             Statement statement = connexion.createStatement();
-            String string = "SELECT NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE ID='"+id+"'";
+            String string = "SELECT NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE ID="+id;
             ResultSet resultat = statement.executeQuery(string);
             resultat.next();
             String nom = resultat.getString("NOM");
