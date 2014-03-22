@@ -27,7 +27,7 @@
                 <li>
                     <img src="${article.getUrl_image()}" alt="article"/>
                     <form action="PanierControleur" method="post">
-                        <p><c:out value="${ article.getAlbum() }"/> (<c:out value="${sessionScope.panier.getMap().get(article) }"/>)</p>
+                        <h2><c:out value="${ article.getAlbum() }"/> (<c:out value="${sessionScope.panier.getMap().get(article) }"/>)</h2>
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
                         <input type="submit" name="action" value="Supprimer" />
                         <input type="submit" name="action" value="Ajouter" />
