@@ -23,8 +23,8 @@
                 <h3>Je possède un compte</h3>
                 <form method="post" action="/ECommerce/Login">
                         <fieldset>
-                                <input type="text" name="login" placeholder="Identifiant">
-                                <input type="password" name="mdp" placeholder="Mot de passe">
+                                <input type="text" name="email" placeholder="Email">
+                                <input type="password" name="password" placeholder="Mot de passe">
                         </fieldset>	
                         <input type="submit" name="connexion" value="Continuer">
                 </form>
