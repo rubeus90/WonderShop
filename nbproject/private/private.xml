@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
 <<<<<<< HEAD
             <file>file:/C:/wamp/www/WonderShop/web/WEB-INF/CategorieControleur.jsp</file>
@@ -15,5 +18,6 @@
             <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/MainControleur.java</file>
 >>>>>>> 15545f5365ee45c5617a60485aa96b791592895f
         </group>
+>>>>>>> dd864f91aac98f3e2066d814301d4c7af078d25b
     </open-files>
 </project-private>
