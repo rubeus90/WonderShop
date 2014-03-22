@@ -36,10 +36,6 @@ public class MainControleur extends AbstractControleur {
      */
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        MyThread myThread = new MyThread();
-        myThread.start();
-        
         response.setContentType("text/html;charset=UTF-8");
         
         session = request.getSession();
@@ -118,15 +114,6 @@ public class MainControleur extends AbstractControleur {
         return "Short description";
     }// </editor-fold>
     
-    public class MyThread extends Thread{
-        public void run(){
-            try {
-                NetworkServerControl server = new NetworkServerControl();
-                server.start (null);
-            } catch (Exception ex) {
-                Logger.getLogger(MainControleur.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+    
     
 }
