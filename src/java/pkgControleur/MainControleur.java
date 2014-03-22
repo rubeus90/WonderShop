@@ -7,12 +7,15 @@
 package pkgControleur;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.apache.derby.drda.NetworkServerControl;
 import pkgEntities.Client;
 
 /**
@@ -33,6 +36,10 @@ public class MainControleur extends AbstractControleur {
      */
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        MyThread myThread = new MyThread();
+        myThread.start();
+        
         response.setContentType("text/html;charset=UTF-8");
         
         session = request.getSession();
@@ -110,6 +117,16 @@ public class MainControleur extends AbstractControleur {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+    
+    public class MyThread extends Thread{
+        public void run(){
+            try {
+                NetworkServerControl server = new NetworkServerControl();
+                server.start (null);
+            } catch (Exception ex) {
+                Logger.getLogger(MainControleur.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
     
 }
