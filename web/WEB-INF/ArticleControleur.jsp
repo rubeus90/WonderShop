@@ -24,12 +24,13 @@
                     <h2><c:out value="${ article.getAlbum() }"/></h2>
                     <p>Par <c:out value="${ article.getArtiste() }"/> ( <c:out value="${ article.getDate_creation() }"/> )</p>
                     <p class="prix"><c:out value="${ article.getPrix() }"/>€</p>
-                    <form action="" method="post">
-                        <input type="hidden" value="${ article.getId() }">
-                        <button>
+                    <form action="/ECommerce/Article/${article.getId()}" method="post">
+                        <input type="hidden" name="article_id" value="${ article.getId() }">
+                        <button type="submit" name="action" value="Ajouter">
                             <img src="/ECommerce/icon/add.png">
                             Ajouter au panier
                         </button>
+                    </form>
                 </aside>
             </article>
         </section>

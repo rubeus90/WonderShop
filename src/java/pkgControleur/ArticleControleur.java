@@ -38,10 +38,7 @@ public class ArticleControleur extends AbstractControleur{
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException{
-        
-        System.out.println("Salut les bisounours");
-        
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException{        
         ArticleDB articleDB = new ArticleDB(); // Récupération du Manager des articles
         
         session = request.getSession();
@@ -55,7 +52,7 @@ public class ArticleControleur extends AbstractControleur{
         *************************************************************************************/
         
         if(request.getParameter("action") != null && request.getParameter("article_id") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
-            
+                        
             /* Récupération des paramètres pour ajouter un article */
             String action = request.getParameter("action");
             int article_id = Integer.parseInt(request.getParameter("article_id"));
@@ -78,7 +75,6 @@ public class ArticleControleur extends AbstractControleur{
         *************************************************************************************/
         
         String path = (String) session.getAttribute("article");
-        System.out.println(path);
         int id = Integer.parseInt(path);
         Article article = articleDB.get(id);
         session.setAttribute("article", article);
