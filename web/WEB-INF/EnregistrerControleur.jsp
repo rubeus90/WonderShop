@@ -3,7 +3,7 @@
     Created on : 21 mars 2014, 17:10:04
     Author     : Alexandre
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="pkgFormManager.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
