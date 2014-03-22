@@ -57,7 +57,7 @@
                             <p>Blablabla</p>
                             <p>5€</p>
                             <form acion="IndexControleur" method="post">
-                                <input type="hidden" name="article_nom" value="Magic Man"/>
+                                <input type="hidden" name="article_nom" value="You are here"/>
                                 <input type="hidden" name="article_prix" value="5"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png">
@@ -93,7 +93,7 @@
                             <p>Blablabla</p>
                             <p>10€</p>
                             <form acion="IndexControleur" method="post">
-                                <input type="hidden" name="article_nom" value="The Colourist"/>
+                                <input type="hidden" name="article_nom" value="Lido"/>
                                 <input type="hidden" name="article_prix" value="10"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png">
