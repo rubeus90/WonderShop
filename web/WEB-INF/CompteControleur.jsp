@@ -22,7 +22,7 @@
                     <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
                     <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
                 </ul>
-                <div id="logo"><a href="">
+                <div id="logo"><a href="/ECommerce">
                     <img src="icon/logo.png" alt="logo">
                     <h1>WonderSHOP</h1>
                 </a></div>
@@ -31,46 +31,25 @@
 
         <section>
             <ul>
-                <c:forEach var="commande" items="${sessionScope.listCommande}">
-                    <p><c:out value="${ commande.getDateCreation() }"/></p>
-                    <li>
-                        <img src="${commande.getArticle().getDate_creation()}" alt="article"/>
-                        <h2><c:out value="${ commande.getArticle().getAlbum() }"/> - <c:out value="${ commande.getArticle().getArtiste() }"/></h2>
-                        <div>
-                            <p><c:out value="${ commande.getArticle().getPrix() }"/></p>
-                        </div>
-                    </li>
-                </c:forEach> 
+        <c:forEach var="commande" items="${listCommande}">
+            <c:if test="${!requestScope.message.equals(commande.getDateCreation()) }">
             </ul>
         </section>
-
-        <!--<section>
-            <p>Commande du 16/09/10</p>
+            
+        <section>
+            <p>Commande du : <c:out value="${ commande.getDateCreation() }"/></p>
             <ul>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <h2>Magic Man (1)</h2>
-                    <div>
-                        <p>150€</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <h2>Magic Man (1)</h2>
-                    <div>
-                        <p>150€</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="img/magicman.jpg" alt="article"/>
-                    <h2>Magic Man (1)</h2>
-                    <div>
-                        <p>300€</p>
-                    </div>
-                </li>
+            </c:if>
+                    <li>
+                        <img src="${commande.getArticle().getUrl_image()}" alt="article"/>
+                        <h2><c:out value="${ commande.getArticle().getAlbum() }"/> - <c:out value="${ commande.getArticle().getArtiste() }"/> (<c:out value="${ commande.getQuantite() }"/>)</h2>
+                        <div>
+                            <p><c:out value="${ commande.getArticle().getPrix() }"/>€</p>
+                        </div>
+                    </li> 
+                    <c:set var="date" value="${ commande.getDateCreation() }" scope="request" />
+        </c:forEach> 
             </ul>
-            <p id="total">600€</p>
-        </section>-->
-           
+        </section>
     </body>
 </html>

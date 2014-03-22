@@ -67,6 +67,9 @@ public class MainControleur extends AbstractControleur {
                 session.setAttribute("article", lienSpecifique);
                 callServlet(request, response, "/ArticleControleur");
                 break;
+            case "/Compte":
+                callServlet(request, response, "/CompteControleur");
+                break;
             default:
                 callServlet(request, response, "/IndexControleur");
                 break;
