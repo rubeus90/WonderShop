@@ -32,7 +32,7 @@ public class IndexControleur extends AbstractControleur {
         *                               FORMULAIRE
         *************************************************************************************/
         
-        if(request.getParameter("action") != null){ //On ne fait l'action que SI un formulaire a été soumis !
+        if(request.getParameter("action") != null && request.getParameter("article_id") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
             
             /* Récupération des paramètres pour ajouter un article */
             String action = request.getParameter("action");
@@ -41,9 +41,6 @@ public class IndexControleur extends AbstractControleur {
             /* Si un article est à ajouter */
             if(action.equals("Ajouter")) {
                 Article article3 = articleDB.get(article_id);
-                //System.out.println(article3.getNom());
-                //System.out.println(article3.getId());
-
                 panier.addArticle(article3);
             }   
         }

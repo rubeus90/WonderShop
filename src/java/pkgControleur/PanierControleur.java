@@ -31,14 +31,14 @@ public class PanierControleur extends AbstractControleur {
         
         /****************************************************************************/
         
-        if(request.getParameter("action") != null){
+        if(request.getParameter("action") != null && request.getParameter("article_id") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
+            
             // Recupère les actions sur le panier
             String action = request.getParameter("action");
             int article_id = Integer.parseInt(request.getParameter("article_id"));
 
             ArticleDB articleDB = new ArticleDB();
-            Article article;
-            article = articleDB.get(article_id);
+            Article article = articleDB.get(article_id);
             switch (action) {
                 case "Ajouter":
                     panier.addArticle(article);
