@@ -32,8 +32,9 @@
         <section>
             <div>
                 <h3>Confirmation de votre commande :</h3>
-                <p>Vous recevrez vos articles dans 2 jours à l'adresse suivante :</p>
-                <p><c:out value="${ sessionScope.client.getAdresse() }"/> <c:out value="${ sessionScope.client.getCodePostal()}"/> <c:out value="${ sessionScope.client.getVille()}"/></p>
+                <p>Vous recevrez dans quelques instants votre lien de téléchargement à l'adresse suivante :</p>
+                <p><c:out value="${ sessionScope.client.getEmail() }"/></p>
+                <p>Récapitulatif de votre commande : </p>
             </div>
            <a href="/ECommerce/">Retour à l'acceuil</a>
         </section>    
