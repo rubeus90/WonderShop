@@ -20,34 +20,33 @@ public class EnregistrerControleur extends AbstractControleur{
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
         
         String lien = request.getServletPath();
         
-        if(lien.equals("/EnregistrerControleur")){
-            try {
-                this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
+        switch (lien) {
+            case "/EnregistrerControleur":
+                try {
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                }   break;
+            case "/ClientEnregistre":
+                //Hydrater l'objet Client et mettre le client dans la session
+                Enregistrer enregistrer = new Enregistrer();
+                client = enregistrer.hydrate(request);
+                //Mettre le client dans le BDD
+                ClientDB clientDB = new ClientDB();
+                clientDB.add(client);
+                //Recuperer le client dans la BDD (pour avoir l'ID) puis le mettre dans la session
+                String email = client.getEmail();
+                client = clientDB.get(email);
+                session.setAttribute("client", client);
+                callServlet(request, response, "/Confirmation");
+                break;
         }
-        else if(lien.equals("/ClientEnregistre")){
-            //Hydrater l'objet Client et mettre le client dans la session
-            Enregistrer enregistrer = new Enregistrer();
-            client = enregistrer.hydrate(request);
-
-            //Mettre le client dans le BDD
-            ClientDB clientDB = new ClientDB();
-            clientDB.add(client);
-            
-            //Recuperer le client dans la BDD (pour avoir l'ID) puis le mettre dans la session
-            String email = client.getEmail();
-            client = clientDB.get(email);
-            session.setAttribute("client", client);
-
-            callServlet(request, response, "/Confirmation");
-        }        
     }
     
     public void callServlet(HttpServletRequest request, HttpServletResponse response, String servlet) throws ServletException, IOException {

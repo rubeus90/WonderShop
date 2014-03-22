@@ -6,7 +6,6 @@
 
 package pkgDbManager;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -57,8 +56,6 @@ public class CommandeDB extends ManagerDB{
         
         int idClient = client.getId();
         int idArticle = article.getId();
-        
-        System.out.println("Heeeeeeeeeeeeeee  " + idClient + "   " + idArticle);
         
         String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES (?,?)";
         PreparedStatement statement;

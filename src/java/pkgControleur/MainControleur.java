@@ -42,21 +42,23 @@ public class MainControleur extends AbstractControleur {
         String lienSpecifique = request.getRequestURI();
         lienSpecifique = lienSpecifique.substring( lienSpecifique.lastIndexOf('/')+1, lienSpecifique.length() );
         
-        if(lien.equals("/Categorie")) {
-            session.setAttribute("categorie", lienSpecifique);
-            callServlet(request, response, "/CategorieControleur");
-        }
-        else if(lien.equals("/Connecter")) {
-            callServlet(request, response, "/ConnexionControleur");
-        }
-        else if(lien.equals("/Enregistrer")) {
-            callServlet(request, response, "/EnregistrerControleur");
-        }
-        else if(lien.equals("/Confirmation")) {
-            callServlet(request, response, "/ConfirmationControleur");
-        }
-        else {
-            callServlet(request, response, "/IndexControleur");
+        switch (lien) {
+            case "/Categorie":
+                session.setAttribute("categorie", lienSpecifique);
+                callServlet(request, response, "/CategorieControleur");
+                break;
+            case "/Connecter":
+                callServlet(request, response, "/ConnexionControleur");
+                break;
+            case "/Enregistrer":
+                callServlet(request, response, "/EnregistrerControleur");
+                break;
+            case "/Confirmation":
+                callServlet(request, response, "/ConfirmationControleur");
+                break;
+            default:
+                callServlet(request, response, "/IndexControleur");
+                break;
         }
     }
 

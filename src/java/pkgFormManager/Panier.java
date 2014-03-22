@@ -24,7 +24,7 @@ public class Panier extends Entities {
 
     public Panier() {
         if(map==null)
-            map = new HashMap<Article,Integer>();
+            map = new HashMap<>();
     }
 
     public HashMap<Article,Integer> getMap() {
@@ -51,7 +51,7 @@ public class Panier extends Entities {
     
     public void addArticle(Article pArticle) {
         
-        if(map.size()!=0) {
+        if(!map.isEmpty()) {
             if(map.containsKey(pArticle)) {
                 int effectif = map.get(pArticle) + 1;
                 map.put(pArticle,effectif);
@@ -90,7 +90,7 @@ public class Panier extends Entities {
     }
     
     public List<Commande> getCommande(Client client) {
-        List<Commande> listCommande = new ArrayList<Commande>();
+        List<Commande> listCommande = new ArrayList<>();
         int j = 1;
         for(Article article : map.keySet()) {
             for(int i=0; i < map.get(article);i++) {

@@ -2,13 +2,9 @@ package pkgControleur;
 
 import java.io.IOException;
 import java.util.List;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import pkgDbManager.CommandeDB;
 import pkgEntities.Client;
 import pkgEntities.Commande;
@@ -29,6 +25,7 @@ public class ConfirmationControleur extends AbstractControleur {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         // Récuperation des attributs de la session

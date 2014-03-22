@@ -4,10 +4,8 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import pkgDbManager.ClientDB;
 import pkgEntities.Client;
 
@@ -26,31 +24,31 @@ public class ConnexionControleur extends AbstractControleur {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
         
         String lien = request.getServletPath();
         
-        if(lien.equals("/ConnexionControleur")){
-            try {
-                this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
-            } catch (ServletException e) {
-                e.printStackTrace();
-            }
-        }
-        else if(lien.equals("/Login")){
-            ClientDB clientDB = new ClientDB();
-            String email = request.getParameter("email");
-            String password = request.getParameter("password");
-            
-            if(clientDB.isClient(email, password)){
-                Client client = clientDB.get(email);
-                session.setAttribute("client", client);
-                callServlet(request, response, "/Confirmation");
-            }
-            else{
-                callServlet(request, response, "/Enregistrer");
-            }
+        switch (lien) {
+            case "/ConnexionControleur":
+                try {
+                    this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
+                } catch (ServletException e) {
+                    e.printStackTrace();
+                }   break;
+            case "/Login":
+                ClientDB clientDB = new ClientDB();
+                String email = request.getParameter("email");
+                String password = request.getParameter("password");
+                if(clientDB.isClient(email, password)){
+                    Client client = clientDB.get(email);
+                    session.setAttribute("client", client);
+                    callServlet(request, response, "/Confirmation");
+                }
+                else{
+                    callServlet(request, response, "/Enregistrer");
+                }   break;
         }
     }
 
