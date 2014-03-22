@@ -36,11 +36,15 @@ public class EnregistrerControleur extends AbstractControleur{
             //Hydrater l'objet Client et mettre le client dans la session
             Enregistrer enregistrer = new Enregistrer();
             client = enregistrer.hydrate(request);
-            session.setAttribute("client", client);
 
             //Mettre le client dans le BDD
             ClientDB clientDB = new ClientDB();
             clientDB.add(client);
+            
+            //Recuperer le client dans la BDD (pour avoir l'ID) puis le mettre dans la session
+            String email = client.getEmail();
+            client = clientDB.get(email);
+            session.setAttribute("client", client);
 
             callServlet(request, response, "/Confirmation");
         }        
