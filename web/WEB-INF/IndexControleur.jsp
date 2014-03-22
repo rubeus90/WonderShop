@@ -101,8 +101,8 @@
                         <button type="submit" name="action" value="Ajouter" >
                             <img src="icon/add.png" alt="article">
                         </button>
-                        <h3><c:out value="${ article.getNom() }"/></h3>
-                        <p><c:out value="${ article.getDescription() }"/></p>
+                        <h3><c:out value="${ article.getAlbum() }"/></h3>
+                        <p><c:out value="${ article.getArtiste() }"/></p>
                         <p><c:out value="${ article.getPrix() }"/>€</p>
                     </form>
                 </article>

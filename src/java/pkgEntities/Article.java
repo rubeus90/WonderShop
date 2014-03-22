@@ -15,8 +15,8 @@ import java.util.Objects;
 public class Article extends Entities{
 
     private int id;
-    private String nom;
-    private String description;
+    private String artiste;
+    private String album;
     private String prix;
     private String url_image;
     private String date_creation;
@@ -39,16 +39,16 @@ public class Article extends Entities{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.nom);
+        hash = 83 * hash + Objects.hashCode(this.artiste);
         return hash;
     }
     
-    public String getNom() {
-        return nom;
+    public String getArtiste() {
+        return artiste;
     }
 
-    public String getDescription() {
-        return description;
+    public String getAlbum() {
+        return album;
     }
 
     public String getPrix() {
@@ -71,15 +71,15 @@ public class Article extends Entities{
         return categorie;
     }
 
-    public void setNom(String nom) {
+    public void setArtiste(String artiste) {
         //if(stringValid(nom)){
-            this.nom = nom;
+            this.artiste = artiste;
         //}
     }
 
-    public void setDescription(String description) {
+    public void setAlbum(String album) {
 //        if(stringValid(description)){
-            this.description = description;
+            this.album = album;
 //        }
     }
 

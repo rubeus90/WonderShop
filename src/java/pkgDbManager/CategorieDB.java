@@ -89,8 +89,8 @@ public class CategorieDB extends ManagerDB{
                 
                 Article article = new Article();
                 article.setId(id);
-                article.setNom(artiste);
-                article.setDescription(album);
+                article.setArtiste(artiste);
+                article.setAlbum(album);
                 article.setPrix(prix);
                 article.setUrl_image(urlImage);
                 article.setDate_creation(dateCreation);

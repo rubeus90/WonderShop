@@ -43,8 +43,8 @@ public class ArticleDB extends ManagerDB{
             int idCategorie = resultat.getInt("ID_CATEGORIE");
             
             article.setId(id);
-            article.setNom(artiste);
-            article.setDescription(album);
+            article.setArtiste(artiste);
+            article.setAlbum(album);
             article.setPrix(prix);
             article.setUrl_image(urlImage);
             article.setDate_creation(dateCreation);
@@ -75,8 +75,8 @@ public class ArticleDB extends ManagerDB{
                 int idCategorie = resultat.getInt("ID_CATEGORIE");
 
                 article.setId(id);
-                article.setNom(artiste);
-                article.setDescription(album);
+                article.setArtiste(artiste);
+                article.setAlbum(album);
                 article.setPrix(prix);
                 article.setUrl_image(urlImage);
                 article.setDate_creation(dateCreation);
