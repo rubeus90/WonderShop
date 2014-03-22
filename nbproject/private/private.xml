@@ -3,8 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Martin/Documents/GitHub/WonderShop/web/WEB-INF/ConfirmationControleur.jsp</file>
-            <file>file:/C:/Users/Martin/Documents/GitHub/WonderShop/src/java/pkgEntities/Article.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgFormManager/Enregistrer.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/ConfirmationControleur.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/ConnexionControleur.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgDbManager/ClientDB.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/EnregistrerControleur.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgEntities/Commande.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgControleur/PanierControleur.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/src/java/pkgDbManager/CommandeDB.java</file>
+            <file>file:/home/rubeus/Documents/ESIEE/E4/Atelier%20JEE/WonderShop/web/WEB-INF/ConnexionControleur.jsp</file>
         </group>
     </open-files>
 </project-private>

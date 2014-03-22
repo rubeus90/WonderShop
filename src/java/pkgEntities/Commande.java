@@ -13,6 +13,7 @@ package pkgEntities;
 public class Commande {
     private Client client;
     private Article article;
+    private int quantite;
     
     public Client getClient() {
         return client;
@@ -28,6 +29,14 @@ public class Commande {
 
     public void setArticle(Article article) {
         this.article = article;
+    }
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
     }
     
 }

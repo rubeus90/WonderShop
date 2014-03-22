@@ -36,14 +36,16 @@ public class CommandeDB extends ManagerDB{
         Statement statement;
         try {
             statement = connexion.createStatement();
-            String string = "SELECT ID_CLIENT,ID_ARTICLE FROM COMMANDE WHERE ID='"+id+"'";
+            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE FROM COMMANDE WHERE ID='"+id+"'";
             ResultSet resultat = statement.executeQuery(string);
             resultat.next();
             int idClient = resultat.getInt("ID_CLIENT");
             int idArticle = resultat.getInt("ID_ARTICLE");
+            int quantite = resultat.getInt("QUANTITE");
             
             commande.setArticle(articleDB.get(idArticle));
             commande.setClient(clientDB.get(idClient));
+            commande.setQuantite(quantite);
         } 
         catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -55,16 +57,18 @@ public class CommandeDB extends ManagerDB{
     public void add(Commande commande){
         Client client = commande.getClient();
         Article article = commande.getArticle();
+        int quantite = commande.getQuantite();
         
         int idClient = client.getId();
         int idArticle = article.getId();
         
-        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE) VALUES (?,?)";
+        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE,QUANTITE) VALUES (?,?,?)";
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement(query);
             statement.setInt(1, idClient);
             statement.setInt(2, idArticle);
+            statement.setInt(1, quantite);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);

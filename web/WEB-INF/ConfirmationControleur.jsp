@@ -36,10 +36,11 @@
             </div>
             <p>Récapitulatif de votre commande : </p>
             <ul>
-                <c:forEach var="article" items="${sessionScope.listArticle}">
+                <c:forEach var="commande" items="${sessionScope.listCommande}">
+                <c:set var="article" value="${commande.getArticle()}"/>
                 <li>
                     <img src="${article.getUrl_image()}" alt="article"/>
-                    <h2><c:out value="${ article.getAlbum() }"/> - <c:out value="${ article.getArtiste() }"/> (<c:out value="${sessionScope.panier.getMap().get(article) }"/>)</h2>
+                    <h2><c:out value="${ article.getAlbum() }"/> - <c:out value="${ article.getArtiste() }"/> (<c:out value="${ commande.getQuantite() }"/>)</h2>
                     <div>
                         <p><c:out value="${ article.getPrix() }"/>€</p>
                     </div>

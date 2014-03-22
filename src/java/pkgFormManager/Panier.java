@@ -91,15 +91,16 @@ public class Panier extends Entities {
     
     public List<Commande> getCommande(Client client) {
         List<Commande> listCommande = new ArrayList<>();
-        int j = 1;
+//        int j = 1;
         for(Article article : map.keySet()) {
-            for(int i=0; i < map.get(article);i++) {
+//            for(int i=0; i < map.get(article);i++) {
                 Commande com = new Commande();
                 com.setClient(client);
                 com.setArticle(article);
+                com.setQuantite(map.get(article));
                 listCommande.add(com);
-                j++;
-            }
+//                j++;
+//            }
         }
         return listCommande;
     }
