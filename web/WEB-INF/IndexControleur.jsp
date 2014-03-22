@@ -59,11 +59,7 @@
                             <p>Blablabla</p>
                             <p>5€</p>
                             <form acion="IndexControleur" method="post">
-<<<<<<< HEAD
                                 <input type="hidden" name="article_id" value="1"/>
-=======
-                                <input type="hidden" name="article_nom" value="You are here"/>
->>>>>>> 5646f3ed5cf1a7a7b46f43fc364a3602095ea614
                                 <input type="hidden" name="article_prix" value="5"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 1">
@@ -103,11 +99,7 @@
                             <p>Blablabla</p>
                             <p>10€</p>
                             <form acion="IndexControleur" method="post">
-<<<<<<< HEAD
                                 <input type="hidden" name="article_id" value="2"/>
-=======
-                                <input type="hidden" name="article_nom" value="Lido"/>
->>>>>>> 5646f3ed5cf1a7a7b46f43fc364a3602095ea614
                                 <input type="hidden" name="article_prix" value="10"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 3">
@@ -133,7 +125,7 @@
                 for(Article article : affichageListArticle) {
                     html += "<article>";
                     html += "    <form acion=\"IndexControleur\" method=\"post\">";
-                    html += "        <input type=\"hidden\" name=\"article_nom\" value=\""+article.getNom()+"\"/>";
+                    html += "        <input type=\"hidden\" name=\"article_id\" value=\""+article.getId()+"\"/>";
                     html += "        <input type=\"hidden\" name=\"article_prix\" value=\""+article.getPrix()+"\"/>";
                     html += "        <button type=\"submit\" name=\"action\" value=\"Ajouter\" >";
                     html += "            <img src=\"icon/add.png\" alt=\"article\">";
