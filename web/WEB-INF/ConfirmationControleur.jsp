@@ -36,7 +36,7 @@
             </div>
             <p>Récapitulatif de votre commande : </p>
             <ul>
-                <c:forEach var="article" items="${sessionScope.listCommande}">
+                <c:forEach var="article" items="${sessionScope.listArticle}">
                 <li>
                     <img src="${article.getUrl_image()}" alt="article"/>
                     <h2><c:out value="${ article.getAlbum() }"/> - <c:out value="${ article.getArtiste() }"/> (<c:out value="${sessionScope.panier.getMap().get(article) }"/>)</h2>
