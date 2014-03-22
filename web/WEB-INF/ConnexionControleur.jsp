@@ -17,21 +17,23 @@
     <body>
 	 <%@ include file="header.jsp" %>
          
-        <section>					
-            <div class="info">
-                <div>
-                    <h2>Authentification</h2>
-                    <p>Merci d'entrer votre identifiant et votre mot de passe</p>
-                </div>
+        <h2>Se Connecter</h2>
+        <section>
+            <div class="content">
+                <h3>Je possède un compte</h3>
+                <form method="post" action="/Connexion">
+                        <fieldset>
+                                <input type="text" name="login" placeholder="Identifiant">
+                                <input type="password" name="mdp" placeholder="Mot de passe">
+                        </fieldset>	
+                        <input type="submit" name="connexion" value="Continuer">
+                </form>
             </div>
 
-            <form class="add" method="post" action="/ECommerce/Login">
-                <fieldset>
-                        <input type="text" name="email" placeholder="Email" required>
-                        <input type="password" name="password" placeholder="Mot de passe" required>
-                </fieldset>	
-                <input type="submit" name="connexion">
-            </form>
+            <div class="content">
+                <h3>Je ne possède pas de compte</h3>
+                <a href="">M'inscrire</a>
+            </div>
         </section>
     </body>
 </html>
