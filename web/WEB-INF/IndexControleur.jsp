@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@page import="pkgEntities.Article"%>
 <%@page import="pkgFormManager.Panier"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -60,7 +61,6 @@
                             <p>5€</p>
                             <form acion="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="1"/>
-                                <input type="hidden" name="article_prix" value="5"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 1">
                                     Ajouter au panier
@@ -80,7 +80,6 @@
                             <p>10€</p>
                             <form acion="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="3"/>
-                                <input type="hidden" name="article_prix" value="10"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 2">
                                     Ajouter au panier
@@ -100,7 +99,6 @@
                             <p>10€</p>
                             <form acion="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="2"/>
-                                <input type="hidden" name="article_prix" value="10"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 3">
                                     Ajouter au panier
@@ -115,32 +113,24 @@
             </div>
         </div>
         <!-- FIN SLIDER -->
-
+        
+        <!-- JSTL -->
         <section>
-            <h2>Indie-Pop</h2>
-            <% /* Affichage de la liste d'articles */
-            List<Article> affichageListArticle = (List<Article>) session.getAttribute("affichageListArticle");
-            if(affichageListArticle!=null) {
-                String html = "";
-                for(Article article : affichageListArticle) {
-                    html += "<article>";
-                    html += "    <form acion=\"IndexControleur\" method=\"post\">";
-                    html += "        <input type=\"hidden\" name=\"article_id\" value=\""+article.getId()+"\"/>";
-                    html += "        <input type=\"hidden\" name=\"article_prix\" value=\""+article.getPrix()+"\"/>";
-                    html += "        <button type=\"submit\" name=\"action\" value=\"Ajouter\" >";
-                    html += "            <img src=\"icon/add.png\" alt=\"article\">";
-                    html += "        </button>";
-                    html += "        <img src=\""+article.getUrl_image()+"\" alt=\"article\"/>";
-                    html += "        <h3>"+article.getNom()+"</h3>";
-                    html += "        <p>"+article.getDescription()+"</p>";
-                    html += "        <p>"+article.getPrix()+"€</p>";
-                    html += "    </form>";
-                    html += "</article>";
-                }
-                out.println(html);
-            }
-            else out.println("Panier NULL");
-            %>
+            <h2>Articles en vedettes</h2>
+            <c:forEach var="article" items="${affichageListArticle}">
+                <article>
+                    <form acion="IndexControleur" method="post">
+                        <input type="hidden" name="article_id" value="${article.getId()}"/>
+                        <img src="${article.getUrl_image()}" alt="article"/>
+                        <button type="submit" name="action" value="Ajouter" >
+                            <img src="icon/add.png" alt="article">
+                        </button>
+                        <h3><c:out value="${ article.getNom() }"/></h3>
+                        <p><c:out value="${ article.getDescription() }"/></p>
+                        <p><c:out value="${ article.getPrix() }"/></p>
+                    </form>
+                </article>
+            </c:forEach>         
         </section>
 
         <script type="text/javascript" src="/ECommerce/js/jquery.js"></script>
