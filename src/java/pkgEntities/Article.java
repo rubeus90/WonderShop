@@ -25,12 +25,20 @@ public class Article extends Entities{
     
     @Override
     public boolean equals(Object obj) {
-        if(obj==null) return false;
-        if(obj instanceof Article) {
+        if(obj==null) 
+            return false;
+        else if(obj instanceof Article) {
             Article article = (Article)obj;
+<<<<<<< HEAD
+            if(article.getNom()!=null)
+                if(article.getNom().equals(nom))
+                    return true;
+            
+=======
             if(article.getId() == (id)) { // Par pitié, on compare des clé primaires qui sont par définition UNIQUE
                 return true;
             }
+>>>>>>> 55886442cfbfe9fd6a71fe7b8c6dfd23236b8110
         }
         return false;
     }
