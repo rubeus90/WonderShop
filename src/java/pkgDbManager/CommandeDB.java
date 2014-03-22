@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pkgEntities.Article;
@@ -67,5 +69,16 @@ public class CommandeDB extends ManagerDB{
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
         }        
+    }
+    
+    public List<Article> getListArticle(List<Commande> listCommande){
+        List<Article> listArticle = new ArrayList<>();
+        
+        for(Commande commande : listCommande){
+            Article article = commande.getArticle();
+            listArticle.add(article);
+        }
+        
+        return listArticle;
     }
 }

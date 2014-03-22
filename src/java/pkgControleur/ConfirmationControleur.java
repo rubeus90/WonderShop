@@ -41,9 +41,10 @@ public class ConfirmationControleur extends AbstractControleur {
             // Sauvegarde du panier dans la BDD grâce à CommandeDB
             CommandeDB commandeDB = new CommandeDB();
             List<Commande> listCommande = panier.getCommande(client);
+            List<Article> listArticle = commandeDB.getListArticle(listCommande);
             
             // On met la liste des commandes dans les attributs de session
-            session.setAttribute("listCommande", listCommande);
+            session.setAttribute("listArticle", listArticle);
             
             // On ajoute les commandes dans la BDD: une commade par article
             for(Commande commande:listCommande) {
