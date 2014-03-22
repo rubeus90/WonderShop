@@ -24,18 +24,18 @@
         <!-- JSTL -->
         <section>
             <c:forEach var="article" items="${sessionScope.listArticle}">
-                <article>
+                <a href="/ECommerce/Article/${article.getId()}"><article>
                     <form action="/ECommerce/Categorie/${sessionScope.categorie}" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
-                        <a href="/ECommerce/Article/${article.getId()}"><img src="/ECommerce/${article.getUrl_image()}" alt="article"/></a>
+                        <img src="/ECommerce/${article.getUrl_image()}" alt="article"/>
                         <button type="submit" name="action" value="Ajouter" >
                             <img src="/ECommerce/icon/add.png" alt="article">
                         </button>
                         <h3><c:out value="${ article.getAlbum() }"/></h3>
                         <p><c:out value="${ article.getArtiste() }"/></p>
-                        <p><c:out value="${ article.getPrix() }"/></p>
+                        <p><c:out value="${ article.getPrix() }"/>€</p>
                     </form>
-                </article>
+                </article></a>
             </c:forEach>         
         </section>
     </body>
