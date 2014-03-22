@@ -63,10 +63,10 @@ public class IndexControleur extends AbstractControleur {
         *************************************************************************************/
         
         /* Récupération de la liste d'articles  */
-        List<Article> affichageListArticle = articleDB.getAll();
+        List<Article> listArticle = articleDB.getAll();
         
         /* Sauvegarde de la listes d'articles dans la session  */
-        session.setAttribute("affichageListArticle", affichageListArticle); 
+        session.setAttribute("listArticle",listArticle); 
         
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/IndexControleur.jsp").forward(request, response);

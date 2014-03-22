@@ -19,35 +19,11 @@
         <link rel="stylesheet" media="screen" href="/ECommerce/css/index.css" type="text/css" />
     </head>
     <body>
-        <header>
-            <div id="header">
-                <ul>
-                    <li><a href="/ECommerce/Categorie/Indie-Pop">Indie-Pop</a></li>
-                    <li><a href="/ECommerce/Categorie/Pop-Rock">Pop-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
-                </ul>
-                <div id="logo"><a href="/ECommerce/IndexControleur">
-                    <img src="/ECommerce/icon/logo.png" alt="logo">
-                    <h1>WonderSHOP</h1>
-                </a></div>
-            </div>
-            <div id="cart"><a href="/ECommerce/PanierControleur">
-                <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart">
-                    <span>
-                        <%
-                        Panier panier = (Panier) session.getAttribute("panier");
-                        out.println( "("+ panier.getEffectif() +")" );
-                        %>
-                    </span>
-                </div>
-            </a></div>
-        </header>
+        <%@ include file="header.jsp" %>
         
         <!-- JSTL -->
         <section>
-            <c:forEach var="article" items="${listArticle}">
+            <c:forEach var="article" items="${sessionScope.listArticle}">
                 <article>
                     <form action="Je VAIS OU ?" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>

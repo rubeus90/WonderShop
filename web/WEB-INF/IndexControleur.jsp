@@ -19,31 +19,7 @@
         <title>WonderShop</title>
     </head>
     <body>
-        <header>
-            <div id="header">
-                <ul>
-                    <li><a href="/ECommerce/Categorie/Indie-Pop">Indie-Pop</a></li>
-                    <li><a href="/ECommerce/Categorie/Pop-Rock">Pop-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
-                </ul>
-                <div id="logo"><a href="">
-                    <img src="/ECommerce/icon/logo.png" alt="logo">
-                    <h1>WonderSHOP</h1>
-                </a></div>
-            </div>
-            <div id="cart"><a href="/ECommerce/PanierControleur">
-                <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart">
-                    <span>
-                        <%
-                        Panier panier = (Panier) session.getAttribute("panier");
-                        out.println( "("+ panier.getEffectif() +")" );
-                        %>
-                    </span>
-                </div>
-            </a></div>
-        </header>
+        <%@ include file="header.jsp" %>
 
          <!-- SLIDER -->
         <div class="main">
@@ -117,7 +93,7 @@
         <!-- JSTL -->
         <section>
             <h2>Articles en vedettes</h2>
-            <c:forEach var="article" items="${affichageListArticle}">
+            <c:forEach var="article" items="${sessionScope.listArticle}">
                 <article>
                     <form acion="IndexControleur" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
