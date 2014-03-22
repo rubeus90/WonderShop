@@ -59,7 +59,7 @@ public class IndexControleur extends AbstractControleur {
         *************************************************************************************/
         
         /* Récupération de la liste d'articles  */
-        List<Article> listArticle = articleDB.getAll();
+        List<Article> listArticle = articleDB.getAll(10);
         
         /* Sauvegarde de la listes d'articles dans la session  */
         session.setAttribute("listArticle",listArticle); 

@@ -92,7 +92,7 @@
         
         <!-- JSTL -->
         <section>
-            <h2>Articles en vedettes</h2>
+            <h2>Derniers articles</h2>
             <c:forEach var="article" items="${sessionScope.listArticle}">
                 <a href="/ECommerce/Article/${article.getId()}"><article>
                     <form action="IndexControleur" method="post">

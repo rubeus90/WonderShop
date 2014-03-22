@@ -89,4 +89,40 @@ public class ArticleDB extends ManagerDB{
         }
         return listArticle;
     }
+    
+    public List<Article> getAll(int limit){
+        CategorieDB categorieDB = new CategorieDB();
+        List<Article> listArticle = new ArrayList<Article>();
+        
+        try { 
+            Statement statement = connexion.createStatement();
+            String string = "SELECT ID,ARTISTE,ALBUM,PRIX,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE ORDER BY ID DESC";
+            ResultSet resultat = statement.executeQuery(string);
+            int i = 0;
+            while(resultat.next() && i<limit ){
+                Article article = new Article();
+                int id = resultat.getInt("ID");
+                String artiste = resultat.getString("ARTISTE");
+                String album = resultat.getString("ALBUM");
+                String prix = resultat.getString("PRIX");
+                String urlImage = resultat.getString("URL_IMAGE");
+                String dateCreation = resultat.getString("DATE_CREATION");
+                int idCategorie = resultat.getInt("ID_CATEGORIE");
+
+                article.setId(id);
+                article.setArtiste(artiste);
+                article.setAlbum(album);
+                article.setPrix(prix);
+                article.setUrl_image(urlImage);
+                article.setDate_creation(dateCreation);
+                article.setCategorie(categorieDB.get(idCategorie));
+                i++;
+                listArticle.add(article);
+            }            
+        } 
+        catch (SQLException ex) {
+            Logger.getLogger(ArticleDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listArticle;
+    }
 }
