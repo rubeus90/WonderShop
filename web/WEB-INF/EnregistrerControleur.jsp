@@ -25,7 +25,7 @@
                         <input type="text" name="prenom" placeholder="Prenom">
                         <input type="text" name="telephone" placeholder="Telephone">
                         <input type="password" name="password" placeholder="Mot de passe" required>
-                        <input type="password" name=passwordv placeholder="Vérification de mot de passe">
+                        <input type="password" name=passwordv placeholder="Vérification de mot de passe" required>
                 </fieldset>	
 
                 <fieldset>

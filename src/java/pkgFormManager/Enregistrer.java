@@ -39,4 +39,11 @@ public class Enregistrer {
         
         return client;
     }
+    
+    public boolean passwordMatch(HttpServletRequest request){
+        String password = request.getParameter("password");
+        String passwordVerify = request.getParameter("passwordv");
+        
+        return password.equals(passwordVerify);
+    }
 }

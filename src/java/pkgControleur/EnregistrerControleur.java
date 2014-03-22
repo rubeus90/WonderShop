@@ -34,17 +34,29 @@ public class EnregistrerControleur extends AbstractControleur{
                     e.printStackTrace();
                 }   break;
             case "/ClientEnregistre":
-                //Hydrater l'objet Client et mettre le client dans la session
                 Enregistrer enregistrer = new Enregistrer();
-                client = enregistrer.hydrate(request);
-                //Mettre le client dans le BDD
-                ClientDB clientDB = new ClientDB();
-                clientDB.add(client);
-                //Recuperer le client dans la BDD (pour avoir l'ID) puis le mettre dans la session
-                String email = client.getEmail();
-                client = clientDB.get(email);
-                session.setAttribute("client", client);
-                callServlet(request, response, "/Confirmation");
+                
+                //Si le mdp et sa verification correspondent
+                if(enregistrer.passwordMatch(request)){
+                    //Hydrater l'objet Client et mettre le client dans la session
+                    client = enregistrer.hydrate(request);
+                    //Mettre le client dans le BDD
+                    ClientDB clientDB = new ClientDB();
+                    clientDB.add(client);
+                    //Recuperer le client dans la BDD (pour avoir l'ID) puis le mettre dans la session
+                    String email = client.getEmail();
+                    client = clientDB.get(email);
+                    session.setAttribute("client", client);
+                    callServlet(request, response, "/Confirmation");
+                }
+                else{
+                    try {
+                        this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
+                    } catch (ServletException e) {
+                        e.printStackTrace();
+                    }
+                }
+                
                 break;
         }
     }
