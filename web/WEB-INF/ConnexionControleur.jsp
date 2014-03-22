@@ -27,8 +27,8 @@
 
             <form class="add" method="post" action="/ECommerce/Login">
                 <fieldset>
-                        <input type="text" name="email" placeholder="Email">
-                        <input type="password" name="password" placeholder="Mot de passe">
+                        <input type="text" name="email" placeholder="Email" required>
+                        <input type="password" name="password" placeholder="Mot de passe" required>
                 </fieldset>	
                 <input type="submit" name="connexion">
             </form>

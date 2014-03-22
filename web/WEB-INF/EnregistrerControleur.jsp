@@ -24,13 +24,13 @@
                         <input type="text" name="nom" placeholder="Nom">
                         <input type="text" name="prenom" placeholder="Prenom">
                         <input type="text" name="telephone" placeholder="Telephone">
-                        <input type="password" name="password" placeholder="Mot de passe">
+                        <input type="password" name="password" placeholder="Mot de passe" required>
                         <input type="password" name=passwordv placeholder="Vérification de mot de passe">
                 </fieldset>	
 
                 <fieldset>
                         <legend><span class="form-step">2</span>Votre E-mail</legend>
-                        <input type="email" name="email" placeholder="Mail">
+                        <input type="email" name="email" placeholder="Mail" required>
                 </fieldset>	
 
                 <fieldset>
