@@ -61,7 +61,6 @@ public class Panier extends Entities {
         } 
         else
             map.put(pArticle,1);
-        
     }
     
     public String getPrix() {
