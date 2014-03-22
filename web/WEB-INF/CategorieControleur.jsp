@@ -27,7 +27,7 @@
                 <article>
                     <form action="/ECommerce/Categorie/${sessionScope.categorie}" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
-                        <img src="/ECommerce/${article.getUrl_image()}" alt="article"/>
+                        <a href="/ECommerce/Article/${article.getId()}"><img src="/ECommerce/${article.getUrl_image()}" alt="article"/></a>
                         <button type="submit" name="action" value="Ajouter" >
                             <img src="/ECommerce/icon/add.png" alt="article">
                         </button>

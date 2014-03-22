@@ -31,6 +31,10 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/Article/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
         <url-pattern>/Confirmation</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -121,5 +125,15 @@
     <servlet-mapping>
         <servlet-name>ConfirmationControleur</servlet-name>
         <url-pattern>/ConfirmationControleur</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Article controleur -->
+    <servlet>
+        <servlet-name>ArticleControleur</servlet-name>
+        <servlet-class>pkgControleur.ArticleControleur</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ArticleControleur</servlet-name>
+        <url-pattern>/ArticleControleur</url-pattern>
     </servlet-mapping>
 </web-app>

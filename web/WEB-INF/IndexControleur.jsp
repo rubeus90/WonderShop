@@ -29,7 +29,7 @@
                     <!-- PREMIER SLIDE -->
                     <div class="slide" data-blurred="/ECommerce/img/slide1_blurred.jpg">
                         <div class="image">
-                            <img src="/ECommerce/img/slide1.jpg" alt="Slider 1">
+                            <a href="/ECommerce/Article/1"><img src="/ECommerce/img/slide1.jpg" alt="Slider 1"></a>
                         </div>
                         <div class="content">
                             <h2>You Are Here</h2>
@@ -48,7 +48,7 @@
                     <!-- DEUXIEME SLIDE -->
                     <div class="slide" data-blurred="/ECommerce/img/slide2_blurred.jpg">
                            <div class="image">
-                                <img src="/ECommerce/img/slide2.png" alt="Slider 2">
+                               <a href="/ECommerce/Article/3"><img src="/ECommerce/img/slide2.png" alt="Slider 2"></a>
                             </div>
                         <div class="content">
                             <h2>Hunter Hunted</h2>
@@ -67,7 +67,7 @@
                     <!-- TROISIEME SLIDE -->
                     <div class="slide" data-blurred="/ECommerce/img/slide3_blurred.jpg">
                         <div class="image">
-                            <img src="/ECommerce/img/slide3.png" alt="Slider 3">
+                            <a href="/ECommerce/Article/2"><img src="/ECommerce/img/slide3.png" alt="Slider 3"></a>
                         </div>
                         <div class="content">
                             <h2>Lido</h2>
@@ -97,9 +97,9 @@
                 <article>
                     <form action="IndexControleur" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
-                        <img src="${article.getUrl_image()}" alt="article"/>
+                        <a href="/ECommerce/Article/${article.getId()}"><img src="${article.getUrl_image()}" alt="article"/></a>
                         <button type="submit" name="action" value="Ajouter" >
-                            <img src="icon/add.png" alt="article">
+                            <img src="/ECommerce/icon/add.png" alt="article">
                         </button>
                         <h3><c:out value="${ article.getAlbum() }"/></h3>
                         <p><c:out value="${ article.getArtiste() }"/></p>
