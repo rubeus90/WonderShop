@@ -18,7 +18,6 @@ public class Article extends Entities{
     private String nom;
     private String description;
     private String prix;
-    private String quantite;
     private String url_image;
     private String date_creation;
     private Categorie categorie;
@@ -60,10 +59,6 @@ public class Article extends Entities{
         return Double.parseDouble(prix);
     }
 
-    public String getQuantite() {
-        return quantite;
-    }
-
     public String getUrl_image() {
         return url_image;
     }
@@ -91,12 +86,6 @@ public class Article extends Entities{
     public void setPrix(String prix) {
         if(intValid(prix)){
             this.prix = prix;
-        }        
-    }
-
-    public void setQuantite(String quantite) {
-        if(intValid(quantite)){
-            this.quantite = quantite;
         }        
     }
 

@@ -74,26 +74,24 @@ public class CategorieDB extends ManagerDB{
         List<Article> listArticle = new ArrayList<Article>();
         
         int idCategorie = categorie.getId();
-        String query = "SELECT ID,NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION FROM ARTICLE WHERE ID_CATEGORIE="+idCategorie;
+        String query = "SELECT ID,ARTISTE,ALBUM,PRIX,URL_IMAGE,DATE_CREATION FROM ARTICLE WHERE ID_CATEGORIE="+idCategorie;
         
         try {
             Statement statement = connexion.createStatement();
             ResultSet resultat = statement.executeQuery(query);
             while(resultat.next()){
                 int id = resultat.getInt("ID");
-                String nom = resultat.getString("NOM");
-                String description = resultat.getString("DESCRIPTION");
+                String artiste = resultat.getString("ARTISTE");
+                String album = resultat.getString("ALBUM");
                 String prix = resultat.getString("PRIX");
-                String quantite = resultat.getString("QUANTITE");
                 String urlImage = resultat.getString("URL_IMAGE");
                 String dateCreation = resultat.getString("DATE_CREATION");
                 
                 Article article = new Article();
                 article.setId(id);
-                article.setNom(nom);
-                article.setDescription(description);
+                article.setNom(artiste);
+                article.setDescription(album);
                 article.setPrix(prix);
-                article.setQuantite(quantite);
                 article.setUrl_image(urlImage);
                 article.setDate_creation(dateCreation);
                 
