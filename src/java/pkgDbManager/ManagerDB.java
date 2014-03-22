@@ -36,7 +36,5 @@ public class ManagerDB {
         catch ( SQLException e ) {
             e.printStackTrace();
         } 
-        
-        //return connexion;
     }
 }

@@ -40,10 +40,14 @@
             </ul>
         
             <p id="total"><c:out value="${ sessionScope.panier.getPrix() }"/>€</p>
-            <div id="buy"><a href="ConnexionControleur">
-                <img src="/ECommerce/icon/buy.png" alt="buy"/>
-                <p>Valider mon panier</p>
-            </a></div>
+            
+            
+            <c:if test="${ sessionScope.panier.getEffectif() != 0 }">
+                <div id="buy"><a href="ConnexionControleur">
+                    <img src="/ECommerce/icon/buy.png" alt="buy"/>
+                    <p>Valider mon panier</p>
+                </a></div>
+            </c:if>         
         </section>    
     </body>
 </html>

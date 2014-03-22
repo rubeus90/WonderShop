@@ -15,46 +15,23 @@
         <link rel="stylesheet" media="screen" href="css/connexion.css" type="text/css" />
     </head>
     <body>
-	 <header>
-            <div id="header">
-                <ul>
-                    <li><a href="/ECommerce/Categorie/Indie-Pop">Indie-Pop</a></li>
-                    <li><a href="/ECommerce/Categorie/Pop-Rock">Pop-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
-                </ul>
-                <div id="logo"><a href="/ECommerce/IndexControleur">
-                    <img src="/ECommerce/icon/logo.png" alt="logo">
-                    <h1>WonderSHOP</h1>
-                </a></div>
+	 <%@ include file="header.jsp" %>
+         
+        <section>					
+            <div class="info">
+                <div>
+                    <h2>Authentification</h2>
+                    <p>Merci d'entrer votre identifiant et votre mot de passe</p>
+                </div>
             </div>
-            <div id="cart"><a href="/ECommerce/PanierControleur">
-                <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart">
-                    <span>
-                        <%
-                        Panier panier = (Panier) session.getAttribute("panier");
-                        out.println( "("+ panier.getEffectif() +")" );
-                        %>
-                    </span>
-                </div>
-            </a></div>
-        </header>
-            <section>					
-                <div class="info">
-                    <div>
-                        <h2>Authentification</h2>
-                        <p>Merci d'entrer votre identifiant et votre mot de passe</p>
-                    </div>
-                </div>
 
-                <form class="add" method="post" action="/ECommerce/Login">
-                    <fieldset>
-                            <input type="text" name="email" placeholder="Email">
-                            <input type="password" name="password" placeholder="Mot de passe">
-                    </fieldset>	
-                    <input type="submit" name="connexion">
-                </form>
-            </section>
-	</body>
+            <form class="add" method="post" action="/ECommerce/Login">
+                <fieldset>
+                        <input type="text" name="email" placeholder="Email">
+                        <input type="password" name="password" placeholder="Mot de passe">
+                </fieldset>	
+                <input type="submit" name="connexion">
+            </form>
+        </section>
+    </body>
 </html>
