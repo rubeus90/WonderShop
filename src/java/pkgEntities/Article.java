@@ -27,7 +27,7 @@ public class Article extends Entities{
     public boolean equals(Object obj) {
         if(obj instanceof Article) {
             Article article = (Article)obj;
-            if(article.getNom().equals(nom)) {
+            if(article.getId() == (id)) { // Par pitié, on compare des clé primaires qui sont par définition UNIQUE
                 return true;
             }
         }
