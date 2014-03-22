@@ -3,7 +3,7 @@
     Created on : Mar 21, 2014, 4:53:09 PM
     Author     : rubeus
 --%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -32,7 +32,8 @@
         <section>
             <div>
                 <h3>Confirmation de votre commande :</h3>
-                <p>Vous recevrez vos articles dans 2 jours.</p>
+                <p>Vous recevrez vos articles dans 2 jours à l'adresse suivante :</p>
+                <p><c:out value="${ sessionScope.client.getAdresse() }"/> <c:out value="${ sessionScope.client.getCodePostal()}"/> <c:out value="${ sessionScope.client.getVille()}"/></p>
             </div>
            <a href="/ECommerce/">Retour à l'acceuil</a>
         </section>    

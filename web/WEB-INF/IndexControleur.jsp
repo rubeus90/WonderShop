@@ -32,9 +32,9 @@
                             <img src="/ECommerce/img/slide1.jpg" alt="Slider 1">
                         </div>
                         <div class="content">
-                            <h2>Magic Man</h2>
-                            <p>Blablabla</p>
-                            <p>5€</p>
+                            <h2>You Are Here</h2>
+                            <p>Magic Man</p>
+                            <p>10€</p>
                             <form action="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="1"/>
                                 <button type="submit" name="action" value="Ajouter" >
@@ -52,7 +52,7 @@
                             </div>
                         <div class="content">
                             <h2>Hunter Hunted</h2>
-                            <p>Blablabla</p>
+                            <p>Hunter Hunted</p>
                             <p>10€</p>
                             <form action="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="3"/>
@@ -70,8 +70,8 @@
                             <img src="/ECommerce/img/slide3.png" alt="Slider 3">
                         </div>
                         <div class="content">
-                            <h2>The Colourist</h2>
-                            <p>Blablabla</p>
+                            <h2>Lido</h2>
+                            <p>The Colourist</p>
                             <p>10€</p>
                             <form action="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="2"/>
