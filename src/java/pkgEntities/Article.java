@@ -25,12 +25,14 @@ public class Article extends Entities{
     
     @Override
     public boolean equals(Object obj) {
-        if(obj==null) return false;
-        if(obj instanceof Article) {
+        if(obj==null) 
+            return false;
+        else if(obj instanceof Article) {
             Article article = (Article)obj;
-            if(article.getNom().equals(nom)) {
-                return true;
-            }
+            if(article.getNom()!=null)
+                if(article.getNom().equals(nom))
+                    return true;
+            
         }
         return false;
     }
