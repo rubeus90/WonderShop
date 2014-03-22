@@ -20,10 +20,9 @@ import pkgEntities.Client;
  * @author rubeus
  */
 public class ClientDB extends ManagerDB{
-    private Connection connexion;
     
     public ClientDB(){
-        connexion = super.connection();
+        super.connection();
     }
     
     public Client get(int id){

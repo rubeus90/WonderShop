@@ -61,7 +61,6 @@ public class Panier extends Entities {
         } 
         else
             map.put(pArticle,1);
-        
     }
     
     public String getPrix() {
@@ -83,7 +82,7 @@ public class Panier extends Entities {
     
     public Article getArticle(String pnom) {
         for(Article article : map.keySet()) {
-            if(pnom.equals(article.getNom())) {
+            if(pnom.equals(article.getArtiste())) {
                 return article;
             }
         }

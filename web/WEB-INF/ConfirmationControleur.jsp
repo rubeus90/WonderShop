@@ -31,11 +31,10 @@
 
         <section>
             <div>
-                <h3>Confirmation de votre commande</h3>
-                <p>Vous recevrez vos articles dans 2 jours à l'adresse suivante : </p>
-                <p>69 Rue de la sodomie 69694 Par derrière</p>
+                <h3>Confirmation de votre commande :</h3>
+                <p>Vous recevrez vos articles dans 2 jours.</p>
             </div>
-           <a href="A MODIFIER">Retour à l'acceuil</a>
+           <a href="/ECommerce/">Retour à l'acceuil</a>
         </section>    
     </body>
 </html>

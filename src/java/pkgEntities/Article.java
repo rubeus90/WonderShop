@@ -15,19 +15,21 @@ import java.util.Objects;
 public class Article extends Entities{
 
     private int id;
-    private String nom;
-    private String description;
+    private String artiste;
+    private String album;
     private String prix;
-    private String quantite;
     private String url_image;
     private String date_creation;
     private Categorie categorie;
     
     @Override
     public boolean equals(Object obj) {
-        if(obj instanceof Article) {
+        if(obj==null) 
+            return false;
+        else if(obj instanceof Article) {
             Article article = (Article)obj;
-            if(article.getNom().equals(nom)) {
+            
+            if(article.getId() == (id)) { // Par pitié, on compare des clé primaires qui sont par définition UNIQUE
                 return true;
             }
         }
@@ -37,16 +39,16 @@ public class Article extends Entities{
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.nom);
+        hash = 83 * hash + Objects.hashCode(this.artiste);
         return hash;
     }
     
-    public String getNom() {
-        return nom;
+    public String getArtiste() {
+        return artiste;
     }
 
-    public String getDescription() {
-        return description;
+    public String getAlbum() {
+        return album;
     }
 
     public String getPrix() {
@@ -55,10 +57,6 @@ public class Article extends Entities{
     
     public double getPrix_double() {
         return Double.parseDouble(prix);
-    }
-
-    public String getQuantite() {
-        return quantite;
     }
 
     public String getUrl_image() {
@@ -73,27 +71,21 @@ public class Article extends Entities{
         return categorie;
     }
 
-    public void setNom(String nom) {
+    public void setArtiste(String artiste) {
         //if(stringValid(nom)){
-            this.nom = nom;
+            this.artiste = artiste;
         //}
     }
 
-    public void setDescription(String description) {
+    public void setAlbum(String album) {
 //        if(stringValid(description)){
-            this.description = description;
+            this.album = album;
 //        }
     }
 
     public void setPrix(String prix) {
         if(intValid(prix)){
             this.prix = prix;
-        }        
-    }
-
-    public void setQuantite(String quantite) {
-        if(intValid(quantite)){
-            this.quantite = quantite;
         }        
     }
 

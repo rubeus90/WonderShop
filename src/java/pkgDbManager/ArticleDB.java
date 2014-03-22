@@ -15,49 +15,15 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pkgEntities.Article;
-import pkgEntities.Client;
 
 /**
  *
  * @author rubeus
  */
 public class ArticleDB extends ManagerDB{
-    private Connection connexion;
     
     public ArticleDB(){
-        connexion = super.connection();
-    }
-    
-    public Article get(String nom){
-        Article article = new Article();
-        CategorieDB categorieDB = new CategorieDB();
-        
-        try {  
-            Statement statement = connexion.createStatement();
-            String string = "SELECT ID,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE NOM='"+nom+"'";
-            ResultSet resultat = statement.executeQuery(string);
-            resultat.next();
-            int id = resultat.getInt("ID");
-            String description = resultat.getString("DESCRIPTION");
-            String prix = resultat.getString("PRIX");
-            String quantite = resultat.getString("QUANTITE");
-            String urlImage = resultat.getString("URL_IMAGE");
-            String dateCreation = resultat.getString("DATE_CREATION");
-            int idCategorie = resultat.getInt("ID_CATEGORIE");
-            
-            article.setId(id);
-            article.setNom(nom);
-            article.setDescription(description);
-            article.setPrix(prix);
-            article.setQuantite(quantite);
-            article.setUrl_image(urlImage);
-            article.setDate_creation(dateCreation);
-            article.setCategorie(categorieDB.get(idCategorie));
-        } 
-        catch (SQLException ex) {
-            Logger.getLogger(ArticleDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return article;
+        super.connection();
     }
     
     public Article get(int id){
@@ -66,22 +32,20 @@ public class ArticleDB extends ManagerDB{
         
         try {  
             Statement statement = connexion.createStatement();
-            String string = "SELECT NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE ID='"+id+"'";
+            String string = "SELECT ARTISTE,ALBUM,PRIX,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE WHERE ID="+id;
             ResultSet resultat = statement.executeQuery(string);
             resultat.next();
-            String nom = resultat.getString("NOM");
-            String description = resultat.getString("DESCRIPTION");
+            String artiste = resultat.getString("ARTISTE");
+            String album = resultat.getString("ALBUM");
             String prix = resultat.getString("PRIX");
-            String quantite = resultat.getString("QUANTITE");
             String urlImage = resultat.getString("URL_IMAGE");
             String dateCreation = resultat.getString("DATE_CREATION");
             int idCategorie = resultat.getInt("ID_CATEGORIE");
             
             article.setId(id);
-            article.setNom(nom);
-            article.setDescription(description);
+            article.setArtiste(artiste);
+            article.setAlbum(album);
             article.setPrix(prix);
-            article.setQuantite(quantite);
             article.setUrl_image(urlImage);
             article.setDate_creation(dateCreation);
             article.setCategorie(categorieDB.get(idCategorie));
@@ -98,24 +62,22 @@ public class ArticleDB extends ManagerDB{
         
         try { 
             Statement statement = connexion.createStatement();
-            String string = "SELECT ID,NOM,DESCRIPTION,PRIX,QUANTITE,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE";
+            String string = "SELECT ID,ARTISTE,ALBUM,PRIX,URL_IMAGE,DATE_CREATION,ID_CATEGORIE FROM ARTICLE";
             ResultSet resultat = statement.executeQuery(string);
             while(resultat.next()){
                 Article article = new Article();
                 int id = resultat.getInt("ID");
-                String nom = resultat.getString("NOM");
-                String description = resultat.getString("DESCRIPTION");
+                String artiste = resultat.getString("ARTISTE");
+                String album = resultat.getString("ALBUM");
                 String prix = resultat.getString("PRIX");
-                String quantite = resultat.getString("QUANTITE");
                 String urlImage = resultat.getString("URL_IMAGE");
                 String dateCreation = resultat.getString("DATE_CREATION");
                 int idCategorie = resultat.getInt("ID_CATEGORIE");
 
                 article.setId(id);
-                article.setNom(nom);
-                article.setDescription(description);
+                article.setArtiste(artiste);
+                article.setAlbum(album);
                 article.setPrix(prix);
-                article.setQuantite(quantite);
                 article.setUrl_image(urlImage);
                 article.setDate_creation(dateCreation);
                 article.setCategorie(categorieDB.get(idCategorie));

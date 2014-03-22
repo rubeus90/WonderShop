@@ -8,6 +8,7 @@
 <%@page import="java.util.List"%>
 <%@page import="pkgEntities.Article"%>
 <%@page import="pkgEntities.Article"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,47 +19,24 @@
         <link rel="stylesheet" media="screen" href="/ECommerce/css/index.css" type="text/css" />
     </head>
     <body>
-        <header>
-            <div id="header">
-                <ul>
-                    <li><a href="/ECommerce/Categorie/Indie-Pop">Indie-Pop</a></li>
-                    <li><a href="/ECommerce/Categorie/Pop-Rock">Pop-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
-                    <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
-                </ul>
-                <div id="logo"><a href="/ECommerce/IndexControleur">
-                    <img src="/ECommerce/icon/logo.png" alt="logo">
-                    <h1>WonderSHOP</h1>
-                </a></div>
-            </div>
-            <div id="cart"><a href="/ECommerce/PanierControleur">
-                <div id="shop">
-                    <img src="/ECommerce/icon/cart.png" alt="cart">
-                    <span>
-                        <%
-                        Panier panier = (Panier) session.getAttribute("panier");
-                        out.println( "("+ panier.getEffectif() +")" );
-                        %>
-                    </span>
-                </div>
-            </a></div>
-        </header>
-
+        <%@ include file="header.jsp" %>
+        
+        <!-- JSTL -->
         <section>
-            <%
-                List<Article> listArticle = (List<Article>) session.getAttribute("listArticle");
-                for(Article article: listArticle){
-                    out.println("<article> <form acion=\"article.html\" method=\"post\">");
-                    out.println("<button type=\"submit\" name=\"action\" value=\"Ajouter\" >");
-                    out.println("<img src=\"/ECommerce/icon/add.png\" alt=\"article\">");
-                    out.println("</button>"); 
-                    out.println("<img src=\""+article.getUrl_image()+"\" alt=\"article\">");
-                    out.println("<h3>"+ article.getNom() +"</h3>");
-                    out.println("<p>"+ article.getDescription() +"</p>");
-                    out.println("<p>"+ article.getPrix() +"</p>");
-                    out.println("</form></article>");
-                }                
-            %>
+            <c:forEach var="article" items="${sessionScope.listArticle}">
+                <article>
+                    <form action="/ECommerce/Categorie/${sessionScope.categorie}" method="post">
+                        <input type="hidden" name="article_id" value="${article.getId()}"/>
+                        <img src="/ECommerce/${article.getUrl_image()}" alt="article"/>
+                        <button type="submit" name="action" value="Ajouter" >
+                            <img src="/ECommerce/icon/add.png" alt="article">
+                        </button>
+                        <h3><c:out value="${ article.getAlbum() }"/></h3>
+                        <p><c:out value="${ article.getArtiste() }"/></p>
+                        <p><c:out value="${ article.getPrix() }"/></p>
+                    </form>
+                </article>
+            </c:forEach>         
         </section>
     </body>
 </html>

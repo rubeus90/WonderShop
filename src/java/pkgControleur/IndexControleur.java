@@ -25,34 +25,47 @@ public class IndexControleur extends AbstractControleur {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        ArticleDB articleDB = new ArticleDB(); // Récupération du Manager des articles
+        
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
         if(panier == null) {
             panier = new Panier();
         }
         
-        /* Récupération des paramètres pour ajouter un article */
-        String action = request.getParameter("action");
-        String article_nom = request.getParameter("article_nom");
-        //String article_prix = request.getParameter("article_prix");
+        /*************************************************************************************
+        *                               FORMULAIRE
+        *************************************************************************************/
         
-        ArticleDB articleDB = new ArticleDB();
-        Article article;
-        /* Si un article est à ajouter */
-        if(action!=null && article_nom!=null) {
+        if(request.getParameter("action") != null && request.getParameter("article_id") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
+            
+            /* Récupération des paramètres pour ajouter un article */
+            String action = request.getParameter("action");
+            int article_id = Integer.parseInt(request.getParameter("article_id"));
+
+            /* Si un article est à ajouter */
             if(action.equals("Ajouter")) {
-                panier.addArticle(articleDB.get(article_nom));
-            }
+                Article article = articleDB.get(article_id);
+                panier.addArticle(article);
+            }   
         }
         
-        /* Mise à jour du panier */
+        /*************************************************************************************
+        *                               PANIER             
+        /*************************************************************************************/
+        
         session.setAttribute("panier",panier);
         
+        
+        /*************************************************************************************
+        *                                ARTICLE
+        *************************************************************************************/
+        
         /* Récupération de la liste d'articles  */
-        List<Article> affichageListArticle = articleDB.getAll();
+        List<Article> listArticle = articleDB.getAll();
         
         /* Sauvegarde de la listes d'articles dans la session  */
-        session.setAttribute("affichageListArticle", affichageListArticle);        
+        session.setAttribute("listArticle",listArticle); 
         
         try {
             this.getServletContext().getRequestDispatcher("/WEB-INF/IndexControleur.jsp").forward(request, response);

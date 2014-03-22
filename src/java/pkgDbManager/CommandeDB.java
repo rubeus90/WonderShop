@@ -22,10 +22,9 @@ import pkgEntities.Commande;
  * @author rubeus
  */
 public class CommandeDB extends ManagerDB{
-    private Connection connexion;
     
     public CommandeDB(){
-        connexion = super.connection();
+        super.connection();
     }
     
     public Commande get(int id){

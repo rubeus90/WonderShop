@@ -15,8 +15,10 @@ import java.sql.SQLException;
  * @author rubeus
  */
 public class ManagerDB {
-    public Connection connection(){
-        Connection connexion = null;
+    protected Connection connexion;
+    
+    public void connection(){
+        //Connection connexion = null;
         /* Chargement du driver JDBC */
         try {
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -34,7 +36,5 @@ public class ManagerDB {
         catch ( SQLException e ) {
             e.printStackTrace();
         } 
-        
-        return connexion;
     }
 }
