@@ -31,30 +31,39 @@ public class CommandeDB extends ManagerDB{
         super.connection();
     }
     
-    public Commande get(int id){
-        Commande commande = new Commande();
+    public List<Commande> get(int id){
         ClientDB clientDB = new ClientDB();
         ArticleDB articleDB = new ArticleDB();
+        
+        List<Commande> listCommande = new ArrayList<Commande>();
         
         Statement statement;
         try {
             statement = connexion.createStatement();
-            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE FROM COMMANDE WHERE ID="+id;
+            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE, DATE_CREATION FROM COMMANDE WHERE ID_CLIENT="+id;
             ResultSet resultat = statement.executeQuery(string);
-            resultat.next();
-            int idClient = resultat.getInt("ID_CLIENT");
-            int idArticle = resultat.getInt("ID_ARTICLE");
-            int quantite = resultat.getInt("QUANTITE");
-            
-            commande.setArticle(articleDB.get(idArticle));
-            commande.setClient(clientDB.get(idClient));
-            commande.setQuantite(quantite);
+         
+            while(resultat.next()){
+                Commande commande = new Commande();
+                
+                int idClient = resultat.getInt("ID_CLIENT");
+                int idArticle = resultat.getInt("ID_ARTICLE");
+                int quantite = resultat.getInt("QUANTITE");
+                String date = resultat.getString("DATE_CREATION");
+
+                commande.setClient(clientDB.get(idClient));
+                commande.setArticle(articleDB.get(idArticle));
+                commande.setQuantite(quantite);
+                commande.setDateCreation(date);
+                
+                listCommande.add(commande);
+            } 
         } 
         catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return commande;
+        return listCommande;
     }
     
     public void add(Commande commande){
