@@ -22,10 +22,9 @@ import pkgEntities.Categorie;
  * @author rubeus
  */
 public class CategorieDB extends ManagerDB{
-    private Connection connexion;
     
     public CategorieDB(){
-        connexion = super.connection();
+        super.connection();
     }
     
     public Categorie get(int id){
