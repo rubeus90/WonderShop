@@ -86,7 +86,7 @@
                     </div>
                     <div class="slide" data-blurred="/ECommerce/img/slide3_blurred.jpg">
                         <div class="image">
-                            <a href=""><img src="/ECommerce/img/slide3.png" alt="Slider 1">
+                            <img src="/ECommerce/img/slide3.png" alt="Slider 1">
                         </div>
                         <div class="content">
                             <h2>The Colourist</h2>

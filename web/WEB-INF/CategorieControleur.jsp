@@ -10,7 +10,6 @@
 <%@page import="pkgEntities.Article"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
     <head>
         <title>WonderShop</title>
@@ -51,7 +50,7 @@
                 for(Article article: listArticle){
                     out.println("<article> <form acion=\"article.html\" method=\"post\">");
                     out.println("<button type=\"submit\" name=\"action\" value=\"Ajouter\" >");
-                    out.println("<img src=\"icon/add.png\" alt=\"article\">");
+                    out.println("<img src=\"/ECommerce/icon/add.png\" alt=\"article\">");
                     out.println("</button>"); 
                     out.println("<img src=\""+article.getUrl_image()+"\" alt=\"article\">");
                     out.println("<h3>"+ article.getNom() +"</h3>");
