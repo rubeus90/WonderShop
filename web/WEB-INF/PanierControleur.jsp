@@ -53,7 +53,7 @@
                         html+="     <img src=\""+article.getUrl_image()+"\" alt=\"article\"/>";
                         html+="     <form acion=\"PanierControleur\" method=\"post\">";
                         html+="         <p>"+article.getNom()+" ("+panier.getMap().get(article)+") </p>";
-                        html+="         <input type=\"hidden\" name=\"article\" value=\""+article.getNom()+"\"/>";
+                        html+="         <input type=\"hidden\" name=\"article_id\" value=\""+article.getId()+"\"/>";
                         html+="         <input type=\"submit\" name=\"action\" value=\"Supprimer\" />";
                         html+="         <input type=\"submit\" name=\"action\" value=\"Ajouter\" />";
                         html+="     </form>";

@@ -29,15 +29,16 @@ public class PanierControleur extends AbstractControleur {
             panier = new Panier();
         }
         
+        /****************************************************************************/
         
-        // Recupère les actions sur le panier
-        String action = request.getParameter("action");
-        String article_nom = request.getParameter("article");
-        
-        ArticleDB articleDB = new ArticleDB();
-        Article article;
-        if(action!=null && article_nom!=null) {
-            article = articleDB.get(article_nom);
+        if(request.getParameter("action") != null){
+            // Recupère les actions sur le panier
+            String action = request.getParameter("action");
+            int article_id = Integer.parseInt(request.getParameter("article_id"));
+
+            ArticleDB articleDB = new ArticleDB();
+            Article article;
+            article = articleDB.get(article_id);
             switch (action) {
                 case "Ajouter":
                     panier.addArticle(article);
@@ -47,6 +48,8 @@ public class PanierControleur extends AbstractControleur {
                     break;
             }
         }
+        
+        /****************************************************************************/
         
         session.setAttribute("panier", panier);
         
