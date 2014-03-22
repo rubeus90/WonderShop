@@ -14,6 +14,7 @@ public class Commande {
     private Client client;
     private Article article;
     private int quantite;
+    private String date_creation;
     
     public Client getClient() {
         return client;
@@ -26,6 +27,10 @@ public class Commande {
     public Article getArticle() {
         return article;
     }
+    
+    public String getDateCreation(){
+        return date_creation;
+    }
 
     public void setArticle(Article article) {
         this.article = article;
@@ -37,6 +42,10 @@ public class Commande {
 
     public void setQuantite(int quantite) {
         this.quantite = quantite;
+    }
+    
+    public void setDateCreation(String date){
+        this.date_creation = date;
     }
     
 }

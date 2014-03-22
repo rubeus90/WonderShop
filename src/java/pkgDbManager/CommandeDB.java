@@ -10,7 +10,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -59,16 +62,21 @@ public class CommandeDB extends ManagerDB{
         Article article = commande.getArticle();
         int quantite = commande.getQuantite();
         
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        String dateCreation = dateFormat.format(date);
+        
         int idClient = client.getId();
         int idArticle = article.getId();
         
-        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE,QUANTITE) VALUES (?,?,?)";
+        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE,QUANTITE,DATE_CREATION) VALUES (?,?,?,?)";
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement(query);
             statement.setInt(1, idClient);
             statement.setInt(2, idArticle);
             statement.setInt(3, quantite);
+            statement.setString(4, dateCreation);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
