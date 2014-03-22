@@ -28,15 +28,37 @@
                 </a></div>
             </div>
         </header>
-
+        
         <section>
             <div>
                 <h3>Confirmation de votre commande :</h3>
-                <p>Vous recevrez dans quelques instants votre lien de téléchargement à l'adresse suivante :</p>
-                <p><c:out value="${ sessionScope.client.getEmail() }"/></p>
-                <p>Récapitulatif de votre commande : </p>
+                <p>Vous recevrez dans quelques instants votre lien de téléchargement à l'adresse suivante : <c:out value="${ sessionScope.client.getEmail() }"/></p>
             </div>
+            <p>Récapitulatif de votre commande : </p>
+            <ul>
+                <c:forEach var="article" items="${sessionScope.listCommande}">
+                <li>
+                    <img src="${article.getUrl_image()}" alt="article"/>
+                    <h2><c:out value="${ article.getAlbum() }"/> - <c:out value="${ article.getArtiste() }"/> (<c:out value="${sessionScope.panier.getMap().get(article) }"/>)</h2>
+                    <div>
+                        <p><c:out value="${ article.getPrix() }"/>€</p>
+                    </div>
+                </li>
+                </c:forEach>
+                <li>
+                    <img src="img/magicman.jpg" alt="article"/>
+                    <form acion="" method="post">
+                        <h2>Magic Man (1)</h2>
+                        <input type="submit" name="delete" value="Supprimer"/>
+                        <input type="submit" name="add" value="Ajouter"/>
+                    </form>
+                    <div>
+                        <p>150€</p>
+                    </div>
+                </li>
+            </ul>
            <a href="/ECommerce/">Retour à l'acceuil</a>
-        </section>    
+        </section> 
+                
     </body>
 </html>
