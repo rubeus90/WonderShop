@@ -41,14 +41,33 @@ public class ConnexionControleur extends AbstractControleur {
                 ClientDB clientDB = new ClientDB();
                 String email = request.getParameter("email");
                 String password = request.getParameter("password");
-                if(clientDB.isClient(email, password)){
-                    Client client = clientDB.get(email);
-                    session.setAttribute("client", client);
-                    callServlet(request, response, "/Confirmation");
+                
+                int etat = clientDB.isClient(email, password);
+                switch(etat){
+                    case ClientDB.IS_CLIENT:
+                        Client existingClient = clientDB.get(email);
+                        session.setAttribute("client", existingClient);
+                        callServlet(request, response, "/Confirmation");
+                        break;
+                    case ClientDB.NOT_EXIST:
+                        callServlet(request, response, "/Enregistrer");
+                        break;
+                    case ClientDB.WRONG_PASSWORD:
+                        try {
+                            this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
+                        } catch (ServletException e) {
+                            e.printStackTrace();
+                        }   break;
+                    default: 
+                        try {
+                            this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
+                        } catch (ServletException e) {
+                            e.printStackTrace();
+                        }   break;
                 }
-                else{
-                    callServlet(request, response, "/Enregistrer");
-                }   break;
+                
+                
+                    
         }
     }
 

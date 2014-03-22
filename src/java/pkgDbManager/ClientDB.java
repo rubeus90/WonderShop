@@ -20,6 +20,11 @@ import pkgEntities.Client;
  */
 public class ClientDB extends ManagerDB{
     
+    public static final int NOT_EXIST = 0;
+    public static final int WRONG_PASSWORD = 1;
+    public static final int IS_CLIENT = 2;
+    public static final int PROBLEM_CONNECTION  = -1;
+    
     public ClientDB(){
         super.connection();
     }
@@ -117,18 +122,31 @@ public class ClientDB extends ManagerDB{
         }
     }
     
-    public boolean isClient(String email, String password){
+    public int isClient(String email, String password){
         String query = "SELECT PASSWORD FROM CLIENT WHERE EMAIL='"+email+"'";
         Statement statement;
         try {
             statement = connexion.createStatement();
             ResultSet resultat = statement.executeQuery(query);
-            resultat.next();
-            String passwordDB = resultat.getString("PASSWORD");
-            return passwordDB.equals(password);
+            if(resultat == null){
+                System.out.println("Client n'existe pas");
+                return NOT_EXIST;
+            }
+            else{
+                resultat.next();
+                String passwordDB = resultat.getString("PASSWORD");
+                if(passwordDB.equals(password)){
+                    System.out.println("C'est bien un client");
+                    return IS_CLIENT;
+                }
+                else{
+                    System.out.println("Wrong password");
+                    return WRONG_PASSWORD;
+                }
+            }
         } catch (SQLException ex) {
             Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
+            return PROBLEM_CONNECTION;
         }
     }
 }
