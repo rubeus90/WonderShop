@@ -21,7 +21,7 @@
         <section>
             <div class="content">
                 <h3>Je possède un compte</h3>
-                <form method="post" action="/Connexion">
+                <form method="post" action="/ECommerce/Login">
                         <fieldset>
                                 <input type="text" name="login" placeholder="Identifiant">
                                 <input type="password" name="mdp" placeholder="Mot de passe">
@@ -32,7 +32,7 @@
 
             <div class="content">
                 <h3>Je ne possède pas de compte</h3>
-                <a href="">M'inscrire</a>
+                <a href="/ECommerce/Enregistrer">M'inscrire</a>
             </div>
         </section>
     </body>
