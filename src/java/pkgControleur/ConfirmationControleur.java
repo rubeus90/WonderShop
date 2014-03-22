@@ -52,6 +52,9 @@ public class ConfirmationControleur extends AbstractControleur {
                 commandeDB.add(commande);
             }
             
+            //Recuperation du prix du panier
+            session.setAttribute("total",panier.getPrix());
+            
             // On vide le Panier
             session.setAttribute("panier", new Panier());
         }

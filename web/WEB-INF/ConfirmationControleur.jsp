@@ -47,6 +47,7 @@
                 </li>
                 </c:forEach>
             </ul>
+            <p id="total"><c:out value="${ sessionScope.total}"/>€</p>
            <a href="/ECommerce/">Retour à l'acceuil</a>
         </section> 
                 

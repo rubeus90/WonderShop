@@ -36,7 +36,7 @@ public class CommandeDB extends ManagerDB{
         Statement statement;
         try {
             statement = connexion.createStatement();
-            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE FROM COMMANDE WHERE ID='"+id+"'";
+            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE FROM COMMANDE WHERE ID="+id;
             ResultSet resultat = statement.executeQuery(string);
             resultat.next();
             int idClient = resultat.getInt("ID_CLIENT");
@@ -68,7 +68,7 @@ public class CommandeDB extends ManagerDB{
             statement = connexion.prepareStatement(query);
             statement.setInt(1, idClient);
             statement.setInt(2, idArticle);
-            statement.setInt(1, quantite);
+            statement.setInt(3, quantite);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);
