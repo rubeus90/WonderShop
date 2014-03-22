@@ -25,7 +25,7 @@
         <section>
             <c:forEach var="article" items="${sessionScope.listArticle}">
                 <article>
-                    <form action="Je VAIS OU ?" method="post">
+                    <form action="/ECommerce/Categorie/Indie-Pop" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
                         <img src="/ECommerce/${article.getUrl_image()}" alt="article"/>
                         <button type="submit" name="action" value="Ajouter" >

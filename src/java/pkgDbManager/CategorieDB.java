@@ -90,6 +90,7 @@ public class CategorieDB extends ManagerDB{
                 String dateCreation = resultat.getString("DATE_CREATION");
                 
                 Article article = new Article();
+                article.setId(id);
                 article.setNom(nom);
                 article.setDescription(description);
                 article.setPrix(prix);

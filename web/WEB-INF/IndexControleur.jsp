@@ -35,7 +35,7 @@
                             <h2>Magic Man</h2>
                             <p>Blablabla</p>
                             <p>5€</p>
-                            <form acion="IndexControleur" method="post">
+                            <form action="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="1"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 1">
@@ -54,7 +54,7 @@
                             <h2>Hunter Hunted</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
-                            <form acion="IndexControleur" method="post">
+                            <form action="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="3"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 2">
@@ -73,7 +73,7 @@
                             <h2>The Colourist</h2>
                             <p>Blablabla</p>
                             <p>10€</p>
-                            <form acion="IndexControleur" method="post">
+                            <form action="IndexControleur" method="post">
                                 <input type="hidden" name="article_id" value="2"/>
                                 <button type="submit" name="action" value="Ajouter" >
                                     <img src="/ECommerce/icon/add.png" alt="Slider 3">
@@ -95,7 +95,7 @@
             <h2>Articles en vedettes</h2>
             <c:forEach var="article" items="${sessionScope.listArticle}">
                 <article>
-                    <form acion="IndexControleur" method="post">
+                    <form action="IndexControleur" method="post">
                         <input type="hidden" name="article_id" value="${article.getId()}"/>
                         <img src="${article.getUrl_image()}" alt="article"/>
                         <button type="submit" name="action" value="Ajouter" >
@@ -103,7 +103,7 @@
                         </button>
                         <h3><c:out value="${ article.getNom() }"/></h3>
                         <p><c:out value="${ article.getDescription() }"/></p>
-                        <p><c:out value="${ article.getPrix() }"/></p>
+                        <p><c:out value="${ article.getPrix() }"/>€</p>
                     </form>
                 </article>
             </c:forEach>         

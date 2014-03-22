@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import pkgDbManager.ArticleDB;
 import pkgDbManager.CategorieDB;
 import pkgEntities.Article;
 import pkgEntities.Categorie;
@@ -27,11 +28,40 @@ public class CategorieControleur extends AbstractControleur {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
+        ArticleDB articleDB = new ArticleDB(); // Récupération du Manager des articles
+        
         session = request.getSession();
         panier = (Panier) session.getAttribute("panier");
         if(panier == null) {
-            session.setAttribute("panier", new Panier());
+            panier = new Panier();
         }
+        
+        /*************************************************************************************
+        *                               FORMULAIRE
+        *************************************************************************************/
+        
+        if(request.getParameter("action") != null && request.getParameter("article_id") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
+            
+            /* Récupération des paramètres pour ajouter un article */
+            String action = request.getParameter("action");
+            int article_id = Integer.parseInt(request.getParameter("article_id"));
+
+            /* Si un article est à ajouter */
+            if(action.equals("Ajouter")) {
+                Article article = articleDB.get(article_id);
+                panier.addArticle(article);
+            }   
+        }
+        
+        /*************************************************************************************
+        *                               PANIER             
+        /*************************************************************************************/
+        
+        session.setAttribute("panier",panier);
+        
+        /*************************************************************************************
+        *                                ARTICLE
+        *************************************************************************************/
         
         String path = (String) session.getAttribute("categorie");
         

@@ -27,6 +27,11 @@ public class IndexControleur extends AbstractControleur {
         
         ArticleDB articleDB = new ArticleDB(); // Récupération du Manager des articles
         
+        session = request.getSession();
+        panier = (Panier) session.getAttribute("panier");
+        if(panier == null) {
+            panier = new Panier();
+        }
         
         /*************************************************************************************
         *                               FORMULAIRE
@@ -40,20 +45,14 @@ public class IndexControleur extends AbstractControleur {
 
             /* Si un article est à ajouter */
             if(action.equals("Ajouter")) {
-                Article article3 = articleDB.get(article_id);
-                panier.addArticle(article3);
+                Article article = articleDB.get(article_id);
+                panier.addArticle(article);
             }   
         }
         
         /*************************************************************************************
         *                               PANIER             
         /*************************************************************************************/
-        
-        session = request.getSession();
-        panier = (Panier) session.getAttribute("panier");
-        if(panier == null) {
-            panier = new Panier();
-        }
         
         session.setAttribute("panier",panier);
         
