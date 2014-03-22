@@ -6,6 +6,7 @@
 
 <%@page import="pkgFormManager.Panier"%>
 <%@page import="pkgEntities.Article"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,31 +44,25 @@
             
         </header>
 
-        <section>
-            <ul>         
-                <%
-                if(panier!=null) {
-                    String html = "";
-                    for(Article article : panier.getMap().keySet()) {
-                        html+="<li>";
-                        html+="     <img src=\""+article.getUrl_image()+"\" alt=\"article\"/>";
-                        html+="     <form acion=\"PanierControleur\" method=\"post\">";
-                        html+="         <p>"+article.getNom()+" ("+panier.getMap().get(article)+") </p>";
-                        html+="         <input type=\"hidden\" name=\"article_id\" value=\""+article.getId()+"\"/>";
-                        html+="         <input type=\"submit\" name=\"action\" value=\"Supprimer\" />";
-                        html+="         <input type=\"submit\" name=\"action\" value=\"Ajouter\" />";
-                        html+="     </form>";
-                        html+="     <div>";
-                        html+="     <p>"+article.getPrix()+"€</p>";
-                        html+="     </div>";
-                        html+="</li>";
-                    }
-
-                    out.println(html);
-                }
-                else out.println("Panier NULL");
-                %>
+        <section>    
+            <!-- JSTL -->
+            <ul>
+                <c:forEach var="article" items="${panier.getMap().keySet()}">
+                <li>
+                    <img src="${article.getUrl_image()}" alt="article"/>
+                    <form acion="PanierControleur" method="post">
+                        <p><c:out value="${ article.getNom() }"/> (<c:out value="${ panier.getMap().get(article) }"/>)</p>
+                        <input type="hidden" name="article_id" value="${article.getId()}"/>
+                        <input type="submit" name="action" value="Supprimer" />
+                        <input type="submit" name="action" value="Ajouter" />
+                    </form>
+                    <div>
+                        <p><c:out value="${ article.getPrix() }"/>€</p>
+                    </div>
+                </li>
+                </c:forEach>
             </ul>
+        
             <p id="total"><%= panier.getPrix() %>€</p>
             <div id="buy"><a href="ConnexionControleur">
                 <img src="/ECommerce/icon/buy.png" alt="buy"/>

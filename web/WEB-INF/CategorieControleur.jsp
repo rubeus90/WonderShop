@@ -8,6 +8,7 @@
 <%@page import="java.util.List"%>
 <%@page import="pkgEntities.Article"%>
 <%@page import="pkgEntities.Article"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -43,22 +44,23 @@
                 </div>
             </a></div>
         </header>
-
+        
+        <!-- JSTL -->
         <section>
-            <%
-                List<Article> listArticle = (List<Article>) session.getAttribute("listArticle");
-                for(Article article: listArticle){
-                    out.println("<article> <form acion=\"article.html\" method=\"post\">");
-                    out.println("<button type=\"submit\" name=\"action\" value=\"Ajouter\" >");
-                    out.println("<img src=\"/ECommerce/icon/add.png\" alt=\"article\">");
-                    out.println("</button>"); 
-                    out.println("<img src=\""+article.getUrl_image()+"\" alt=\"article\">");
-                    out.println("<h3>"+ article.getNom() +"</h3>");
-                    out.println("<p>"+ article.getDescription() +"</p>");
-                    out.println("<p>"+ article.getPrix() +"</p>");
-                    out.println("</form></article>");
-                }                
-            %>
+            <c:forEach var="article" items="${listArticle}">
+                <article>
+                    <form action="Je VAIS OU ?" method="post">
+                        <input type="hidden" name="article_id" value="${article.getId()}"/>
+                        <img src="/ECommerce/${article.getUrl_image()}" alt="article"/>
+                        <button type="submit" name="action" value="Ajouter" >
+                            <img src="/ECommerce/icon/add.png" alt="article">
+                        </button>
+                        <h3><c:out value="${ article.getNom() }"/></h3>
+                        <p><c:out value="${ article.getDescription() }"/></p>
+                        <p><c:out value="${ article.getPrix() }"/></p>
+                    </form>
+                </article>
+            </c:forEach>         
         </section>
     </body>
 </html>
