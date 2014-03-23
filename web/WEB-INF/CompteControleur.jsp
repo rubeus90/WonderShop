@@ -29,10 +29,14 @@
             </div>
         </header>
 
-        <section>
+        <c:set var="idCommande" value="${ 0 }" scope="request" />
+        <c:set var="idCommande" value="${ commande.getIdCommande() }" scope="request" />
+        <section class="hidden">
             <ul>
         <c:forEach var="commande" items="${listCommande}">
-            <c:if test="${!requestScope.message.equals(commande.getDateCreation()) }">
+            <c:if test="${ requestScope.idCommande != commande.getIdCommande() }">
+            <p id="total"><c:out value="${ requestScope.prix }"/>€</p>
+            <c:set var="prix" value="${ 0 }" scope="request" />
             </ul>
         </section>
             
@@ -47,8 +51,10 @@
                             <p><c:out value="${ commande.getArticle().getPrix() }"/>€</p>
                         </div>
                     </li> 
-                    <c:set var="date" value="${ commande.getDateCreation() }" scope="request" />
-        </c:forEach> 
+                    <c:set var="idCommande" value="${ commande.getIdCommande() }" scope="request" />
+                    <c:set var="prix" value="${ requestScope.prix + commande.getArticle().getPrix() * commande.getQuantite() }" scope="request" />
+        </c:forEach>
+            <p id="total"><c:out value="${ requestScope.prix }"/>€</p>
             </ul>
         </section>
     </body>

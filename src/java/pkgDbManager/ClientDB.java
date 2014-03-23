@@ -34,7 +34,7 @@ public class ClientDB extends ManagerDB{
         try {
             /* Création de l'objet gérant les requêtes */
             Statement statement = connexion.createStatement();
-            ResultSet resultat = statement.executeQuery( "SELECT NOM,PRENOM,TELEPHONE,EMAIL,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION FROM CLIENT WHERE ID='"+id+"'");
+            ResultSet resultat = statement.executeQuery( "SELECT NOM,PRENOM,TELEPHONE,EMAIL,ADRESSE,CODE_POSTAL,VILLE,DATE_CREATION FROM CLIENT WHERE ID="+id);
             resultat.next();
             String nom = resultat.getString("NOM");
             String prenom = resultat.getString("PRENOM");

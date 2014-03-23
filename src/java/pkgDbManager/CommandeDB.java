@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pkgEntities.Article;
@@ -40,7 +41,7 @@ public class CommandeDB extends ManagerDB{
         Statement statement;
         try {
             statement = connexion.createStatement();
-            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE, DATE_CREATION FROM COMMANDE WHERE ID_CLIENT="+id;
+            String string = "SELECT ID_CLIENT,ID_ARTICLE, QUANTITE, DATE_CREATION, ID_COMMANDE FROM COMMANDE WHERE ID_CLIENT="+id;
             ResultSet resultat = statement.executeQuery(string);
          
             while(resultat.next()){
@@ -50,11 +51,13 @@ public class CommandeDB extends ManagerDB{
                 int idArticle = resultat.getInt("ID_ARTICLE");
                 int quantite = resultat.getInt("QUANTITE");
                 String date = resultat.getString("DATE_CREATION");
+                int idCommande = resultat.getInt("ID_COMMANDE");
 
                 commande.setClient(clientDB.get(idClient));
                 commande.setArticle(articleDB.get(idArticle));
                 commande.setQuantite(quantite);
                 commande.setDateCreation(date);
+                commande.setIdCommande(idCommande);
                 
                 listCommande.add(commande);
             } 
@@ -75,10 +78,26 @@ public class CommandeDB extends ManagerDB{
         Date date = new Date();
         String dateCreation = dateFormat.format(date);
         
+        //Création d'un identifiant unique grâce à la date ( Le calcul est bizarre mais ça à l'air plutot unique à la fin xD
+        DateFormat idDateFormat = new SimpleDateFormat("ss-mm-HH-dd-MM-yyyy");
+        Date iddate = new Date();
+        String iddateCreation = idDateFormat.format(iddate);
+        
+        StringTokenizer st = new StringTokenizer(iddateCreation,"-");
+        int i = 1;
+        int id = 0;
+        while (st.hasMoreTokens()) {
+            int n = Integer.parseInt(st.nextToken());
+            id += n*i;
+            i*=100;
+        }
+        
+        /*****************/
+        
         int idClient = client.getId();
         int idArticle = article.getId();
         
-        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE,QUANTITE,DATE_CREATION) VALUES (?,?,?,?)";
+        String query = "INSERT INTO COMMANDE(ID_CLIENT,ID_ARTICLE,QUANTITE,DATE_CREATION, ID_COMMANDE) VALUES (?,?,?,?, ?)";
         PreparedStatement statement;
         try {
             statement = connexion.prepareStatement(query);
@@ -86,6 +105,7 @@ public class CommandeDB extends ManagerDB{
             statement.setInt(2, idArticle);
             statement.setInt(3, quantite);
             statement.setString(4, dateCreation);
+            statement.setInt(5, id);
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(CommandeDB.class.getName()).log(Level.SEVERE, null, ex);

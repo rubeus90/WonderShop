@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import pkgDbManager.CommandeDB;
+import pkgEntities.Article;
 import pkgEntities.Commande;
 
 /**
@@ -34,10 +35,9 @@ public class CompteControleur extends AbstractControleur {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        System.out.println("Bonsoir");
-        
         CommandeDB commandeDB = new CommandeDB();
         List<Commande> listCommande = commandeDB.get(1);
+        
         request.setAttribute("listCommande", listCommande);
         
         try {
