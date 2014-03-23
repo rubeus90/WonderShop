@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
+import pkgDbManager.ClientDB;
 import pkgEntities.Client;
 
 /**
@@ -12,6 +13,11 @@ import pkgEntities.Client;
  * @author rubeus
  */
 public class Enregistrer {
+    public static final int ALL_OK = 0;
+    public static final int PASSWORD_NOT_MATCH = 1;
+    public static final int EMAIL_ALREADY_EXIST = 2;
+    public static final int PROBLEM = -1;
+    
     public Client hydrate(HttpServletRequest request){
         String nom = request.getParameter("nom");
         String prenom = request.getParameter("prenom");
@@ -45,5 +51,23 @@ public class Enregistrer {
         String passwordVerify = request.getParameter("passwordv");
         
         return password.equals(passwordVerify);
+    }
+    
+    public int verification(HttpServletRequest request){
+        ClientDB clientDB = new ClientDB();
+        boolean emailExist = clientDB.emailExist(request.getParameter("email"));
+        
+        if(passwordMatch(request) && !emailExist){
+            return ALL_OK;
+        }
+        else if(!passwordMatch(request)){
+            return PASSWORD_NOT_MATCH;
+        }
+        else if(emailExist){
+            return EMAIL_ALREADY_EXIST;
+        }
+        else{
+            return PROBLEM;
+        }
     }
 }

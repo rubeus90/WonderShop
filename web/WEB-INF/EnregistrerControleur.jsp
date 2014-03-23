@@ -18,6 +18,11 @@
         <%@ include file="header.jsp" %>
 
         <section>
+            <c:if test="${ sessionScope.text != null }">
+                <div class="info">
+                    <p><c:out value="${ sessionScope.text }"/></p>
+                </div>
+            </c:if>
             <form action="/ECommerce/ClientEnregistre" method="post">
                 <fieldset>
                         <legend><span class="form-step">1</span>Votre identité</legend>

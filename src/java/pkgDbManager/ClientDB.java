@@ -148,4 +148,19 @@ public class ClientDB extends ManagerDB{
             return PROBLEM_CONNECTION;
         }
     }
+    
+    public boolean emailExist(String email){
+        boolean emailExist=false;
+        try {
+            Statement statement = connexion.createStatement();
+            String query = "SELECT ID FROM CLIENT WHERE EMAIL='"+email+"'";
+            ResultSet resultat = statement.executeQuery(query);  
+            if(resultat.next()){
+                emailExist = true;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClientDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return emailExist;
+    }
 }
