@@ -36,6 +36,7 @@ public class ConnexionCompte extends AbstractControleur{
             throws ServletException, IOException {
         
         session = request.getSession();
+        session.setAttribute("text", "0");
         
         if(request.getParameter("email") != null && request.getParameter("password") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
             System.out.println("Salut !!!!");
