@@ -17,9 +17,11 @@
 	<%@ include file="header.jsp" %>
 
         <section>
-            <div class="info">
-                <p>Mauvais email ou mot de passe</p>
+            <c:if test="${ sessionScope.text != null }">
+                <div class="info">
+                    <p><c:out value="${ sessionScope.text }"/></p>
             </div>
+            </c:if>
             <h2>Se Connecter</h2>
             <div class="content">
                 <form method="post" action="/ECommerce/MonCompte">

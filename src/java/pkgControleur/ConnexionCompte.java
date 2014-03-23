@@ -54,6 +54,7 @@ public class ConnexionCompte extends AbstractControleur{
                     break;
                 case ClientDB.NOT_EXIST:
                 case ClientDB.WRONG_PASSWORD:
+                    session.setAttribute("text", "Mauvais email ou mot de passe");
                     try {
                         this.getServletContext().getRequestDispatcher("/WEB-INF/CompteConnexion.jsp").forward(request, response);
                     } catch (ServletException e) {
