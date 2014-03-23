@@ -66,6 +66,9 @@ public class MainControleur extends AbstractControleur {
             case "/Compte":
                 callServlet(request, response, "/CompteControleur");
                 break;
+            case "/MonCompte":
+                callServlet(request, response, "/ConnexionCompte");
+                break;
             default:
                 callServlet(request, response, "/IndexControleur");
                 break;

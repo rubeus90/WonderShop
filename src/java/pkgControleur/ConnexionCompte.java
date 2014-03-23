@@ -8,23 +8,20 @@ package pkgControleur;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pkgDbManager.CommandeDB;
-import pkgEntities.Article;
+import pkgDbManager.ClientDB;
 import pkgEntities.Client;
-import pkgEntities.Commande;
 
 /**
  *
  * @author Martin
  */
-public class CompteControleur extends AbstractControleur {
+public class ConnexionCompte extends AbstractControleur{
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,22 +37,36 @@ public class CompteControleur extends AbstractControleur {
         
         session = request.getSession();
         
-        Client client = (Client) session.getAttribute("CompteClient");
-        if(client == null){
-            callServlet(request, response, "/ConnexionCompte");
-        }
-        int id = client.getId();
-        CommandeDB commandeDB = new CommandeDB();
-        List<Commande> listCommande = commandeDB.get(id);
-        
-
-        
-        request.setAttribute("listCommande", listCommande);
-        
-        try {
-            this.getServletContext().getRequestDispatcher("/WEB-INF/CompteControleur.jsp").forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+        if(request.getParameter("email") != null && request.getParameter("password") != null){ //On ne fait l'action que SI un formulaire a été soumis et que l'ID existe
+            System.out.println("Salut !!!!");
+            
+            ClientDB clientDB = new ClientDB();
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            
+            int etat = clientDB.isClient(email, password);
+            switch(etat){
+                case ClientDB.IS_CLIENT:
+                    Client existingClient = clientDB.get(email);
+                    System.out.println(existingClient.getEmail());
+                    session.setAttribute("CompteClient", existingClient);
+                    callServlet(request, response, "/CompteControleur"); 
+                    break;
+                case ClientDB.NOT_EXIST:
+                case ClientDB.WRONG_PASSWORD:
+                    try {
+                        this.getServletContext().getRequestDispatcher("/WEB-INF/CompteConnexion.jsp").forward(request, response);
+                    } catch (ServletException e) {
+                        e.printStackTrace();
+                    }
+                break;                 
+            }
+        }else{        
+            try {
+                this.getServletContext().getRequestDispatcher("/WEB-INF/CompteConnexion.jsp").forward(request, response);
+            } catch (ServletException e) {
+                e.printStackTrace();
+            }
         }
     }
     

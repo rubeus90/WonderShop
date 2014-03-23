@@ -10,7 +10,7 @@
             <li><a href="/ECommerce/Categorie/Pop-Rock">Pop-Rock</a></li>
             <li><a href="/ECommerce/Categorie/Punk-Rock">Punk-Rock</a></li>
             <li><a href="/ECommerce/Categorie/Alternatif">Alternatif</a></li>
-            <li><a href="/ECommerce/Compte">Se Connecter</a></li>
+            <li><a href="/ECommerce/MonCompte">Se Connecter</a></li>
         </ul>
         <div id="logo"><a href="/ECommerce/">
             <img src="/ECommerce/icon/logo.png" alt="logo">

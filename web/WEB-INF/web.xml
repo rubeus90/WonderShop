@@ -3,13 +3,11 @@
     <welcome-file-list>
         <welcome-file>MainControleur</welcome-file>
     </welcome-file-list>
-    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <!-- Main controleur -->
     <servlet>
         <servlet-name>MainControleur</servlet-name>
@@ -43,7 +41,10 @@
         <servlet-name>MainControleur</servlet-name>
         <url-pattern>/Compte</url-pattern>
     </servlet-mapping>
-    
+    <servlet-mapping>
+        <servlet-name>MainControleur</servlet-name>
+        <url-pattern>/MonCompte</url-pattern>
+    </servlet-mapping>
     <!-- Panier controleur -->
     <servlet>
         <servlet-name>PanierControleur</servlet-name>
@@ -53,7 +54,6 @@
         <servlet-name>PanierControleur</servlet-name>
         <url-pattern>/PanierControleur</url-pattern>
     </servlet-mapping>
-    
     <!-- Index controleur -->
     <servlet>
         <servlet-name>IndexControleur</servlet-name>
@@ -63,7 +63,6 @@
         <servlet-name>IndexControleur</servlet-name>
         <url-pattern>/IndexControleur</url-pattern>
     </servlet-mapping>
-    
     <!-- Categorie controleur -->
     <servlet>
         <servlet-name>CategorieControleur</servlet-name>
@@ -73,7 +72,6 @@
         <servlet-name>CategorieControleur</servlet-name>
         <url-pattern>/CategorieControleur</url-pattern>
     </servlet-mapping>
-    
     <!-- Connexion controleur -->
     <servlet>
         <servlet-name>ConnexionControleur</servlet-name>
@@ -87,7 +85,6 @@
         <servlet-name>ConnexionControleur</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-    
     <!-- Enregistrer controleur -->
     <servlet>
         <servlet-name>EnregistrerControleur</servlet-name>
@@ -101,7 +98,6 @@
         <servlet-name>EnregistrerControleur</servlet-name>
         <url-pattern>/ClientEnregistre</url-pattern>
     </servlet-mapping>
-    
     <!-- Achat controleur -->
     <servlet>
         <servlet-name>ConfirmationControleur</servlet-name>
@@ -111,7 +107,6 @@
         <servlet-name>ConfirmationControleur</servlet-name>
         <url-pattern>/ConfirmationControleur</url-pattern>
     </servlet-mapping>
-    
     <!-- Article controleur -->
     <servlet>
         <servlet-name>ArticleControleur</servlet-name>
@@ -121,7 +116,6 @@
         <servlet-name>ArticleControleur</servlet-name>
         <url-pattern>/ArticleControleur</url-pattern>
     </servlet-mapping>
-    
     <!-- Compte controleur -->
     <servlet>
         <servlet-name>CompteControleur</servlet-name>
@@ -130,5 +124,14 @@
     <servlet-mapping>
         <servlet-name>CompteControleur</servlet-name>
         <url-pattern>/CompteControleur</url-pattern>
+    </servlet-mapping>
+    <!-- Connexion Compte COntroleur -->
+    <servlet>
+        <servlet-name>ConnexionCompte</servlet-name>
+        <servlet-class>pkgControleur.ConnexionCompte</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConnexionCompte</servlet-name>
+        <url-pattern>/ConnexionCompte</url-pattern>
     </servlet-mapping>
 </web-app>
