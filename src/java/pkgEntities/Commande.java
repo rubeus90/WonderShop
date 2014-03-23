@@ -15,7 +15,6 @@ public class Commande {
     private Article article;
     private int quantite;
     private String date_creation;
-    private int idCommande;
     
     public Client getClient() {
         return client;
@@ -47,14 +46,6 @@ public class Commande {
     
     public void setDateCreation(String date){
         this.date_creation = date;
-    }
-    
-    public int getIdCommande(){
-        return idCommande;
-    }
-    
-    public void setIdCommande(int id){
-        this.idCommande = id;
     }
     
 }
