@@ -18,7 +18,7 @@
         <%@ include file="header.jsp" %>
 
         <section>
-            <c:if test="${ sessionScope.text != null }">
+            <c:if test="${ sessionScope.text != '0' }">
                 <div class="info">
                     <p><c:out value="${ sessionScope.text }"/></p>
                 </div>

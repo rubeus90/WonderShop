@@ -27,7 +27,7 @@ public class ConnexionControleur extends AbstractControleur {
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         session = request.getSession();
-        
+        session.setAttribute("text", "0");
         String lien = request.getServletPath();
         
         switch (lien) {

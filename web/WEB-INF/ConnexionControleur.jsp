@@ -20,7 +20,7 @@
         <h2>Se Connecter</h2>
         <section>
             <div class="content">
-                <c:if test="${ sessionScope.text != null }">
+                <c:if test="${ sessionScope.text != '0' }">
                     <div class="info">
                         <p><c:out value="${ sessionScope.text }"/></p>
                     </div>
