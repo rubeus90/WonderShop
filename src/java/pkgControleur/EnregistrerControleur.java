@@ -66,21 +66,13 @@ public class EnregistrerControleur extends AbstractControleur{
                             e.printStackTrace();
                         }
                         break;
+                    default:
+                        try {
+                            this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
+                        } catch (ServletException e) {
+                            e.printStackTrace();
+                        }
                 }
-                
-                //Si le mdp et sa verification correspondent
-                if(enregistrer.passwordMatch(request)){
-                    
-                }
-                else{
-                    try {
-                        this.getServletContext().getRequestDispatcher("/WEB-INF/EnregistrerControleur.jsp").forward(request, response);
-                    } catch (ServletException e) {
-                        e.printStackTrace();
-                    }
-                }
-                
-                break;
         }
     }
     
