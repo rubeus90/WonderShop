@@ -17,6 +17,9 @@
 	<%@ include file="header.jsp" %>
 
         <section>
+            <div class="info">
+                <p>Mauvais email ou mot de passe</p>
+            </div>
             <h2>Se Connecter</h2>
             <div class="content">
                 <form method="post" action="/ECommerce/MonCompte">
