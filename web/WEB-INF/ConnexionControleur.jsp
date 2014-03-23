@@ -20,6 +20,11 @@
         <h2>Se Connecter</h2>
         <section>
             <div class="content">
+                <c:if test="${ sessionScope.text != null }">
+                    <div class="info">
+                        <p><c:out value="${ sessionScope.text }"/></p>
+                    </div>
+                </c:if>
                 <h3>Je possède un compte</h3>
                 <form method="post" action="/ECommerce/Login">
                         <fieldset>

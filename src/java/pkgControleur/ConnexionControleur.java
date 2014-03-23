@@ -53,6 +53,7 @@ public class ConnexionControleur extends AbstractControleur {
                         callServlet(request, response, "/Enregistrer");
                         break;
                     case ClientDB.WRONG_PASSWORD:
+                        session.setAttribute("text", "Mot de passe incorrect");
                         try {
                             this.getServletContext().getRequestDispatcher("/WEB-INF/ConnexionControleur.jsp").forward(request, response);
                         } catch (ServletException e) {
